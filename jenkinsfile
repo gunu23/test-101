@@ -1,0 +1,10 @@
+def credentialsId = "qtechsavy"
+def gitRepo = 'git@github.com:qtechsavy/test-101.git'
+node('maven') {
+  stage('Checkout Source') {
+    // Get Source Code from SCM (Git) as configured in the Jenkins Project
+    // Next line for inline script, "checkout scm" for Jenkinsfile from Gogs
+    git url: "${gitRepo}", credentialsId: "${credentialsId}"
+    checkout scm
+  }
+}
