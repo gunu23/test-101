@@ -8,15 +8,15 @@ node('maven') {
     checkout scm
   }
   
-  stage('Moving the zip folder'){
+  stage('Moving the zip folder') {
     mv ./datapower-local-dev/validation-flow.zip ./datapower-operator-scripts-autogenerate/
   }
   
-  stage('OCP Login'){
+  stage('OCP Login') {
     oc login --token=sha256~ACEhkfBnZ4a6LmAM6RQEGKWCusvJ8QYA4ocDySIjPpk --server=https://c100-e.eu-gb.containers.cloud.ibm.com:31647
   }
   
-  stage('Deploying DataPower Services'){
+  stage('Deploying DataPower Services') {
     //install catalog operator
     oc apply -f ./datapower-operator-scripts-autogenerate/ibm-catalog-source.yaml
     
