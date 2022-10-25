@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2012,2012. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<wsp:Policy wsp:Name="Message-version-translation"
+            wsu:Id="wsp-mp-1-6-message-version-translation"
+            xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+            xmlns:wsmp="http://www.ibm.com/xmlns/stdwip/2011/02/ws-mediation"
+            xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+
+    <!-- The <Rule> element below is a WS-MediationPolicy assertion that:
+           - Validates the input message using the specified input schema
+           - Translates the message from an old version to a new version
+           - Validates the outcome of the translation using the specified output schema
+         
+         The validate-translate-validate pattern is a best practice for performing
+         message version mediation.
+         
+         Notes:
+         - This is a template policy. If this policy is attached to a service
+           then the ValidateMessage action will not be able to find the
+           schemas specified ValidateInput.xsd or ValidateOutput.xsd, an error
+           will be logged and a error response will be returned for each message
+           sent to the service for which this policy is attached. 
+
+         - The stylesheet used for the transformation is identity.xsl, which
+           makes no change to the message. This should be replaced by a
+           stylesheet that actually performs the message translation. 
+
+         - If multiple services in different application domains will reuse the
+           same referenced files (xsd and xsl) then these files can be located
+           in the store:// directory.
+             examples:
+                store://ValidateInput.xsd
+                store://TranslateMessage.xsl
+                store://schemas/ValidateInput.xsd
+                
+         - If the referenced files are used only by services within a single
+           application domain then the schema can be located in the local://
+           directory for that domain
+             example:
+                local:///ValidateInput.xsd
+                local:///myapp/schemas/ValidateInput.xsd
+    -->
+
+    <wsmp:Rule>
+        <wsmp:Action>
+            <wsmp:ValidateMessage>
+                <wsmp:XSD>
+                    <!-- Specify the application input schema here: -->
+                    local:///ValidateInput.xsd
+                </wsmp:XSD>            
+            </wsmp:ValidateMessage>
+
+            <wsmp:ExecuteXSL>
+                <wsmp:Stylesheet>
+                    <!-- Specify the stylesheet that performs the translation: -->
+                    local:///identity.xsl
+                </wsmp:Stylesheet>            
+            </wsmp:ExecuteXSL>
+
+            <wsmp:ValidateMessage>
+                <wsmp:XSD>
+                    <!-- Specify the application output schema here: -->
+                    local:///ValidateOutput.xsd
+                </wsmp:XSD>            
+            </wsmp:ValidateMessage>
+        </wsmp:Action>
+    </wsmp:Rule>
+
+    
+</wsp:Policy>

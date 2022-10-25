@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM WebSphere DataPower Appliances
+Copyright IBM Corporation 2007,2015. All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+    -->
+<log-catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="log-catalog.xsd">
+  <type name="tamcli" id="42">
+    <entry name="sctracenotavail" id="1">
+      <code>0x085400001</code>
+      <text>Message trace file was not provided.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scnosocketestablished" id="2">
+      <code>0x085400002</code>
+      <text>Could not establish IBM Security Access Manager socket</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="sctamsrverror" id="3">
+      <code>0x085400003</code>
+      <text>IBM Security Access Manager server error</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="sctamsrvapi" id="4">
+      <code>0x085400004</code>
+      <text>IBM Security Access Manager server API failure</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="sccodesetutf8" id="5">
+      <code>0x085400005</code>
+      <text>init codeset utf8</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scallocfail" id="6">
+      <code>0x085400006</code>
+      <text>Internal allocation failure</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scldapreturned" id="7">
+      <code>0x085400007</code>
+      <text>Returned LDAP DN longer than</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="sctambytes" id="8">
+      <code>0x085400008</code>
+      <text>bytes</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="sctamauthsuccess" id="9">
+      <code>0x085400009</code>
+      <text>IBM Security Access Manager authentication succeeded</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="sctamauthfail" id="10">
+      <code>0x08540000a</code>
+      <text>IBM Security Access Manager API authentication failure</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="sctamaznotperm" id="11">
+      <code>0x08540000b</code>
+      <text>IBM Security Access Manager server az access not permitted</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="sctamazsucceed" id="12">
+      <code>0x08540000c</code>
+      <text>IBM Security Access Manager authorization succeeded</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scattrsfail" id="13">
+      <code>0x08540000d</code>
+      <text>Could not retrieve attributes</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scazattrssuccess" id="14">
+      <code>0x08540000e</code>
+      <text>IBM Security Access Manager authorization and attribute retrieval succeeded</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scazattrspacsuccess" id="15">
+      <code>0x08540000f</code>
+      <text>IBM Security Access Manager authorization and PAC retrieval and attribute retrieval succeeded</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scfailevnttimeout" id="16">
+      <code>0x085400010</code>
+      <text>Failed to set timeout for IBM Security Access Manager event read</text>
+      <summary>Could not configure a timeout on the access point</summary>
+      <description>The access point for communicating on the IBM Security Access Manager client could not be configured with a timeout.</description>
+      <suggestion />
+    </entry>
+    <entry name="scfailreadtamevnt" id="17">
+      <code>0x085400011</code>
+      <text>Failed to read IBM Security Access Manager event</text>
+      <summary>Could not read an event on the access point</summary>
+      <description>An event could not be read from the access point on the IBM Security Access Manager client.</description>
+      <suggestion />
+    </entry>
+    <entry name="scshutdownevnt" id="18">
+      <code>0x085400012</code>
+      <text>Received IBM Security Access Manager shutdown event; exiting</text>
+      <summary>A shutdown event was received on the access point.</summary>
+      <description>A shutdown event was received on the access point of the IBM Security Access Manager client. The client will be exited.</description>
+      <suggestion />
+    </entry>
+    <entry name="scunkwnevnt" id="19">
+      <code>0x085400013</code>
+      <text>Unknown IBM Security Access Manager event</text>
+      <summary>An unknown event was received on the access point.</summary>
+      <description>An unknown event was received on the access point of the IBM Security Access Manager client.</description>
+      <suggestion />
+    </entry>
+    <entry name="scfatalerror" id="20">
+      <code>0x085400014</code>
+      <text>Fatal error: Problem setting</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scdpdirsreaderr" id="21">
+      <code>0x085400015</code>
+      <text>Unable to open dpdirs.json for read in %s</text>
+      <summary />
+      <description>dpdirs.json is a file containing the mappings for datapower base directory paths. It is mostly used for sidecar processes to recover these values set by the main drouter process.</description>
+      <suggestion />
+    </entry>
+    <entry name="scdpdirsparseerr" id="22">
+      <code>0x085400016</code>
+      <text>Unable to parse dpdirs.json in %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+  </type>
+</log-catalog>
+

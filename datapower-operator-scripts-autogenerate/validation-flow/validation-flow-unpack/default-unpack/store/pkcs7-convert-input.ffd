@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2007,2007. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<!-- 
+    This FFD converts the input into an XML tree like this:
+
+    <object>
+      <message>***binary data***</message>
+    </object>
+-->
+
+<!-- Use some "well-known" element names for the output -->
+<File name="object">
+  <Syntax name='default'/>
+  <Field name='message' type='binaryNode' syntax='default' minOccurs='1'/>
+</File>

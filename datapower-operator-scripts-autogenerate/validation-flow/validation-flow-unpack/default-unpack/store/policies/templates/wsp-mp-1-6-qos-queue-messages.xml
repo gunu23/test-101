@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2012,2012. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<wsp:Policy wsp:Name="QoS-messagecount-queue-template"
+            wsu:Id="wsp-mp-1-6-queue-messages"
+            xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+            xmlns:wsmp="http://www.ibm.com/xmlns/stdwip/2011/02/ws-mediation"
+            xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+    
+    <!-- The <Rule> element below is a WS-MediationPolicy assertion which 
+         dictates that messages to a service does not exceed 10 messages every
+         60 seconds. Messages that arrive after this threshold is triggered
+         are queued and sent in the next interval.
+    -->
+
+    <wsmp:Rule>
+        <wsmp:Condition>
+            <wsmp:Expression>
+                <wsmp:Attribute>MessageCount</wsmp:Attribute>
+                <wsmp:Operator>GreaterThan</wsmp:Operator>
+                <wsmp:Value>10</wsmp:Value>
+                <wsmp:Interval>PT60S</wsmp:Interval>
+            </wsmp:Expression>
+        </wsmp:Condition>
+
+        <wsmp:Action IfCondition="true">
+            <wsmp:QueueMessage/>
+        </wsmp:Action>
+    </wsmp:Rule>
+
+</wsp:Policy>

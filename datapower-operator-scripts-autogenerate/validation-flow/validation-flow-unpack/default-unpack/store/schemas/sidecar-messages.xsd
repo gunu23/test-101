@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Message element -->
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Field" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+    <xs:unique name="unique-name">
+      <xs:selector xpath="Field"/>
+      <xs:field xpath="@name"/>
+    </xs:unique>
+  </xs:element>
+
+  <!-- Field element -->
+  <xs:element name="Field">
+    <xs:complexType mixed="true">
+      <xs:complexContent>
+        <xs:restriction base="xs:anyType">
+          <xs:choice minOccurs="0">
+            <xs:element ref="Message" maxOccurs="1"/>
+            <xs:element ref="Array"   maxOccurs="1"/>
+          </xs:choice>
+          <xs:attribute name="name" type="xs:string" use="required"/>
+          <xs:attribute name="type" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="bool"/>
+                <xs:enumeration value="byte"/>
+                <xs:enumeration value="char"/>
+                <xs:enumeration value="short"/>
+                <xs:enumeration value="int"/>
+                <xs:enumeration value="long"/>
+                <xs:enumeration value="float"/>
+                <xs:enumeration value="double"/>
+                <xs:enumeration value="bytes"/>
+                <xs:enumeration value="string"/>
+                <xs:enumeration value="short_array"/>
+                <xs:enumeration value="int_array"/>
+                <xs:enumeration value="long_array"/>
+                <xs:enumeration value="float_array"/>
+                <xs:enumeration value="double_array"/>
+                <xs:enumeration value="map_message"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:restriction>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Array element -->
+  <xs:element name="Array">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Element" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Element of array-->
+  <xs:element name="Element">
+    <xs:complexType mixed="true">
+      <xs:sequence/>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

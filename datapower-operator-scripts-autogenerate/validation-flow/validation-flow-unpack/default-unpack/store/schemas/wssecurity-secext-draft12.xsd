@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+Legal Disclaimer
+
+The presentation, distribution or other dissemination of the information 
+contained in this document is not a license, either expressly or impliedly, 
+to any intellectual property owned or controlled by IBM or Microsoft or VeriSign and\or any other 
+third party.  IBM and Microsoft and VeriSign and\or any other third party may have patents, patent 
+applications, trademarks, copyrights, or other intellectual property rights 
+covering subject matter in this document.  The furnishing of this document 
+does not give you any license to IBM's and Microsoft's and VeriSign or any other third party's patents, 
+trademarks, copyrights, or other intellectual property.
+
+This document and the information contained herein is provided on an "AS IS"
+ basis and to the maximum extent permitted by applicable law, IBM and Microsoft and VeriSign provides 
+the document AS IS AND WITH ALL FAULTS, and hereby disclaims all other warranties 
+and conditions, either express, implied or statutory, including, but not limited 
+to, any (if any) implied warranties, duties or conditions of merchantability, of 
+fitness for a particular purpose, of accuracy or completeness of responses, of 
+results, of workmanlike effort, of lack of viruses, and of lack of negligence, 
+all with regard to the document. ALSO, THERE IS NO WARRANTY OR CONDITION OF 
+TITLE, QUIET ENJOYMENT, QUIET POSSESSION, CORRESPONDENCE TO DESCRIPTION OR 
+NON-INFRINGEMENT OF ANY INTELLECTUAL PROPERTY RIGHTS WITH REGARD TO THE DOCUMENT.
+
+IN NO EVENT WILL IBM or MICROSOFT or VeriSign BE LIABLE TO ANY OTHER PARTY FOR THE COST OF PROCURING 
+SUBSTITUTE GOODS OR SERVICES, LOST PROFITS, LOSS OF USE, LOSS OF DATA, OR ANY 
+INCIDENTAL, CONSEQUENTIAL, DIRECT, INDIRECT, OR SPECIAL DAMAGES WHETHER UNDER 
+CONTRACT, TORT, WARRANTY, OR OTHERWISE, ARISING IN ANY WAY OUT OF THIS OR ANY 
+OTHER AGREEMENT RELATING TO THIS DOCUMENT, WHETHER OR NOT SUCH PARTY HAD ADVANCE 
+NOTICE OF THE POSSIBILITY OF SUCH DAMAGES.
+
+Copyright Notice
+
+Copyright 2001-2002 IBM Corporation and Microsoft Corporation and VeriSign. All rights reserved.
+-->
+<xsd:schema targetNamespace="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="0.2">
+  <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/utility" schemaLocation="store:///schemas/wssecurity-utility-draft12.xsd"/>
+  <xsd:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="store:///schemas/xml.xsd"/>
+  <xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="store:///schemas/xmldsig-core-schema.xsd"/>
+	<xsd:complexType name="AttributedString">
+		<xsd:annotation>
+			<xsd:documentation>This type represents an element with arbitrary attributes.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:string">
+				<xsd:attribute ref="wsu:Id"/>
+				<xsd:anyAttribute namespace="##other" processContents="lax"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="PasswordString">
+		<xsd:annotation>
+			<xsd:documentation>This type is used for password elements per Section 4.1.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="wsse:AttributedString">
+				<xsd:attribute name="Type" type="xsd:QName"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="EncodedString">
+		<xsd:annotation>
+			<xsd:documentation>This type is used for elements containing stringified binary data.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="wsse:AttributedString">
+				<xsd:attribute name="EncodingType" type="xsd:QName"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="UsernameTokenType">
+		<xsd:annotation>
+			<xsd:documentation>This type represents a username token per Section 4.1</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Username" type="wsse:AttributedString"/>
+			<xsd:any processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+		<xsd:attribute ref="wsu:Id"/>
+		<xsd:anyAttribute namespace="##other" processContents="lax"/>
+	</xsd:complexType>
+	<xsd:complexType name="BinarySecurityTokenType">
+		<xsd:annotation>
+			<xsd:documentation>A security token that is encoded in binary</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="wsse:EncodedString">
+				<xsd:attribute name="ValueType" type="xsd:QName"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="KeyIdentifierType">
+		<xsd:annotation>
+			<xsd:documentation>A security token key identifier</xsd:documentation>
+		</xsd:annotation>
+		<xsd:simpleContent>
+			<xsd:extension base="wsse:EncodedString">
+				<xsd:attribute name="ValueType" type="xsd:QName"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+	<xsd:complexType name="ReferenceType">
+		<xsd:annotation>
+			<xsd:documentation>This type represents a reference to an external security token.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="URI" type="xsd:anyURI"/>
+		<xsd:anyAttribute namespace="##other" processContents="lax"/>
+	</xsd:complexType>
+	<xsd:complexType name="SecurityTokenReferenceType">
+		<xsd:annotation>
+			<xsd:documentation>This type is used reference a security token.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:any processContents="lax"/>
+		</xsd:choice>
+		<xsd:attribute ref="wsu:Id"/>
+		<xsd:anyAttribute namespace="##other" processContents="lax"/>
+	</xsd:complexType>
+	<xsd:complexType name="SecurityHeaderType">
+		<xsd:annotation>
+			<xsd:documentation>This complexType defines header block to use for security-relevant data directed at a specific SOAP actor.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:any processContents="lax" minOccurs="0" maxOccurs="unbounded">
+				<xsd:annotation>
+					<xsd:documentation>The use of "any" is to allow extensibility and different forms of security data.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:any>
+		</xsd:sequence>
+		<xsd:anyAttribute namespace="##other" processContents="lax"/>
+	</xsd:complexType>
+	<xsd:element name="UsernameToken" type="wsse:UsernameTokenType">
+		<xsd:annotation>
+			<xsd:documentation>This element defines the wsse:UsernameToken element per Section 4.1.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="BinarySecurityToken" type="wsse:BinarySecurityTokenType">
+		<xsd:annotation>
+			<xsd:documentation>This element defines the wsse:BinarySecurityToken element per Section 4.2.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Reference" type="wsse:ReferenceType">
+		<xsd:annotation>
+			<xsd:documentation>This element defines a security token reference</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="KeyIdentifier" type="wsse:KeyIdentifierType">
+		<xsd:annotation>
+			<xsd:documentation>This element defines a key identifier reference</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="SecurityTokenReference" type="wsse:SecurityTokenReferenceType">
+		<xsd:annotation>
+			<xsd:documentation>This element defines the wsse:SecurityTokenReference per Section 4.3.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Security" type="wsse:SecurityHeaderType">
+		<xsd:annotation>
+			<xsd:documentation>This element defines the wsse:Security SOAP header element per Section 4.</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Password" type="wsse:PasswordString"/>
+	<xsd:element name="Nonce" type="wsse:EncodedString"/>
+	<xsd:simpleType name="PasswordTypeEnum">
+		<xsd:restriction base="xsd:QName">
+			<xsd:enumeration value="wsse:PasswordText"/>
+			<xsd:enumeration value="wsse:PasswordDigest"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ValueTypeEnum">
+		<xsd:restriction base="xsd:QName">
+			<xsd:enumeration value="wsse:X509v3"/>
+			<xsd:enumeration value="wsse:Kerberosv5TGT"/>
+			<xsd:enumeration value="wsse:Kerberosv5ST"/>
+			<xsd:enumeration value="wsse:PKCS7"/>
+			<xsd:enumeration value="wsse:PKIPath"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="EncodingTypeEnum">
+		<xsd:restriction base="xsd:QName">
+			<xsd:enumeration value="wsse:Base64Binary"/>
+			<xsd:enumeration value="wsse:HexBinary"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="FaultcodeEnum">
+		<xsd:restriction base="xsd:QName">
+			<xsd:enumeration value="wsse:UnsupportedSecurityToken"/>
+			<xsd:enumeration value="wsse:UnsupportedAlgorithm"/>
+			<xsd:enumeration value="wsse:InvalidSecurity"/>
+			<xsd:enumeration value="wsse:InvalidSecurityToken"/>
+			<xsd:enumeration value="wsse:FailedAuthentication"/>
+			<xsd:enumeration value="wsse:FailedCheck"/>
+			<xsd:enumeration value="wsse:SecurityTokenUnavailable"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

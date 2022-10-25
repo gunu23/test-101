@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2019, 2020. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<xsd:schema
+  attributeFormDefault="unqualified"
+  elementFormDefault="qualified"
+  targetNamespace="http://www.datapower.com/schemas/management"
+  xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:tns="http://www.datapower.com/schemas/management"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:import
+    namespace="http://schemas.xmlsoap.org/soap/envelope/"
+    schemaLocation="soap-envelope-1.1.xsd"/>
+
+  <xsd:import
+    schemaLocation="b2b-schema-query-response.xsd"/>
+
+  <xsd:element name="response" type="tns:response"/>
+
+  <xsd:complexType name="response">
+    <xsd:sequence>
+      <xsd:element name="timestamp" type="xsd:dateTime"/>
+      <xsd:element name="result" type="xsd:string"/>
+      <xsd:element name="query-response" type="query-response"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

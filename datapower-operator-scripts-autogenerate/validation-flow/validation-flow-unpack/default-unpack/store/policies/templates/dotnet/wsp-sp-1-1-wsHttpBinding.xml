@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Licensed Materials - Property of IBM
+IBM WebSphere DataPower Appliances
+Copyright IBM Corporation 2009,2009. All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<wsp:Policy
+  xmlns:sp = "http://schemas.xmlsoap.org/ws/2005/07/securitypolicy"
+  xmlns:wsp = "http://schemas.xmlsoap.org/ws/2004/09/policy"
+  xmlns:wsu = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+  xmlns:wsx = "http://schemas.xmlsoap.org/ws/2004/09/mex"
+  xmlns:wsaw = "http://www.w3.org/2006/05/addressing/wsdl">
+  <dpe:summary xmlns = "" xmlns:dpe = "http://www.datapower.com/extensions">
+    <dppolicy:domain xmlns:dppolicy = "http://www.datapower.com/policy">http://schemas.xmlsoap.org/ws/2005/07/securitypolicy</dppolicy:domain>
+    <description>
+      Implements .Net wsHttpBinding with 'Message' security.
+      The WCF .NET client is configured to use message security. It acquires the Kerberos tokens for the service proxied by 
+      Datapower and then communicates with Datapower. Datapower processes the message and sends a response 
+      back. Secure Conversation between the WCF client and the Datapower can be enabled or disabled.
+    </description>
+  </dpe:summary>
+
+  <!--BindingType : Symmetric
+      TokenType    : Kerberos
+      SecureConverstation : Disabled
+      Algorithm Suite: Basic128
+  -->
+  <wsp:Policy wsu:Id = "symmetric-kerberos-basic128">
+  <!--<dpe:summary xmlns = "" xmlns:dp = "http://www.datapower.com/extensions">
+      <description>
+        The security policy for the wsHttpBinding.
+        
+        WCF client is configured to use Message security with wsHttpBinding. It acquires 
+        the kerberos tokens for the service proxied by Datapower and sends the Messages signed 
+        and encrypted with the Kerberos tokens. Datapower processes the messages and uses the 
+        Kerberos session key to sign and encrypt the response message and sends  it back to the client.
+        <p/>
+        When using this policy, set the following policy parameters in 
+        "http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" policy domain :
+          1. Interoperable with Microsoft .NET'
+          2. Kerberos Keytab.
+          3. Kerberos Server Principal
+          4. Enforce Kerberos Client Principal, optional
+          5. Kerberos Client Principal, optional but required when it is enforced.
+        <p/>
+        The  .NET  client's config snippet is  as follows:
+        Note: Set NegotiateServiceCredentials=false to make the WCF .NET client acquire Kerberos tokens, 
+        instead of Spnego tokens.
+        Set establishSecurityContext = false to disable secure conversation.
+        Set AlgorithmSuite=Basic128.
+        <configuration>
+          <system.serviceModel>
+            <client>
+              <endpoint
+                address = "http://9.33.96.220:2052/ServiceModelSamples/service.svc"
+                binding = "wsHttpBinding"
+                bindingConfiguration = "WSHttpBinding_ICalculator"
+                contract = "ServiceReference1.ICalculator"
+                name = "WSHttpBinding_ICalculator">
+                <ThisIsAComment>This is the SPN created for the datapower box</ThisIsAComment>
+                <identity>
+                  <servicePrincipalName value = "HOST/9.33.96.220:2052@WPS.CSUPPORT.COM"/>
+                </identity>
+              </endpoint>
+            </client>
+            <bindings>
+              <wsHttpBinding>
+                <binding name = "WSHttpBinding_ICalculator" allowCookies = "false">
+                  <security mode = "Message">
+                    <message
+                      clientCredentialType = "Windows"
+                      negotiateServiceCredential = "false"
+                      algorithmSuite = "Basic128"
+                      establishSecurityContext = "false"/>
+                  </security>
+                </binding>
+              </wsHttpBinding>
+            </bindings>
+          </system.serviceModel>
+        </configuration>
+      </description>
+    </dpe:summary>
+  -->
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding>
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:KerberosToken sp:IncludeToken = "http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Once">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys/>
+                    <sp:WssGssKerberosV5ApReqToken11/>
+                  </wsp:Policy>
+                </sp:KerberosToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp/>
+            <sp:EncryptSignature/>
+            <sp:OnlySignEntireHeadersAndBody/>
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11>
+          <wsp:Policy>
+            <sp:MustSupportRefKeyIdentifier/>
+            <sp:MustSupportRefIssuerSerial/>
+            <sp:MustSupportRefThumbprint/>
+            <sp:MustSupportRefEncryptedKey/>
+          </wsp:Policy>
+        </sp:Wss11>
+        <sp:Trust10>
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens/>
+            <sp:RequireClientEntropy/>
+            <sp:RequireServerEntropy/>
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing/>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+ 
+  <!--BindingType : Symmetric
+      TokenType    : Kerberos
+      SecureConverstation : Enabled
+      Algorithm Suite: Basic128
+  -->
+  <wsp:Policy wsu:Id = "symmetric-kerberos-sc-basic128">
+  <!--<dpe:summary xmlns = "" xmlns:dp = "http://www.datapower.com/extensions">
+      <description>
+        The security policy for the wsHttpBinding.    
+        WCF client is configured to use Message security with wsHttpBinding. It acquires 
+        the kerberos tokens for the service proxied by Datapower and sends the Messages signed 
+        and encrypted with the Kerberos tokens. With secure conversation enabled, the client gets a 
+        SecurityContextToken from Datapower and then on uses that to sign and encrypt the messages. 
+        Datapower should be configured to host a STS (Security Token Service) to issue the SCT in addtion 
+        to proxying the original service.
+        <p/>
+        When using this policy, set the following policy parameters in 
+        "http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" policy domain :
+          1. Interoperable with Microsoft .NET'
+          2. Kerberos Keytab.
+          3. Kerberos Server Principal
+          4. Enforce Kerberos Client Principal, optional
+          5. Kerberos Client Principal, optional but required when it is enforced.
+        <p/>
+        The  .NET  client's config snippet is  as follows:
+        Note: Set NegotiateServiceCredentials=false to make the WCF .NET client acquire Kerberos tokens, 
+        instead of Spnego tokens.
+        Set establishSecurityContext = true to enable secure conversation.
+        Set AlgorithmSuite=Basic128.
+        <configuration>
+          <system.serviceModel>
+            <client>
+              <endpoint
+                address = "http://9.33.96.220:2052/ServiceModelSamples/service.svc"
+                binding = "wsHttpBinding"
+                bindingConfiguration = "WSHttpBinding_ICalculator"
+                contract = "ServiceReference1.ICalculator"
+                name = "WSHttpBinding_ICalculator">
+                <ThisIsAComment>This is the SPN created for the datapower box</ThisIsAComment>
+                <identity>
+                  <servicePrincipalName value = "HOST/9.33.96.220:2052@WPS.CSUPPORT.COM"/>
+                </identity>
+              </endpoint>
+            </client>
+            <bindings>
+              <wsHttpBinding>
+                <binding name = "WSHttpBinding_ICalculator" allowCookies = "false">
+                  <security mode = "Message">
+                    <message
+                      clientCredentialType = "Windows"
+                      negotiateServiceCredential = "false"
+                      algorithmSuite = "Basic128"
+                      establishSecurityContext = "true"/>
+                  </security>
+                </binding>
+              </wsHttpBinding>
+            </bindings>
+          </system.serviceModel>
+        </configuration>
+      </description>
+    </dpe:summary>
+  -->
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding>
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:SecureConversationToken sp:IncludeToken = "http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys/>
+                    <sp:BootstrapPolicy>
+                      <wsp:Policy>
+                        <sp:SignedParts>
+                          <sp:Body/>
+                          <sp:Header Name = "To" Namespace = "http://www.w3.org/2005/08/addressing"/>
+                          <sp:Header Name = "From" Namespace = "http://www.w3.org/2005/08/addressing"/>
+                          <sp:Header Name = "FaultTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+                          <sp:Header Name = "ReplyTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+                          <sp:Header Name = "MessageID" Namespace = "http://www.w3.org/2005/08/addressing"/>
+                          <sp:Header Name = "RelatesTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+                          <sp:Header Name = "Action" Namespace = "http://www.w3.org/2005/08/addressing"/>
+                        </sp:SignedParts>
+                        <sp:EncryptedParts>
+                          <sp:Body/>
+                        </sp:EncryptedParts>
+                        <sp:SymmetricBinding>
+                          <wsp:Policy>
+                            <sp:ProtectionToken>
+                              <wsp:Policy>
+                                <sp:KerberosToken sp:IncludeToken = "http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Once">
+                                  <wsp:Policy>
+                                    <sp:RequireDerivedKeys/>
+                                    <sp:WssGssKerberosV5ApReqToken11/>
+                                  </wsp:Policy>
+                                </sp:KerberosToken>
+                              </wsp:Policy>
+                            </sp:ProtectionToken>
+                            <sp:AlgorithmSuite>
+                              <wsp:Policy>
+                                <sp:Basic128/>
+                              </wsp:Policy>
+                            </sp:AlgorithmSuite>
+                            <sp:Layout>
+                              <wsp:Policy>
+                                <sp:Strict/>
+                              </wsp:Policy>
+                            </sp:Layout>
+                            <sp:IncludeTimestamp/>
+                            <sp:EncryptSignature/>
+                            <sp:OnlySignEntireHeadersAndBody/>
+                          </wsp:Policy>
+                        </sp:SymmetricBinding>
+                        <sp:Wss11>
+                          <wsp:Policy>
+                            <sp:MustSupportRefKeyIdentifier/>
+                            <sp:MustSupportRefIssuerSerial/>
+                            <sp:MustSupportRefThumbprint/>
+                            <sp:MustSupportRefEncryptedKey/>
+                          </wsp:Policy>
+                        </sp:Wss11>
+                        <sp:Trust10>
+                          <wsp:Policy>
+                            <sp:MustSupportIssuedTokens/>
+                            <sp:RequireClientEntropy/>
+                            <sp:RequireServerEntropy/>
+                          </wsp:Policy>
+                        </sp:Trust10>
+                      </wsp:Policy>
+                    </sp:BootstrapPolicy>
+                  </wsp:Policy>
+                </sp:SecureConversationToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128/>
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict/>
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp/>
+            <sp:EncryptSignature/>
+            <sp:OnlySignEntireHeadersAndBody/>
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11>
+          <wsp:Policy>
+            <sp:MustSupportRefKeyIdentifier/>
+            <sp:MustSupportRefIssuerSerial/>
+            <sp:MustSupportRefThumbprint/>
+            <sp:MustSupportRefEncryptedKey/>
+          </wsp:Policy>
+        </sp:Wss11>
+        <sp:Trust10>
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens/>
+            <sp:RequireClientEntropy/>
+            <sp:RequireServerEntropy/>
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing/>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+
+  <!--BindingType : Symmetric
+      TokenType    : X509
+      SecureConverstation : Disabled
+      Algorithm Suite: Default, Basic256
+  -->
+
+  <wsp:Policy wsu:Id="symmetric-x509">
+  <!--<dpe:summary xmlns = "" xmlns:dp = "http://www.datapower.com/extensions">
+      <description>
+        The security policy for the wsHttpBinding.
+
+        WCF client is configured to use Message security with wsHttpBinding. 
+
+        <p/>
+        When using this policy, set the following policy parameters in
+        "http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" policy domain :
+         1. "Interoperable with", with value 'Microsoft .NET'
+         2. Verification Valcred, optional, which may contain the X509 Cert of the WCF client.
+
+        <p/>
+        The  .NET  client's config snippet is  as follows:
+        Note: 
+        Set NegotiateServiceCredentials=false to make the WCF .NET client not to negotiate
+            with server for the X509 token.
+        Set establishSecurityContext = false to disable secure conversation.
+        <configuration>
+          <system.serviceModel>
+            <client>
+              <endpoint address="http://9.33.96.232:2052/WSHttpX509/service.svc"
+                        behaviorConfiguration="X509WSHttpBehavior"
+                        binding="wsHttpBinding"
+                        bindingConfiguration="WSHttpBinding_ICalculator"
+                        contract="ServiceReference1.ICalculator"
+                        name="WSHttpBinding_ICalculator">
+
+                <identity>
+                  <dns value="WCFTestServer"/>
+                </identity>
+              </endpoint>
+            </client>
+            <behaviors>
+              <endpointBehaviors>
+                <behavior name="X509WSHttpBehavior">
+                  <clientCredentials>
+                    <clientCertificate findValue="WCFClient"
+                                       x509FindType="FindBySubjectName"
+                                       storeLocation="LocalMachine"
+                                       storeName="My"/>
+                    <serviceCertificate>
+                      <defaultCertificate findValue="WCFTestServer"
+                                          x509FindType="FindBySubjectName"
+                                          storeLocation="LocalMachine"
+                                          storeName="My"/>
+                      <authentication certificateValidationMode="ChainTrust"
+                                      revocationMode="NoCheck"/>
+                    </serviceCertificate>
+                  </clientCredentials>
+                </behavior>
+              </endpointBehaviors>
+            </behaviors>
+            <bindings>
+              <wsHttpBinding>
+                <binding name = "WSHttpBinding_ICalculator" allowCookies = "false">
+                  <security mode = "Message">
+                    <message clientCredentialType="Certificate"
+                             negotiateServiceCredential="false"
+                             algorithmSuite="Default"
+                             establishSecurityContext="false" />
+                  </security>
+                </binding>
+              </wsHttpBinding>
+            </bindings>
+          </system.serviceModel>
+        </configuration>
+      </description>
+    </dpe:summary>
+  -->
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding>
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:RequireThumbprintReference />
+                    <sp:WssX509V3Token10 />
+                  </wsp:Policy>
+                </sp:X509Token>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:EndorsingSupportingTokens>
+          <wsp:Policy>
+            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:RequireThumbprintReference />
+                <sp:WssX509V3Token10 />
+              </wsp:Policy>
+            </sp:X509Token>
+          </wsp:Policy>
+        </sp:EndorsingSupportingTokens>
+        <sp:Wss11>
+          <wsp:Policy>
+            <sp:MustSupportRefKeyIdentifier />
+            <sp:MustSupportRefIssuerSerial />
+            <sp:MustSupportRefThumbprint />
+            <sp:MustSupportRefEncryptedKey />
+            <sp:RequireSignatureConfirmation />
+          </wsp:Policy>
+        </sp:Wss11>
+        <sp:Trust10>
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+
+  <!--BindingType : Symmetric
+      TokenType    : X509
+      SecureConverstation : Enabled
+      Algorithm Suite: Default, Basic256
+  -->
+  <wsp:Policy wsu:Id="symmetric-x509-sc">
+  <!--<dpe:summary xmlns = "" xmlns:dp = "http://www.datapower.com/extensions">
+      <description>
+        The security policy for the wsHttpBinding.
+
+        WCF client is configured to use Message security with wsHttpBinding.
+
+        <p/>
+        When using this policy, set the following policy parameters in
+        "http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" policy domain 
+         for both the STS and Application endpoints:
+           1. "Interoperable with", with value 'Microsoft .NET'
+         For the endpoint to handle the STS secure conversation, optionally set:
+           2. Verification Valcred, which may contain the X509 Cert of the WCF Client.
+        <p/>
+        The  .NET  client's config snippet is  as follows:
+        Note: 
+        Set NegotiateServiceCredentials=false to make the WCF .NET client not to negotiate
+            with server for the X509 token.
+        Set establishSecurityContext = true to enable secure conversation.
+        <configuration>
+          <system.serviceModel>
+            <client>
+              <endpoint address="http://9.33.96.232:2052/WSHttpX509/service.svc"
+                        behaviorConfiguration="X509WSHttpBehavior"
+                        binding="wsHttpBinding"
+                        bindingConfiguration="WSHttpBinding_ICalculator"
+                        contract="ServiceReference1.ICalculator"
+                        name="WSHttpBinding_ICalculator">
+
+                <identity>
+                  <dns value="WCFTestServer"/>
+                </identity>
+              </endpoint>
+            </client>
+            <behaviors>
+              <endpointBehaviors>
+                <behavior name="X509WSHttpBehavior">
+                  <clientCredentials>
+                    <clientCertificate findValue="WCFClient"
+                                       x509FindType="FindBySubjectName"
+                                       storeLocation="LocalMachine"
+                                       storeName="My"/>
+                    <serviceCertificate>
+                      <defaultCertificate findValue="WCFTestServer"
+                                          x509FindType="FindBySubjectName"
+                                          storeLocation="LocalMachine"
+                                          storeName="My"/>
+                      <authentication certificateValidationMode="ChainTrust"
+                                      revocationMode="NoCheck"/>
+                    </serviceCertificate>
+                  </clientCredentials>
+                </behavior>
+              </endpointBehaviors>
+            </behaviors>
+            <bindings>
+              <wsHttpBinding>
+                <binding name = "WSHttpBinding_ICalculator" allowCookies = "false">
+                  <security mode = "Message">
+                    <message clientCredentialType="Certificate"
+                             negotiateServiceCredential="false"
+                             algorithmSuite="Default"
+                             establishSecurityContext="true" />
+                  </security>
+                </binding>
+              </wsHttpBinding>
+            </bindings>
+          </system.serviceModel>
+        </configuration>
+      </description>
+    </dpe:summary>
+  -->
+
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SymmetricBinding>
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:BootstrapPolicy>
+                      <wsp:Policy>
+                        <sp:SignedParts>
+                          <sp:Body />
+                          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                        </sp:SignedParts>
+                        <sp:EncryptedParts>
+                          <sp:Body />
+                        </sp:EncryptedParts>
+                        <sp:SymmetricBinding>
+                          <wsp:Policy>
+                            <sp:ProtectionToken>
+                              <wsp:Policy>
+                                <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/Never">
+                                  <wsp:Policy>
+                                    <sp:RequireDerivedKeys />
+                                    <sp:RequireThumbprintReference />
+                                    <sp:WssX509V3Token10 />
+                                  </wsp:Policy>
+                                </sp:X509Token>
+                              </wsp:Policy>
+                            </sp:ProtectionToken>
+                            <sp:AlgorithmSuite>
+                              <wsp:Policy>
+                                <sp:Basic256 />
+                              </wsp:Policy>
+                            </sp:AlgorithmSuite>
+                            <sp:Layout>
+                              <wsp:Policy>
+                                <sp:Strict />
+                              </wsp:Policy>
+                            </sp:Layout>
+                            <sp:IncludeTimestamp />
+                            <sp:EncryptSignature />
+                            <sp:OnlySignEntireHeadersAndBody />
+                          </wsp:Policy>
+                        </sp:SymmetricBinding>
+                        <sp:EndorsingSupportingTokens>
+                          <wsp:Policy>
+                            <sp:X509Token sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                              <wsp:Policy>
+                                <sp:RequireThumbprintReference />
+                                <sp:WssX509V3Token10 />
+                              </wsp:Policy>
+                            </sp:X509Token>
+                          </wsp:Policy>
+                        </sp:EndorsingSupportingTokens>
+                        <sp:Wss11>
+                          <wsp:Policy>
+                            <sp:MustSupportRefKeyIdentifier />
+                            <sp:MustSupportRefIssuerSerial />
+                            <sp:MustSupportRefThumbprint />
+                            <sp:MustSupportRefEncryptedKey />
+                            <sp:RequireSignatureConfirmation />
+                          </wsp:Policy>
+                        </sp:Wss11>
+                        <sp:Trust10>
+                          <wsp:Policy>
+                            <sp:MustSupportIssuedTokens />
+                            <sp:RequireClientEntropy />
+                            <sp:RequireServerEntropy />
+                          </wsp:Policy>
+                        </sp:Trust10>
+                      </wsp:Policy>
+                    </sp:BootstrapPolicy>
+                  </wsp:Policy>
+                </sp:SecureConversationToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11>
+          <wsp:Policy>
+            <sp:MustSupportRefKeyIdentifier />
+            <sp:MustSupportRefIssuerSerial />
+            <sp:MustSupportRefThumbprint />
+            <sp:MustSupportRefEncryptedKey />
+          </wsp:Policy>
+        </sp:Wss11>
+        <sp:Trust10>
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+
+  <wsp:Policy wsu:Id = "input">
+    <!--<dpe:summary xmlns="" xmlns:dp="http://www.datapower.com/extensions">
+    <description>The policy for the input message from WCF client to DataPower.  </description>
+    </dpe:summary>
+    -->
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts>
+          <sp:Body/>
+          <sp:Header Name = "To" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "From" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "FaultTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "ReplyTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "MessageID" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "RelatesTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "Action" Namespace = "http://www.w3.org/2005/08/addressing"/>
+        </sp:SignedParts>
+        <sp:EncryptedParts>
+          <sp:Body/>
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+
+  <wsp:Policy wsu:Id = "output">
+    <!--<dpe:summary xmlns="" xmlns:dp="http://www.datapower.com/extensions">
+    <description>The policy for the output message from Datapower to WCF client </description>
+    </dpe:summary>
+    -->
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts>
+          <sp:Body/>
+          <sp:Header Name = "To" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "From" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "FaultTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "ReplyTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "MessageID" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "RelatesTo" Namespace = "http://www.w3.org/2005/08/addressing"/>
+          <sp:Header Name = "Action" Namespace = "http://www.w3.org/2005/08/addressing"/>
+        </sp:SignedParts>
+        <sp:EncryptedParts>
+          <sp:Body/>
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+</wsp:Policy>
