@@ -9,12 +9,12 @@ node {
   }
   
   stage('Pre-deploy requirements') {
-    sh (pre-deploy.sh)
+    sh "pre-deploy.sh"
   }
   
   stage('Generate YAML Files') {
     //Execute migrate-backup.sh
-    sh (migrate-backup.sh validation-flow.zip)
+    sh "migrate-backup.sh validation-flow.zip"
   }
   
   stage('Deploying YAML Files') {
