@@ -10,8 +10,9 @@ node {
   
   stage('Pre-deploy requirements') {
     // Login into OCP Cluster
-    oc login --token=sha256~nt9DrIXaErquB8jbFD05z9nnWcoyQzeyBZ_hZAARyHA --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360
-
+    //oc login --token=sha256~nt9DrIXaErquB8jbFD05z9nnWcoyQzeyBZ_hZAARyHA --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360
+    oc status
+    
     //Install operator
     oc apply -f ibm-catalog-source.yaml
 
