@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM WebSphere DataPower Appliances
+Copyright IBM Corporation 2007,2015. All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+    -->
+<log-catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="log-catalog.xsd">
+  <type name="akamai" id="37">
+    <entry name="secure_get_retry" id="1">
+      <code>0x084a00001</code>
+      <text>Attempting to retrieve the WAXHN image again.</text>
+      <summary />
+      <description>An initial attempt to retrieve the WAXHN image failed. An attempt to retrieve the image again will begin automatically.</description>
+      <suggestion>Ensure that the RAID array has sufficient disk space for the image. Ensure that the appliance has an Ethernet interface that can access the Internet.</suggestion>
+    </entry>
+    <entry name="internal_tar_failure" id="2">
+      <code>0x084a00002</code>
+      <text>An internal extract routine failed with: %s</text>
+      <summary />
+      <description />
+      <suggestion>Try to activate again.</suggestion>
+    </entry>
+    <entry name="virt_disk_net_part_repair_failed" id="3">
+      <code>0x084a00003</code>
+      <text>Repair of network configuration on image failed.</text>
+      <summary />
+      <description>An attempt to repair the network configuration failed. The network configuration will be recreated automatically.</description>
+      <suggestion>Verify the integrity of the RAID volume.</suggestion>
+    </entry>
+    <entry name="virt_disk_cache_part_repair_failed" id="4">
+      <code>0x084a00004</code>
+      <text>Repair of cache on image failed.</text>
+      <summary />
+      <description>An attempt to repair the cache failed. The cache will be recreated automatically.</description>
+      <suggestion>Verify the integrity of the RAID volume.</suggestion>
+    </entry>
+    <entry name="virt_disk_create_success" id="5">
+      <code>0x084a00005</code>
+      <text>Creation of cache image completed.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion />
+    </entry>
+    <entry name="secure_get_extract_start" id="6">
+      <code>0x084a00006</code>
+      <text>Starting to extract the image.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion />
+    </entry>
+    <entry name="secure_get_unzip_complete" id="7">
+      <code>0x084a00007</code>
+      <text>Extracted the image.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion />
+    </entry>
+    <entry name="secure_get_extract_complete" id="8">
+      <code>0x084a00008</code>
+      <text>Extracted the image.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion />
+    </entry>
+    <entry name="secure_get_success" id="9">
+      <code>0x084a00009</code>
+      <text>Activation complete.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion />
+    </entry>
+    <entry name="automatic_activate" id="10">
+      <code>0x084a0000a</code>
+      <text>Automatically upgrading the WAXHN service.</text>
+      <summary />
+      <description>The current WAXHN service is incompatible with this firmware version. The appliance is retrieving a compatible version.</description>
+      <suggestion />
+    </entry>
+    <entry name="activate_version_save_failed" id="11">
+      <code>0x084a0000b</code>
+      <text>Activation failed to save the WAXHN version information.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion />
+    </entry>
+    <entry name="sidecar_stopped" id="12">
+      <code>0x084a0000c</code>
+      <text>WAXHN task stopped unexpectedly: %s</text>
+      <summary />
+      <description>The WAXHN task stopped unexpectedly for the specified reason.</description>
+      <suggestion>If the condition persists, contact IBM support.</suggestion>
+    </entry>
+  </type>
+</log-catalog>
+

@@ -8,20 +8,51 @@ node {
     checkout scm
   }
   
-  stage('Moving the zip folder') {
-    mv ./datapower-local-dev/validation-flow.zip ./datapower-operator-scripts-autogenerate/
+  stage('Pre-deploy requirements') {
+    // Login into OCP Cluster
+    oc login --token=sha256~nt9DrIXaErquB8jbFD05z9nnWcoyQzeyBZ_hZAARyHA --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360
+
+    //Install operator
+    oc apply -f ibm-catalog-source.yaml
+
+    //Install DataPower Operator - TBD
+
+    //create new project
+    oc new-project sce-test
+
+    //create an IBM Entitlement Key - TBD
+    oc create secret docker-registry ibm-entitlement-key -n tools \
+    --docker-username=cp \
+    --docker-password="$TOKEN" \
+    --docker-server=cp.icr.io
+
+    //Create Admin User credential secret - TBD
+
+    //create secrets for keys and certs - TBD
+
+    //Passing the namespace into migrate-backup.sh - TBD
+
+
   }
   
-  stage('OCP Login') {
-    //oc login --token=sha256~ACEhkfBnZ4a6LmAM6RQEGKWCusvJ8QYA4ocDySIjPpk --server=https://c100-e.eu-gb.containers.cloud.ibm.com:31647
-    oc status
+  stage('Generate YAML Files') {
+    //Execute migrate-backup.sh
+    sh (migrate-backup.sh validation-flow.zip)
   }
   
-  stage('Deploying DataPower Services') {
-    //install catalog operator
-    oc apply -f ./datapower-operator-scripts-autogenerate/ibm-catalog-source.yaml
+  stage('Deploying YAML Files') {
+    //apply default yaml files
+    oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml
+    oc apply -f ./validation-flow/validation-flow-output/default-local.yaml
     
-    //install DataPower Operator
-    oc apply -f ./datapower-operator-scripts-autogenerate/ibm-datapower-operator-catalog.yaml
+    //Apply DataPower Service
+    oc apply -f ./validation-flow/validation-flow-output/validation-flow-dps.yaml
+
+    //Apply Services
+    oc apply -f ./validation-flow/validation-flow-output/validation-flow-service.yaml
+
+    //Apply Routes
+    oc apply -f ./validation-flow/validation-flow-output/validation-flow-9090-route.yaml
+    oc apply -f ./validation-flow/validation-flow-output/validation-flow-8001-route.yaml
   }
 }

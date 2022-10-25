@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+ xmlns:tns="http://www.datapower.com/schemas/filelist"
+ targetNamespace="http://www.datapower.com/schemas/filelist">
+
+	<!-- list element -->
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:file" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- file element -->
+	<xs:element name="file">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attributeGroup ref="tns:fileAttributes"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- fileAttributes attribute group -->
+	<xs:attributeGroup name="fileAttributes">
+		<xs:attribute name="size" type="xs:integer" use="required"/>
+		<xs:attribute name="owner" type="xs:string" use="required"/>
+		<xs:attribute name="group" type="xs:string" use="required"/>
+		<xs:attribute name="perms" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:pattern value="0[0-7]?[0-7][0-7][0-7]"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="atime" type="xs:integer" use="optional"/>
+		<xs:attribute name="ctime" type="xs:integer" use="optional"/>
+		<xs:attribute name="mtime" type="xs:integer" use="optional"/>
+		<xs:attribute name="type" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="regular"/>
+					<xs:enumeration value="directory"/>
+					<xs:enumeration value="symlink"/>
+					<xs:enumeration value="block"/>
+					<xs:enumeration value="character"/>
+					<xs:enumeration value="FIFO"/>
+					<xs:enumeration value="socket"/>
+					<xs:enumeration value="unknown"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="blocks" type="xs:integer" use="optional"/>
+		<xs:attribute name="links" type="xs:integer" use="optional"/>
+	</xs:attributeGroup>
+</xs:schema>

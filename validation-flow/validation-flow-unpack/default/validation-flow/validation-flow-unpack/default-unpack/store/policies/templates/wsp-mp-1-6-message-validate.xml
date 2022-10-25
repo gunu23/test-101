@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2012,2012. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<wsp:Policy wsp:Name="Message-validate-template"
+            wsu:Id="wsp-mp-1-6-message-validate"
+            xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+            xmlns:wsmp="http://www.ibm.com/xmlns/stdwip/2011/02/ws-mediation"
+            xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+
+    <!-- The <Rule> element below is a WS-MediationPolicy assertion that validates
+         a message using a schema called ValidateCustomerInfo.xsd. This
+         should be replaced with the URL for the schema you want ValidateMssage to
+         use.
+         
+         -If the same schema will be used by multiple services in different
+          application domains on the appliance then the schema should be placed
+          in store://
+             examples:
+                store://ValidateCustomerInfo.xsd
+                store://schemas/ValidateCustomerInfo.xsd
+                
+         -If the schema is used only by services within the same application
+          domain then the schema can be located in the local local: for that
+          domain
+             example:
+                local:///ValidateCustomerInfo.xsd
+                local:///myapp/schemas/ValidateCustomerInfo.xsd
+         
+         Note: This is a template policy. If this policy is attached to a service
+               then the ValidateMessage function will not be able to find the
+               ValidateCustomerInfo.xsd, an error will be logged, and a error
+               response will be returned. 
+    -->
+    <wsmp:Rule>
+        <wsmp:Action>
+            <wsmp:ValidateMessage>
+                <wsmp:XSD>
+                    <!-- Specify the application schema here: -->
+                    local:///ValidateCustomerInfo.xsd
+                </wsmp:XSD>            
+            </wsmp:ValidateMessage>
+        </wsmp:Action>
+    </wsmp:Rule>
+
+</wsp:Policy>

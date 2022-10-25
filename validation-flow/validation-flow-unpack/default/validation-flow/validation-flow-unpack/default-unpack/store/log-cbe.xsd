@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:cbe="http://www.ibm.com/AC/commonbaseevent1_0_1" 
+            elementFormDefault="qualified"
+            targetNamespace='http://www.ibm.com/AC/commonbaseevent1_0_1'>
+            
+    <!--
+    TYPE DEFINITIONS
+    -->
+    
+    <xsd:simpleType name='event-severity'>
+        <xsd:restriction base="xsd:short">
+            <xsd:minInclusive value="0" />
+            <xsd:maxInclusive value="70" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='event-version'>
+        <xsd:restriction base='xsd:string'>
+          <xsd:enumeration value='1.0.1'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='event-msg'>
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="1024" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='ext-name-domain'>
+        <xsd:restriction base='xsd:string'>
+          <xsd:enumeration value='Domain'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='ext-name-clientip'>
+        <xsd:restriction base='xsd:string'>
+          <xsd:enumeration value='ClientIP'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='ext-type-string'>
+        <xsd:restriction base='xsd:string'>
+          <xsd:enumeration value='string'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='event-msgid'>
+        <xsd:restriction base='xsd:string'>
+          <xsd:pattern value='0x[0-9a-fA-F]+'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='event-msgid-type'>
+        <xsd:restriction base='xsd:string'>
+          <xsd:enumeration value='ws-dpmsgcat'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='event-component'>
+        <xsd:restriction base='xsd:string'>
+          <xsd:enumeration value='DataPower X-Series'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='event-location-type'>
+        <xsd:restriction base='xsd:string'>
+          <xsd:enumeration value='Devicename'/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name='event-subcomponent'>
+        <xsd:restriction base='xsd:string'>
+            <xsd:maxLength value="512" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="event-componentidtype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="32" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="event-componenttype">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="512" />
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="event-location">
+        <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="256" />
+        </xsd:restriction>
+    </xsd:simpleType>
+                    
+	<xsd:complexType name="event-situation-type" abstract="true">
+		<xsd:attribute name="reasoningScope" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:maxLength value="64"></xsd:maxLength>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+	</xsd:complexType>
+    
+	<xsd:complexType name="event-situation">
+		<xsd:complexContent>
+			<xsd:extension base="cbe:event-situation-type">
+				<xsd:sequence>
+					<xsd:any namespace="##any" minOccurs="1" maxOccurs="1" processContents="skip" />
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+    
+    <!--
+    EVENT DEFINITIONS
+    -->
+
+    <xsd:element name='CommonBaseEvent'>
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="extendedDataElements">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="values" type='xsd:string'/>
+                        </xsd:sequence>
+                        
+                        <xsd:attribute name="name" type="cbe:ext-name-domain" use="required"/>                        
+                        <xsd:attribute name="type" type="cbe:ext-type-string" use="required"/>                        
+                    </xsd:complexType>
+                </xsd:element>
+                
+                <xsd:element name="extendedDataElements">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="values" type='xsd:string'/>
+                        </xsd:sequence>
+                        
+                        <xsd:attribute name="name" type="cbe:ext-name-clientip" use="required"/>                        
+                        <xsd:attribute name="type" type="cbe:ext-type-string" use="required"/>                        
+                    </xsd:complexType>
+                </xsd:element>
+                
+                <xsd:element name="msgDataElement">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="msgId" type='cbe:event-msgid'/>
+                            <xsd:element name="msgIdType" type='cbe:event-msgid-type'/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                
+                <xsd:element name="sourceComponentId">
+                    <xsd:complexType>
+                        <xsd:attribute name="component" type='cbe:event-component' use="required"/>
+                        <xsd:attribute name="locationType" type='cbe:event-location-type' use="required"/>  
+                        <xsd:attribute name="subComponent" type='cbe:event-subcomponent' use="required"/>                    
+                        <xsd:attribute name="componentIdType" type='cbe:event-componentidtype' use="required"/>
+                        <xsd:attribute name="componentType" type='cbe:event-componenttype' use="required"/>
+                        <xsd:attribute name="location" type='cbe:event-location' use="required"/>
+                        <xsd:attribute name="instanceId" type="xsd:long" use="required"/>
+                    </xsd:complexType>
+                </xsd:element>
+                
+                <xsd:element name="situation" type="cbe:event-situation"/>
+            </xsd:sequence>
+            
+            <xsd:attribute name="creationTime" type="xsd:dateTime" use="required"/>
+            <xsd:attribute name="version" type="cbe:event-version" use="required"/>        
+            <xsd:attribute name="severity" type="cbe:event-severity" use="required"/>        
+            <xsd:attribute name="msg" type="cbe:event-msg" use="required"/>        
+            <xsd:attribute name="sequenceNumber" type="xsd:long" use="required"/>        
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

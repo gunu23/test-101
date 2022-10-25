@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2012,2012. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<xs:schema targetNamespace="http://www.ibm.com/xmlns/stdwip/2011/02/ws-mediation"
+	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsme="http://www.ibm.com/xmlns/stdwip/2011/02/ws-mediation">
+
+	<xs:element name="Rule">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Left out to avoid non-deterministic content model and provide for 
+					extensibility <xs:element ref="wsme:Condition" maxOccurs="1" minOccurs="0" 
+					/> <xs:element ref="wsme:Action" maxOccurs="unbounded" minOccurs="1"/> -->
+				<xs:any maxOccurs="unbounded" minOccurs="0" processContents="lax" />
+			</xs:sequence>
+			<xs:anyAttribute namespace="##local" processContents="lax"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Condition">
+		<xs:complexType>
+			<xs:sequence maxOccurs="1" minOccurs="0">
+				<xs:element ref="wsme:Expression" maxOccurs="1"
+					minOccurs="0" />
+				<xs:element ref="wsme:Schedule" maxOccurs="1" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Action">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="QueueMessage" maxOccurs="1" minOccurs="0">
+					<xs:simpleType>
+					     <xs:restriction base="xs:token">
+						  <xs:length value="0"/>
+					     </xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+
+				<xs:choice maxOccurs="unbounded" minOccurs="0">
+
+					<xs:element name="RejectMessage">
+					     <xs:simpleType>
+						  <xs:restriction base="xs:token">
+						       <xs:length value="0"/>
+						  </xs:restriction>
+					     </xs:simpleType>
+					</xs:element>
+
+					<xs:element name="Notify">
+					     <xs:simpleType>
+						  <xs:restriction base="xs:token">
+						       <xs:length value="0"/>
+						  </xs:restriction>
+					     </xs:simpleType>
+					</xs:element>
+
+					<xs:element name="RouteMessage">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="EndPoint" type="xs:string" />
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+
+					<xs:element name="ValidateMessage">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:choice>
+									<xs:element name="XSD" type="xs:anyURI">
+									</xs:element>
+									<xs:element name="WSDL" type="xs:anyURI">
+									</xs:element>
+								</xs:choice>
+								<xs:element name="Scope" type="xs:string" maxOccurs="1"
+									minOccurs="0">
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="ExecuteXSL">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="Parameter" maxOccurs="unbounded"
+									minOccurs="0">
+									<xs:complexType>
+										<xs:attribute name="Name" type="xs:string">
+										</xs:attribute>
+										<xs:attribute name="Value" type="xs:string">
+										</xs:attribute>
+									</xs:complexType>
+								</xs:element>
+								<xs:element name="Stylesheet" type="xs:anyURI">
+								</xs:element>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attribute name="IfCondition" type="xs:boolean"
+				default="true" use="optional"></xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Expression">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="Attribute" type="xs:string" />
+
+				<xs:element name="Operator" type="xs:string" />
+
+				<xs:element name="Value" type="xs:integer" />
+
+				<xs:element name="Interval" type="xs:duration" maxOccurs="1"
+					minOccurs="0" />
+
+				<xs:element name="Limit" type="xs:integer" maxOccurs="1"
+					minOccurs="0" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Schedule">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Daily" maxOccurs="1" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="StartTime" type="xs:time" />
+						<xs:attribute name="StopTime" type="xs:time" />
+					</xs:complexType>
+				</xs:element>
+
+				<xs:element name="WeekDays" maxOccurs="1" minOccurs="0">
+					<xs:complexType>
+						<xs:attribute name="Days" type="xs:string" />
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="StartDate" type="xs:date" use="optional" />
+			<xs:attribute name="StopDate" type="xs:date" use="optional" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

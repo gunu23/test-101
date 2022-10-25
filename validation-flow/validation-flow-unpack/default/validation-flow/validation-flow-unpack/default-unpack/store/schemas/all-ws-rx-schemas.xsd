@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2007,2007. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+        targetNamespace="http://standard-schemas.datapower.ibm.com">
+
+  <import namespace="http://docs.oasis-open.org/ws-rx/wsrm/200702"
+          schemaLocation="store:///schemas/wsrm-1.1-schema-200702.xsd"/>
+  <import namespace="http://docs.oasis-open.org/ws-rx/wsmc/200702"
+          schemaLocation="store:///schemas/wsmc-1.0-schema-200702.xsd"/>
+
+</schema>

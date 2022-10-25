@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Copyright (c) 2006 IBM, Inc.
+  All Rights Reserved.
+-->
+
+<xsd:schema
+  xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+  elementFormDefault='qualified'>
+
+  <xsd:simpleType name='time'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:pattern value='\d+\.\d{3}'/>
+      <xsd:pattern value='\d\d:\d\d:\d\d'/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name='levels'>
+    <xsd:restriction base='xsd:string'>
+      <xsd:enumeration value='emerg'/>
+      <xsd:enumeration value='alert'/>
+      <xsd:enumeration value='critic'/>
+      <xsd:enumeration value='warn'/>
+      <xsd:enumeration value='notice'/>
+      <xsd:enumeration value='info'/>
+      <xsd:enumeration value='debug'/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:element name='log-entry'>
+    <xsd:complexType>
+      <xsd:sequence>
+
+        <xsd:element name='date'>
+          <xsd:simpleType>
+            <xsd:restriction base='xsd:string'>
+              <xsd:pattern value=''/>
+              <xsd:pattern value='\w+ \w+ \d\d \d{4}'/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+
+        <xsd:element name='time'>
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base='time'>
+                <xsd:attribute name='utc' type='xsd:integer' use='required'/>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element name='date-time' type='xsd:dateTime' minOccurs='0'/>
+        <xsd:element name='type' type='xsd:string' minOccurs='0'/>
+        <xsd:element name='class' type='xsd:string' minOccurs='0'/>
+        <xsd:element name='object' type='xsd:string' minOccurs='0'/>
+
+        <xsd:element name='level'>
+          <xsd:complexType>
+            <xsd:simpleContent>
+              <xsd:extension base='levels'>
+                <xsd:attribute name='num' use='required'>
+                  <xsd:simpleType>
+                    <xsd:restriction base='xsd:integer'>
+                      <xsd:minInclusive value='0'/>
+                      <xsd:maxExclusive value='8'/>
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+              </xsd:extension>
+            </xsd:simpleContent>
+          </xsd:complexType>
+        </xsd:element>
+
+        <xsd:element name='transaction-type' type='xsd:string' minOccurs='0'/>        
+        <xsd:element name='transaction' type='xsd:integer'/>
+        <xsd:element name='client' type='xsd:string'/>
+
+        <xsd:element name='code' minOccurs='0'>
+          <xsd:simpleType>
+            <xsd:restriction base='xsd:string'>
+              <xsd:pattern value='0x[0-9a-fA-F]+'/>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:element>
+
+        <xsd:element name='file' type='xsd:string' minOccurs='0'/>
+        <xsd:element name='message' type='xsd:string'/>
+      </xsd:sequence>
+      
+      <xsd:attribute name='serial' use='required'>
+        <xsd:simpleType>
+          <xsd:restriction base='xsd:string'>
+            <xsd:pattern value='\d+'/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:attribute>
+      <xsd:attribute name='domain' use='optional' type='xsd:string'/>
+
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:element name='response' type='xsd:anyType'/>
+
+</xsd:schema>
+

@@ -1,0 +1,1339 @@
+apiVersion: v1
+data:
+  default.cfg: |+
+    top; configure terminal;
+
+    # configuration 68d6b841bc5147d891a752a2245b07aa generated Fri Apr 29 15:53:41 2022; firmware version 341099sr1
+
+    %if% available "domain-settings"
+
+    domain-settings
+      admin-state enabled
+      password-treatment masked
+      config-dir config:///
+    exit
+
+    %endif%
+
+    %if% available "radius"
+
+    radius
+      admin-state disabled
+      timeout 1000
+      retries 3
+    exit
+
+    %endif%
+
+    %if% available "timezone"
+
+    timezone "EST5EDT"
+
+    %endif%
+
+    %if% available "throttle"
+
+    throttle
+      admin-state enabled
+      memory-throttle 0
+      memory-terminate 0
+      temp-fs-throttle 0
+      temp-fs-terminate 0
+      qcode-warn 10
+      timeout 30
+      no status-log
+      status-loglevel debug
+      sensors-log
+      backlog-size 0
+      backlog-timeout 30
+    exit
+
+    %endif%
+
+    exec config:///auto-user.cfg
+
+    %if% available "snmp"
+
+    snmp
+      admin-state enabled
+      version 2c
+      ip-address 0.0.0.0
+      port 1161
+      security-level authPriv
+      access-level read-only
+      trap-default-subscriptions
+      trap-priority warn
+      trap-code 0x00030002
+      trap-code 0x00230003
+      trap-code 0x00330002
+      trap-code 0x00b30014
+      trap-code 0x00e30001
+      trap-code 0x00e40008
+      trap-code 0x00f30008
+      trap-code 0x01530001
+      trap-code 0x01a2000e
+      trap-code 0x01a40001
+      trap-code 0x01a40005
+      trap-code 0x01a40008
+      trap-code 0x01b10006
+      trap-code 0x01b10009
+      trap-code 0x01b20002
+      trap-code 0x01b20004
+      trap-code 0x01b20008
+      trap-code 0x02220001
+      trap-code 0x02220003
+      trap-code 0x02240002
+    exit
+
+    %endif%
+
+    crypto
+      profile "HTTPSCryptoProfile" "%none%" option-string OpenSSL-default+Disable-SSLv2+Disable-SSLv3 ciphers "HIGH:MEDIUM:!aNULL:!eNULL:!RC4:@STRENGTH" clientcalist off
+    exit
+
+    crypto
+      profile "ReverseCryptoProfile" "webmgmt-credentials" option-string OpenSSL-default+Disable-SSLv2+Disable-SSLv3 ciphers "HIGH:MEDIUM:!aNULL:!eNULL:!RC4:@STRENGTH" clientcalist off
+    exit
+
+    sslproxy "system-wsgw-management-loopback" "forward" "system-default" client-cache "on" client-sess-timeout "300" client-cache-size "100"
+
+    sslproxy "TLSProxyProfile" "reverse" "ReverseCryptoProfile" sess-timeout "300" cache-size "20"
+
+    crypto
+
+    %if% available "cert-monitor"
+
+    cert-monitor
+      admin-state enabled
+      poll 1
+      reminder 30
+      log-level warn
+      no disable-expired-certs
+    exit
+
+    %endif%
+
+    exit
+
+    crypto
+      no crl
+
+    exit
+
+    %if% available "raid-volume"
+
+    raid-volume "raid0"
+      admin-state disabled
+      no read-only
+    exit
+
+    %endif%
+
+    %if% available "language"
+
+    language "de"
+      admin-state disabled
+    exit
+
+    language "en"
+      admin-state enabled
+    exit
+
+    language "es"
+      admin-state disabled
+    exit
+
+    language "fr"
+      admin-state disabled
+    exit
+
+    language "it"
+      admin-state disabled
+    exit
+
+    language "ja"
+      admin-state disabled
+    exit
+
+    language "ko"
+      admin-state disabled
+    exit
+
+    language "pt_BR"
+      admin-state disabled
+    exit
+
+    language "ru"
+      admin-state disabled
+    exit
+
+    language "zh_CN"
+      admin-state disabled
+    exit
+
+    language "zh_TW"
+      admin-state disabled
+    exit
+
+    %endif%
+
+    %if% available "system"
+
+    system
+      admin-state enabled
+      entitlement "0000001"
+      audit-reserve 40
+      no system-log-fixed-format
+    exit
+
+    %endif%
+    logging event default-log "all" "error"
+    logging event default-log "mgmt" "notice"
+    logging event default-log "system" "notice"
+
+    logging target "default-log-console"
+      summary "Default System Log"
+      type console
+      priority normal
+      soap-version soap11
+      format text
+      timestamp zulu
+      no fixed-format
+      size 500
+      archive-mode rotate
+      rotate 3
+      no ansi-color
+      maximum-connections 1
+      connect-timeout 60
+      idle-timeout 15
+      active-timeout 0
+      no feedback-detection
+      no event-detection
+      suppression-period 10
+      ssl-client-type proxy
+      retry-interval 1
+      retry-attempts 1
+      long-retry-interval 20
+      precision second
+      buffer-size 2048
+      event "all" "error"
+      event "mgmt" "notice"
+      event "system" "notice"
+    exit
+
+    %if% available "rbm"
+
+    rbm
+      admin-state enabled
+      au-method local
+      ssh-au-method ""
+      no au-ldap-search
+      ldap-prefix "cn="
+      no au-force-dn-ldap-order
+      au-cache-mode absolute
+      au-cache-ttl 600
+      au-ldap-readtimeout 60
+      mc-method local
+      no mc-ldap-search
+      mc-ldap-readtimeout 60
+      fallback-login disabled
+      no restrict-admin
+      pwd-minimum-length 6
+      no pwd-mixed-case
+      no pwd-digit
+      no pwd-nonalphanumeric
+      no pwd-username
+      no pwd-aging
+      pwd-max-age 30
+      no pwd-history
+      pwd-max-history 5
+      cli-timeout 0
+      max-login-failure 0
+      lockout-duration 1
+      no mc-force-dn-ldap-order
+      password-hash-algorithm md5crypt
+      ssl-client-type proxy
+      mc-ssl-client-type proxy
+    exit
+
+    %endif%
+
+    acl "rest-mgmt"
+    exit
+
+    acl "ssh"
+    exit
+
+    acl "web-b2b-viewer"
+    exit
+
+    acl "web-mgmt"
+    exit
+
+    acl "xml-mgmt"
+    exit
+
+    no ssh
+
+    user-agent "default"
+      summary "Default User Agent"
+      max-redirects 8
+      timeout 300
+    exit
+
+    %if% available "urlmap"
+
+    urlmap "default-attempt-stream-all"
+      match "*"
+    exit
+
+    %endif%
+
+    %if% available "compile-options"
+
+    compile-options "default-attempt-stream"
+      xslt-version XSLT10
+      no strict
+      try-stream default-attempt-stream-all
+      stack-size 524288
+      wsi-validate ignore
+      wsdl-validate-body strict
+      wsdl-validate-headers lax
+      wsdl-validate-faults strict
+      no wsdl-wrapped-faults
+      no wsdl-strict-soap-version
+      no xacml-debug
+    exit
+
+    %endif%
+
+    %if% available "parse-settings"
+
+    parse-settings "default"
+      document-type detect
+      document-size 4194304
+      nesting-depth 512
+      width 4096
+      name-length 256
+      value-length 8192
+      unique-prefixes 1024
+      unique-namespaces 1024
+      unique-names 1024
+      number-length 128
+    exit
+
+    %endif%
+
+    %if% available "api-routing"
+
+    api-routing "default-api-route"
+    exit
+
+    %endif%
+
+    %if% available "api-security"
+
+    api-security "default-api-security"
+      title "default-security"
+      correlation-path "$.assembly.execute[5]"
+    exit
+
+    %endif%
+
+    %if% available "api-execute"
+
+    api-execute "default-api-execute"
+    exit
+
+    %endif%
+
+    %if% available "api-result"
+
+    api-result "default-api-result"
+      output "OUTPUT"
+    exit
+
+    %endif%
+
+    %if% available "assembly-html-page"
+
+    assembly-html-page "default-html-page"
+      title "default-html-page"
+      correlation-path "$.assembly.execute[2]"
+      output "message"
+    exit
+
+    %endif%
+
+    %if% available "assembly-rate-limit"
+
+    assembly-rate-limit "default-api-ratelimit"
+      title "default-ratelimit"
+      correlation-path "$.assembly.execute[4]"
+      source plan-default
+    exit
+
+    %endif%
+
+    %if% available "assembly-function"
+
+    assembly-function "default-func-global"
+      assembly default-assembly-global
+    exit
+
+    assembly-function "default-func-main"
+      assembly default-assembly-main
+    exit
+
+    assembly-function "default-func-preflow"
+      assembly default-preflow
+    exit
+
+    %endif%
+
+    %if% available "assembly-function-call"
+
+    assembly-function-call "default-func-call-global"
+      function default-func-global
+    exit
+
+    assembly-function-call "default-func-call-main"
+      function default-func-main
+    exit
+
+    assembly-function-call "default-func-call-preflow"
+      function default-func-preflow
+    exit
+
+    %endif%
+
+    action "ProxyRestApiPolicy_rule_0_results_0"
+      reset
+      type results
+      input "INPUT"
+      parse-settings-result-type none
+      transform-language none
+      no charset-transparency
+      named-inouts default
+      ssl-client-type proxy
+      output-type default
+      no transactional
+      soap-validation body
+      sql-source-type static
+      strip-signature
+      no asynchronous
+      results-mode first-available
+      retry-count 0
+      retry-interval 1000
+      no multiple-outputs
+      iterator-type XPATH
+      timeout 0
+      http-method GET
+      http-method-limited POST
+      http-method-limited2 POST
+    exit
+
+    action "ProxyRestApiPolicy_rule_1_results_2"
+      reset
+      type results
+      input "INPUT"
+      parse-settings-result-type none
+      transform-language none
+      no charset-transparency
+      named-inouts default
+      ssl-client-type proxy
+      output-type default
+      no transactional
+      soap-validation body
+      sql-source-type static
+      strip-signature
+      no asynchronous
+      results-mode first-available
+      retry-count 0
+      retry-interval 1000
+      no multiple-outputs
+      iterator-type XPATH
+      timeout 0
+      http-method GET
+      http-method-limited POST
+      http-method-limited2 POST
+    exit
+
+    rule "ProxyRestApiPolicy_rule_0"
+      reset
+        action "ProxyRestApiPolicy_rule_0_results_0"
+      type request-rule
+      input-filter none
+      output-filter none
+      no non-xml-processing
+      no unprocessed
+    exit
+
+    rule "ProxyRestApiPolicy_rule_1"
+      reset
+        action "ProxyRestApiPolicy_rule_1_results_2"
+      type response-rule
+      input-filter none
+      output-filter none
+      no non-xml-processing
+      no unprocessed
+    exit
+
+    %if% available "api-rule"
+
+    api-rule "default-api-error-rule"
+      no dynamic-actions-mode
+      action default-api-result
+    exit
+
+    api-rule "default-api-rule"
+      no dynamic-actions-mode
+      action default-api-route
+      action default-api-execute
+      action default-api-result
+    exit
+
+    api-rule "default-assembly-finally-global"
+      no dynamic-actions-mode
+      action default-api-result
+    exit
+
+    api-rule "default-assembly-func-rule"
+      no dynamic-actions-mode
+      action default-func-call-global
+    exit
+
+    api-rule "default-assembly-rule-global"
+      no dynamic-actions-mode
+      action default-api-route
+      action default-func-call-preflow
+      action default-func-call-main
+    exit
+
+    api-rule "default-assembly-rule-main"
+      no dynamic-actions-mode
+      action default-api-execute
+    exit
+
+    api-rule "default-empty-rule"
+      no dynamic-actions-mode
+    exit
+
+    api-rule "default-preflow-rule"
+      no dynamic-actions-mode
+      action default-api-cors
+      action default-wsdl
+      action default-html-page
+      action default-api-client-identification
+      action default-api-ratelimit
+      action default-api-security
+    exit
+
+    %endif%
+
+    %if% available "assembly"
+
+    assembly "default-assembly-global"
+      rule default-assembly-rule-global
+      finally default-assembly-finally-global
+    exit
+
+    assembly "default-assembly-main"
+      rule default-assembly-rule-main
+    exit
+
+    assembly "default-empty-assembly"
+      rule default-empty-rule
+    exit
+
+    assembly "default-preflow"
+      rule default-preflow-rule
+    exit
+
+    %endif%
+
+    matching "MatchALL"
+      urlmatch "*"
+      no match-with-pcre
+      no combine-with-or
+    exit
+
+    stylepolicy "default"
+      reset
+      summary "Default Processing Policy"
+      filter "store:///filter-reject-all.xsl"
+      xsldefault "store:///identity.xsl"
+      xquerydefault "store:///reject-all-json.xq"
+    exit
+
+    stylepolicy "ProxyRestApiPolicy"
+      reset
+      filter "store:///filter-reject-all.xsl"
+      xsldefault "store:///identity.xsl"
+      xquerydefault "store:///reject-all-json.xq"
+      match "MatchALL" "ProxyRestApiPolicy_rule_0"
+      match "MatchALL" "ProxyRestApiPolicy_rule_1"
+    exit
+
+    %if% available "metadata"
+
+    metadata "ftp-usercert-metadata"
+      meta-item "variable" "dn" "var://context/INPUT/ftp/tls/client-subject-dn"
+      meta-item "variable" "issuer" "var://context/INPUT/ftp/tls/client-issuer-dn"
+      meta-item "variable" "serial" "var://context/INPUT/ftp/tls/client-serial-number"
+    exit
+
+    metadata "ftp-username-metadata"
+      meta-item "variable" "dn" "var://context/INPUT/ftp/tls/client-subject-dn"
+      meta-item "variable" "issuer" "var://context/INPUT/ftp/tls/client-issuer-dn"
+      meta-item "variable" "password" "var://context/INPUT/ftp/password"
+      meta-item "variable" "serial" "var://context/INPUT/ftp/tls/client-serial-number"
+      meta-item "variable" "username" "var://context/INPUT/ftp/username"
+    exit
+
+    metadata "oauth-scope-metadata"
+      meta-item "variable" "scope" "var://context/INPUT/oauth/verified-scope"
+    exit
+
+    metadata "ssh-password-metadata"
+      meta-item "variable" "password" "var://context/INPUT/ssh/password"
+      meta-item "variable" "publickey" "var://context/INPUT/ssh/publickey"
+      meta-item "variable" "username" "var://context/INPUT/ssh/username"
+    exit
+
+    %endif%
+
+    xmlmgr "default"
+    xsl cache memorysize "default" "2147483647"
+    xsl cache size "default" "256"
+    xsl checksummed cache default
+    no tx-warn "default"
+    memoization "default"
+
+    xml parser limits "default"
+     bytes-scanned 4194304
+     element-depth 512
+     attribute-count 128
+     max-node-size 33554432
+     forbid-external-references
+     external-references forbid
+     max-prefixes 1024
+     max-namespaces 1024
+     max-local-names 60000
+    exit
+
+    documentcache "default"
+     no policy
+     maxdocs "5000"
+     size "0"
+     max-writes "32768"
+    exit
+    no xml validate "default" *
+
+    xml-manager "default"
+      summary "Default XML-Manager"
+      user-agent "default"
+    exit
+
+    xmlmgr "default-attempt-stream"
+    xslconfig "default-attempt-stream" "default-attempt-stream"
+    xsl cache memorysize "default-attempt-stream" "2147483647"
+    xsl cache size "default-attempt-stream" "256"
+    xsl checksummed cache default-attempt-stream
+    no tx-warn "default-attempt-stream"
+    memoization "default-attempt-stream"
+
+    xml parser limits "default-attempt-stream"
+     bytes-scanned 268435456
+     element-depth 512
+     attribute-count 128
+     max-node-size 268435456
+     forbid-external-references
+     external-references forbid
+     max-prefixes 1024
+     max-namespaces 1024
+     max-local-names 60000
+    exit
+
+    documentcache "default-attempt-stream"
+     no policy
+     maxdocs "5000"
+     size "0"
+     max-writes "32768"
+    exit
+    no xml validate "default-attempt-stream" *
+
+    xml-manager "default-attempt-stream"
+      summary "Default Streaming XML-Manager"
+      user-agent "default"
+    exit
+
+    xmlmgr "default-wsrr"
+    xsl cache memorysize "default-wsrr" "2147483647"
+    xsl cache size "default-wsrr" "256"
+    xsl checksummed cache default-wsrr
+    no tx-warn "default-wsrr"
+    memoization "default-wsrr"
+
+    xml parser limits "default-wsrr"
+     bytes-scanned 4194304
+     element-depth 512
+     attribute-count 128
+     max-node-size 33554432
+     forbid-external-references
+     external-references forbid
+     max-prefixes 1024
+     max-namespaces 1024
+     max-local-names 60000
+    exit
+
+    documentcache "default-wsrr"
+     no policy
+     maxdocs "5000"
+     size "0"
+     max-writes "32768"
+    exit
+    no xml validate "default-wsrr" *
+
+    xml-manager "default-wsrr"
+      summary "WSRR XML-Manager"
+      user-agent "default"
+    exit
+
+    %if% available "aaapolicy"
+
+    aaapolicy "iop-mgmt-aaa"
+     extract-identity  "http-basic-auth+client-ssl" "" "" "" "" "login" "off" "" "off" "" "xmlfile" "" "" "" "" "" "proxy" "" "" "" ""
+     authenticate xmlfile "store:///iop-mgmt-aaa.xml" "" "" "" "absolute" "3" "" "" "" "" "" "on" "" "" "1.1" "cn=" "" "" "" "" "" "" "" "" "" "" "" "userPassword" "LTPA2" "" "" "" "" "" "off" "" "1.2" "off" "" "off" "32" "off" "32" "off" "off" "" "" "" "" "0" "off" "60" "proxy" "" "" "" "webagent" "" "" "" "default"
+     map-credentials xmlfile "store:///iop-mgmt-aaa.xml" "" ""
+     extract-resource  "request-uri+request-opname" "" ""
+     map-resource xmlfile "store:///iop-mgmt-aaa.xml" "" "WebSEAL" "" ""
+     authorize xmlfile "store:///iop-mgmt-aaa.xml" "" "" "" "" "" "any" "" "" "absolute" "3" "" "" "" "1.1" "" "" "" "member" "" "" "subtree" "(objectClass=*)" "2.0" "deny-biased" "on" "" "" "custom" "" "" "" "off" "" "T" "" "off" "" "r" "" "0" "tfim" "" "off" "on" "off" "off" "60" "proxy" "" "" "webagent" "" "" "" "default"
+     post-process  "off" "" "off" "XS" "" "off" "" "" "" "off" "on" "0" "off" "2.0" "off" "" "" "off" "Digest" "0" "0" "on" "off" "LTPA2" "600" "" "" "" "off" "http://docs.oasis-open.org/wss/oasis-wss-kerberos-token-profile-1.1#GSS_Kerberosv5_AP_REQ" "off" "" "off" "" "off" "" "off" "1000" "off" "all" "CallTFIM" "hmac-sha1" "sha1" "off" "random" "" "0" "off" "off" "off" "off" "" "off" "assertion" "" "wssec-replace" "authentication+attribute" "bearer" "on" "" "" "" "off" "off" "off" "" "0" "AllHTTP" "" "on" "off" "iv-creds" "0" "off" "" "off" "mc-output" "" "" "" "" "as-is-string" "" "" "proxy" "" "" "off" ""
+      log-allowed
+      log-allowed-level info
+      log-rejected
+      log-rejected-level warn
+      no ping-identity-compatibility
+      dos-valve 3
+      ldap-version v2
+      enforce-actor-role
+      dyn-config none
+    exit
+
+    %endif%
+
+    %if% available "source-https"
+
+    source-https "ProxyApiHTTPSFrontSideHandler"
+      summary "ProxyApiHTTPSFrontSideHandler (HTTPS Handler)"
+      local-address 0.0.0.0
+      port 8000
+      http-client-version HTTP/1.1
+      allowed-features "HTTP-1.0+HTTP-1.1+POST+GET+PUT+QueryString+FragmentIdentifiers"
+      persistent-connections
+      max-persistent-reuse 0
+      no compression
+      no websocket-upgrade
+      websocket-idle-timeout 0
+      max-url-len 16384
+      max-total-header-len 128000
+      max-header-count 0
+      max-header-name-len 0
+      max-header-value-len 0
+      max-querystring-len 0
+      credential-charset protocol
+      ssl-config-type server
+      ssl-server webmgmt-service
+      http2-max-streams 100
+      http2-max-frame 16384
+      no http2-stream-header
+      chunked-encoding
+      header-timeout 30000
+    exit
+
+    %endif%
+
+    %if% available "source-http"
+
+    source-http "ProxyApiHTTPFrontSideHandler"
+      summary "ProxyApiHTTPFrontSideHandler"
+      local-address 0.0.0.0
+      port 8001
+      http-client-version HTTP/1.1
+      allowed-features "HTTP-1.0+HTTP-1.1+POST+GET+PUT+QueryString+FragmentIdentifiers"
+      persistent-connections
+      max-persistent-reuse 0
+      no compression
+      no websocket-upgrade
+      websocket-idle-timeout 0
+      max-url-len 16384
+      max-total-header-len 128000
+      max-header-count 0
+      max-header-name-len 0
+      max-header-value-len 0
+      max-querystring-len 0
+      credential-charset protocol
+      http2-max-streams 100
+      http2-max-frame 16384
+      no http2-stream-header
+      chunked-encoding
+      header-timeout 30000
+    exit
+
+    %endif%
+
+    %if% available "wsm-stylepolicy"
+
+    wsm-stylepolicy "default"
+      summary "Default Processing Policy"
+      filter "store:///filter-reject-all.xsl"
+      xsldefault "store:///identity.xsl"
+    exit
+
+    %endif%
+
+    %if% available "gateway-peering"
+
+    gateway-peering "default-gateway-peering"
+      admin-state disabled
+      local-address 0.0.0.0
+      local-port 16380
+      primary-count 1
+      monitor-port 26380
+      cluster-auto-config
+      no enable-peer-group
+      priority 100
+      enable-ssl
+      persistence memory
+      local-directory local:///
+      log-level internal
+      max-memory 0
+    exit
+
+    %endif%
+
+    %if% available "gateway-peering-manager"
+
+    gateway-peering-manager
+      admin-state disabled
+      apic-gw-service default-gateway-peering
+      rate-limit default-gateway-peering
+      subscription default-gateway-peering
+      apiprobe default-gateway-peering
+      ratelimit-module default-gateway-peering
+    exit
+
+    %endif%
+
+    xml-mgmt
+      admin-state "disabled"
+      local-address "0.0.0.0" "5550"
+      no ws-management
+      slm-peering 10
+      mode "any+soma+v2004+amp+slm+wsrr-subscription"
+      ssl-config-type server
+    exit
+
+    %if% available "policy-attachments"
+
+    policy-attachments "ProxyRestApiMPG"
+      enforcement-mode enforce
+      policy-references
+      sla-enforcement-mode allow-if-no-sla
+    exit
+
+    %endif%
+
+    %if% available "mpgw"
+
+    mpgw "ProxyRestApiMPG"
+      no policy-parameters
+      summary "Sample Flow"
+      priority normal
+      front-protocol ProxyApiHTTPFrontSideHandler
+      xml-manager default
+      ssl-client-type proxy
+      default-param-namespace "http://www.datapower.com/param/config"
+      query-param-namespace "http://www.datapower.com/param/query"
+      backend-url "http://jsonplaceholder.typicode.com/users"
+      propagate-uri
+      monitor-processing-policy terminate-at-first-throttle
+      request-attachments strip
+      response-attachments strip
+      no request-attachments-flow-control
+      no response-attachments-flow-control
+      root-part-not-first-action process-in-order
+      front-attachment-format dynamic
+      back-attachment-format dynamic
+      mime-front-headers
+      mime-back-headers
+      stream-output-to-back buffer-until-verification
+      stream-output-to-front buffer-until-verification
+      max-message-size 0
+      no gateway-parser-limits
+      element-depth 512
+      attribute-count 128
+      max-node-size 33554432
+      forbid-external-references
+      external-references forbid
+      max-prefixes 1024
+      max-namespaces 1024
+      max-local-names 60000
+      attachment-byte-count 2000000000
+      attachment-package-byte-count 0
+      debugger-type internal
+      debug-history 25
+      no flowcontrol
+      soap-schema-url "store:///schemas/soap-envelope.xsd"
+      front-timeout 120
+      back-timeout 120
+      front-persistent-timeout 180
+      back-persistent-timeout 180
+      no include-content-type-encoding
+      persistent-connections
+      no loop-detection
+      host-rewriting
+      no chunked-uploads
+      process-http-errors
+      http-client-ip-label "X-Client-IP"
+      http-global-tranID-label "X-Global-Transaction-ID"
+      inorder-mode ""
+      wsa-mode sync2sync
+      wsa-require-aaa
+      wsa-strip-headers
+      wsa-default-replyto "http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous"
+      wsa-default-faultto "http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous"
+      no wsa-force
+      wsa-genstyle sync
+      wsa-http-async-response-code 204
+      wsa-timeout 120
+      no wsrm
+      wsrm-sequence-expiration 3600
+      wsrm-destination-accept-create-sequence
+      wsrm-destination-maximum-sequences 400
+      no wsrm-destination-inorder
+      wsrm-destination-maximum-inorder-queue-length 10
+      no wsrm-destination-accept-offers
+      no wsrm-request-force
+      no wsrm-response-force
+      no wsrm-source-request-create-sequence
+      no wsrm-source-response-create-sequence
+      no wsrm-source-make-offer
+      no wsrm-source-sequence-ssl
+      wsrm-source-maximum-sequences 400
+      wsrm-source-retransmission-interval 10
+      wsrm-source-exponential-backoff
+      wsrm-source-retransmit-count 4
+      wsrm-source-maximum-queue-length 30
+      wsrm-source-request-ack-count 1
+      wsrm-source-inactivity-close-interval 360
+      no force-policy-exec
+      rewrite-errors
+      delay-errors
+      delay-errors-duration 1000
+      http-server-version HTTP/1.1
+      no http2-required
+      request-type json
+      response-type unprocessed
+      follow-redirects
+      no rewrite-location-header
+      stylepolicy ProxyRestApiPolicy
+      type static-backend
+      no compression
+      no enable-compressed-payload-passthrough
+      no allow-cache-control
+      policy-attachments ProxyRestApiMPG
+      no wsmagent-monitor
+      wsmagent-monitor-capture-mode all-messages
+      no proxy-http-response
+      transaction-timeout 0
+    exit
+
+    %endif%
+
+    rest-mgmt
+      admin-state "enabled"
+      local-address "0.0.0.0" "5554"
+      ssl-config-type server
+    exit
+
+    no statistics
+
+    %if% available "apic-gw-service"
+
+    apic-gw-service
+      admin-state disabled
+      local-address 0.0.0.0
+      local-port 3000
+      api-gw-address 0.0.0.0
+      api-gw-port 9443
+      gateway-peering default-gateway-peering
+      gateway-peering-manager default
+      v5-compatibility-mode
+      slm-mode autounicast
+      no database-mode
+      no log-strip-non-ascii
+    exit
+
+    %endif%
+
+    %if% available "apiprobe-settings"
+
+    apiprobe-settings
+      admin-state disabled
+      max-records 1000
+      expiration 60
+      gateway-peering default-gateway-peering
+    exit
+
+    %endif%
+
+    %if% available "api-security-token-manager"
+
+    api-security-token-manager
+      admin-state disabled
+      gateway-peering default-gateway-peering
+    exit
+
+    %endif%
+
+    %if% available "audit-log-settings"
+
+    audit-log-settings
+      admin-state enabled
+      size 1000
+      rotate 3
+      audit-level standard
+    exit
+
+    %endif%
+
+    %if% available "control-list"
+
+    control-list "default-accept-all"
+      type blocklist
+      no case-insensitive
+    exit
+
+    control-list "default-reject-all"
+      type allowlist
+      no case-insensitive
+    exit
+
+    %endif%
+
+    crypto
+
+    %if% available "sshdomainclientprofile"
+
+    sshdomainclientprofile
+      no ciphers
+      no kex-alg
+      no mac-alg
+      admin-state enabled
+      ciphers CHACHA20-POLY1305_AT_OPENSSH.COM
+      ciphers AES128-CTR
+      ciphers AES192-CTR
+      ciphers AES256-CTR
+      ciphers AES128-GCM_AT_OPENSSH.COM
+      ciphers AES256-GCM_AT_OPENSSH.COM
+      ciphers AES128-CBC
+      ciphers BLOWFISH-CBC
+      ciphers CAST128-CBC
+      ciphers AES192-CBC
+      ciphers AES256-CBC
+      ciphers RIJNDAEL-CBC_AT_LYSATOR.LIU.SE
+      kex-alg CURVE25519-SHA256_AT_LIBSSH.ORG
+      kex-alg ECDH-SHA2-NISTP256
+      kex-alg ECDH-SHA2-NISTP384
+      kex-alg ECDH-SHA2-NISTP521
+      kex-alg DIFFIE-HELLMAN-GROUP-EXCHANGE-SHA256
+      kex-alg DIFFIE-HELLMAN-GROUP14-SHA1
+      mac-alg UMAC-64-ETM_AT_OPENSSH.COM
+      mac-alg UMAC-128-ETM_AT_OPENSSH.COM
+      mac-alg HMAC-SHA2-256-ETM_AT_OPENSSH.COM
+      mac-alg HMAC-SHA2-512-ETM_AT_OPENSSH.COM
+      mac-alg HMAC-SHA1-ETM_AT_OPENSSH.COM
+      mac-alg UMAC-64_AT_OPENSSH.COM
+      mac-alg UMAC-128_AT_OPENSSH.COM
+      mac-alg HMAC-SHA2-256
+      mac-alg HMAC-SHA2-512
+      mac-alg HMAC-SHA1
+      enable-legacy-kex no
+    exit
+
+    %endif%
+
+    exit
+
+    crypto
+
+    %if% available "sshserverprofile"
+
+    sshserverprofile
+      no ciphers
+      no kex-alg
+      no mac-alg
+      admin-state enabled
+      ciphers CHACHA20-POLY1305_AT_OPENSSH.COM
+      ciphers AES128-CTR
+      ciphers AES192-CTR
+      ciphers AES256-CTR
+      ciphers AES128-GCM_AT_OPENSSH.COM
+      ciphers AES256-GCM_AT_OPENSSH.COM
+      ciphers AES128-CBC
+      ciphers BLOWFISH-CBC
+      ciphers CAST128-CBC
+      ciphers AES192-CBC
+      ciphers AES256-CBC
+      ciphers RIJNDAEL-CBC_AT_LYSATOR.LIU.SE
+      kex-alg CURVE25519-SHA256_AT_LIBSSH.ORG
+      kex-alg ECDH-SHA2-NISTP256
+      kex-alg ECDH-SHA2-NISTP384
+      kex-alg ECDH-SHA2-NISTP521
+      kex-alg DIFFIE-HELLMAN-GROUP-EXCHANGE-SHA256
+      kex-alg DIFFIE-HELLMAN-GROUP14-SHA1
+      mac-alg UMAC-64-ETM_AT_OPENSSH.COM
+      mac-alg UMAC-128-ETM_AT_OPENSSH.COM
+      mac-alg HMAC-SHA2-256-ETM_AT_OPENSSH.COM
+      mac-alg HMAC-SHA2-512-ETM_AT_OPENSSH.COM
+      mac-alg HMAC-SHA1-ETM_AT_OPENSSH.COM
+      mac-alg UMAC-64_AT_OPENSSH.COM
+      mac-alg UMAC-128_AT_OPENSSH.COM
+      mac-alg HMAC-SHA2-256
+      mac-alg HMAC-SHA2-512
+      mac-alg HMAC-SHA1
+      enable-legacy-kex no
+      send-preauth-msg no
+    exit
+
+    %endif%
+
+    exit
+
+    %if% available "domain-availability"
+
+    domain-availability
+      admin-state disabled
+    exit
+
+    %endif%
+
+    %if% available "gatewayscript-settings"
+
+    gatewayscript-settings
+      admin-state enabled
+      freeze-prototype
+      untrusted-code-mitigations
+      max-processing-duration 0
+    exit
+
+    %endif%
+
+    %if% available "iop-mgmt"
+
+    iop-mgmt
+      admin-state disabled
+      http-service
+      http-ip-address 0.0.0.0
+      http-port 9990
+      no https-service
+      https-ip-address 0.0.0.0
+      https-port 9991
+      ssl-config-type server
+    exit
+
+    %endif%
+
+    %if% available "luna-ha-settings"
+
+    luna-ha-settings
+      admin-state enabled
+      recovery-mode activeBasic
+      recovery-count 0
+      recovery-interval 60
+    exit
+
+    %endif%
+
+    %if% available "nfs-client"
+
+    nfs-client
+      admin-state disabled
+      mount-refresh-time 10
+    exit
+
+    %endif%
+
+    %if% available "nfs-dynamic-mounts"
+
+    nfs-dynamic-mounts
+      admin-state disabled
+      version 3
+      transport tcp
+      mount-type hard
+      no read-only
+      rsize 4096
+      wsize 4096
+      timeo 7
+      retrans 3
+      inactivity-timeout 900
+      mount-timeout 30
+    exit
+
+    %endif%
+
+    %if% available "quota-enforcement-server"
+
+    quota-enforcement-server
+      admin-state enabled
+      server-port 16379
+      monitor-port 26379
+      no enable-peer-group
+      enable-ssl
+      priority 100
+      strict-mode
+    exit
+
+    %endif%
+
+    %if% available "rate-limit-config"
+
+    rate-limit-config
+      admin-state enabled
+      gateway-peering-manager default
+    exit
+
+    %endif%
+
+    %if% available "secure-mode"
+
+    secure-mode
+      admin-state enabled
+    exit
+
+    %endif%
+
+    %if% available "gatewayscript-remote-debug"
+
+    gatewayscript-remote-debug
+      admin-state disabled
+      ip-address 0.0.0.0
+      port 9229
+    exit
+
+    %endif%
+
+    %if% available "save-config overwrite"
+
+    save-config overwrite
+
+    %endif%
+
+    web-mgmt
+      admin-state "enabled"
+      local-address "0.0.0.0" "9090"
+      save-config-overwrite
+      idle-timeout 0
+      ssl-config-type server
+      ssl-server webmgmt-service
+      no disable-csrf
+      enable-sts
+    exit
+
+    %if% available "slm-action"
+
+    slm-action "notify"
+      type log-only
+      log-priority warn
+    exit
+
+    slm-action "shape"
+      type shape
+      log-priority debug
+    exit
+
+    slm-action "throttle"
+      type reject
+      log-priority debug
+    exit
+
+    %endif%
+
+    %if% available "api-client-identification"
+
+    api-client-identification "default-api-client-identification"
+      title "default-client-identification"
+      correlation-path "$.assembly.execute[3]"
+    exit
+
+    %endif%
+
+    %if% available "api-cors"
+
+    api-cors "default-api-cors"
+      title "default-cors"
+      correlation-path "$.assembly.execute[0]"
+    exit
+
+    %endif%
+
+    %if% available "api-final"
+
+    api-final "default-api-final"
+      output "OUTPUT"
+    exit
+
+    %endif%
+
+    %if% available "assembly-wsdl"
+
+    assembly-wsdl "default-wsdl"
+      title "default-wsdl"
+      correlation-path "$.assembly.execute[1]"
+      output "message"
+    exit
+
+    %endif%
+
+    %if% available "wsm-agent"
+
+    wsm-agent
+      admin-state disabled
+      max-records 3000
+      max-memory 64000
+      capture-mode faults
+      buffer-mode discard
+      no mediation-enforcement-metrics
+      max-payload-size 0
+      push-interval 100
+      push-priority normal
+    exit
+
+    %endif%
+
+    failure-notification
+      admin-state "enabled"
+      no upload-report
+      no use-smtp
+      internal-state
+      no ffdc packet-capture
+      no ffdc event-log
+      no ffdc memory-trace
+      no always-on-startup
+      always-on-shutdown
+      protocol ftp
+      report-history 5
+    exit
+
+    %if% isfile temporary:///backtrace
+    save error-report
+    %endif%
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: default-cfg
+  annotations: 
+    argocd.argoproj.io/sync-wave: "320"
