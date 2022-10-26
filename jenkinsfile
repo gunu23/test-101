@@ -13,9 +13,10 @@ node {
     sh 'oc login --token=sha256~nt9DrIXaErquB8jbFD05z9nnWcoyQzeyBZ_hZAARyHA --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360'
     sh 'oc status'
     sh 'oc project sce-test'
-    sh 'echo install docker'
-    sh 'yum install docker-ce'
-    sh 'yum install docker-ce-cli'
+    // sh 'echo install docker'
+    // sh 'sudo -u root'
+    // sh 'yum install docker-ce'
+    // sh 'yum install docker-ce-cli'
     sh ('sh ./pre-deploy.sh')
     sleep 60
   }
