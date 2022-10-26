@@ -14,13 +14,13 @@ node {
     sh 'oc status'
     sh 'oc project sce-test'
     sh ('sh ./pre-deploy.sh')
-    sleep 120
+    sleep 60
   }
   
   stage('Generate YAML Files') {
     //Execute migrate-backup.sh
     sh ('sh ./migrate-backup.sh validation-flow.zip')
-    sleep 120
+    sleep 100
   }
   
   stage('Deploying YAML Files') {

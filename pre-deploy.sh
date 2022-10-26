@@ -18,6 +18,7 @@
   oc create secret generic datapower-user --from-literal=password=admin
 
 #create secrets for keys and certs - TBD
+  oc create secret generic default-cert --from-file=/path/to/cert --from-file=/path/to/key -n sce-test
 
 #Passing the namespace into migrate-backup.sh - TBD
 
