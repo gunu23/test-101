@@ -13,7 +13,7 @@ node {
   }
   
   stage('OCP Login') {
-    //oc login --token=sha256~ACEhkfBnZ4a6LmAM6RQEGKWCusvJ8QYA4ocDySIjPpk --server=https://c100-e.eu-gb.containers.cloud.ibm.com:31647
+    oc login --token=sha256~ACEhkfBnZ4a6LmAM6RQEGKWCusvJ8QYA4ocDySIjPpk --server=https://c100-e.eu-gb.containers.cloud.ibm.com:31647
     oc status
   }
   
