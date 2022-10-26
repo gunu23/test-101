@@ -20,14 +20,14 @@ node {
     //sh ('sh ./pre-deploy.sh')
     sh ('rm -rf ./validation-flow')
     sh ('rm -rf ./datapower')
-    sleep 60
+    sleep 20
   }
   
   stage('Generate YAML Files') {
     //Execute migrate-backup.sh
     
     sh ('sh ./migrate-backup.sh validation-flow.zip')
-    sleep 100
+    sleep 20
   }
   
   stage('Deploying YAML Files') {

@@ -322,7 +322,7 @@ populate_domains_array
 
 if [[ ! -z "$DOMAIN" ]]; then
     echo "Processing single domain"
-    process_domain $DOMAIN
+    process_domain $domain
 else
     echo "Processing domain archives..."
     for domain in ${DOMAINS[@]}; do

@@ -7,7 +7,7 @@ DOMAINLIST=$@
 
 
 INDVDOMAIN=$(
-  for DOMAIN in {$DOMAINLIST}; do
+  for DOMAIN in $DOMAINLIST; do
     echo "    - name: $DOMAIN"
     echo "      #certs:"
     echo "      #- certType: usrcerts"
