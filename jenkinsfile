@@ -13,13 +13,13 @@ node {
     sh 'oc login --token=sha256~nt9DrIXaErquB8jbFD05z9nnWcoyQzeyBZ_hZAARyHA --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360'
     sh 'oc status'
     sh 'oc new-project test'
-    sh ('pre-deploy.sh')
+    sh ('sh ./pre-deploy.sh')
     sleep 120
   }
   
   stage('Generate YAML Files') {
     //Execute migrate-backup.sh
-    sh ('migrate-backup.sh validation-flow.zip')
+    sh ('sh ./migrate-backup.sh validation-flow.zip')
     sleep 120
   }
   
