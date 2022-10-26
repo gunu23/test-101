@@ -15,7 +15,10 @@
   --docker-server=cp.icr.io
 
 #Create Admin User credential secret - TBD
+  oc create secret generic datapower-user --from-literal=password=admin
 
 #create secrets for keys and certs - TBD
 
 #Passing the namespace into migrate-backup.sh - TBD
+
+#Creating DataPower Gateway Operator
