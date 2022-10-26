@@ -18,8 +18,8 @@ node {
     // sh 'yum install docker-ce'
     // sh 'yum install docker-ce-cli'
     //sh ('sh ./pre-deploy.sh')
-    sh ('rmdir -r ./validation-flow')
-    sh ('rmdir -r ./datapower')
+    sh ('rm -rf ./validation-flow')
+    sh ('rm -rf ./datapower')
     sleep 60
   }
   
