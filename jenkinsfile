@@ -12,7 +12,7 @@ node {
     sh "chmod +x -R ${env.WORKSPACE}"
     sh 'oc login --token=sha256~nt9DrIXaErquB8jbFD05z9nnWcoyQzeyBZ_hZAARyHA --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360'
     sh 'oc status'
-    sh 'oc new-project test'
+    sh 'oc project test'
     sh ('sh ./pre-deploy.sh')
     sleep 120
   }
