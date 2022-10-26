@@ -7,13 +7,13 @@ PORTS=$@
 
 PORTLIST=$(
   local port_split
-  for PORT in {$PORTS}; do
+  for PORT in $PORTS; do
     IFS='-' read -ra port_split <<< "$PORT"
 
-    echo "    - name: $NAME-$port_split[1]";
+    echo "    - name: $NAME-${port_split[1]}";
     echo "      protocol: TCP";
-    echo "      port: $port_split[1]";
-    echo "      targetPort: $port_split[1]";
+    echo "      port: ${port_split[1]}";
+    echo "      targetPort: ${port_split[1]}";
   done;
 )
 
