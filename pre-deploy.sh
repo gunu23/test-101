@@ -9,9 +9,9 @@
   oc project sce-test
 
 #create an IBM Entitlement Key - TBD
-  oc create secret docker-registry ibm-entitlement-key -n tools \
+  oc create secret docker-registry ibm-entitlement-key -n sce-test \
   --docker-username=cp \
-  --docker-password="$TOKEN" \
+  --docker-password="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MzMwMjk0NjgsImp0aSI6Ijk1MWMyNjk2OGI2NjQ0ZTk5ZGU3YjBiOTg3YjdhNjkzIn0.oEvOsmZ5luC7GnBk-arxGCgqriPCxRpG6DwluQwUGH4" \
   --docker-server=cp.icr.io
 
 #Create Admin User credential secret - TBD
