@@ -19,6 +19,7 @@ node {
   
   stage('Generate YAML Files') {
     //Execute migrate-backup.sh
+    sh ('rmdir -f -r ./validation-flow')
     sh ('sh ./migrate-backup.sh validation-flow.zip')
     sleep 100
   }
