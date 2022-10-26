@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<xsd:schema 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:dpcr="http://www.datapower.com/ConformanceAnalysis"
+    targetNamespace="http://www.datapower.com/ConformanceAnalysis">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+     Schema for config-checker report.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:complexType name="ConformanceAnalysis">
+      <xsd:sequence>
+          <xsd:element name="ConformanceAnalysis" minOccurs="1" maxOccurs="1">
+              <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="Report" minOccurs="0" maxOccurs="unbounded">
+                      <xsd:complexType>
+                        <xsd:sequence>
+                          <xsd:element name="Location">
+                            <xsd:complexType>
+                              <xsd:attribute name="object-type" type="xsd:string"/>
+                              <xsd:attribute name="object-name" type="xsd:string"/>
+                            </xsd:complexType>
+                          </xsd:element>
+                          <xsd:group ref="dpcr:parameterConstraints" minOccurs="0"/>
+                          <xsd:element name="Details" type="xsd:string"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="type">
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:enumeration value="Conformance"/>
+                              <xsd:enumeration value="Miscellaneous"/>
+                              <xsd:enumeration value="ParseError"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:attribute>
+                        <xsd:attribute name="severity">
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:enumeration value="Fail"/>
+                              <xsd:enumeration value="Warn"/>
+                              <xsd:enumeration value="Info"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:attribute>
+                        <xsd:attribute name="specification" type="xsd:string"/>
+                        <xsd:attribute name="requirement" type="xsd:string"/>
+                      </xsd:complexType> 
+                    </xsd:element>
+                  </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+  
+    <xsd:group name="parameterConstraints">
+        <xsd:sequence>
+            <xsd:element name="ParameterName" type="xsd:string"/>
+            <xsd:element name="PermittedSetting" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="ActualSetting" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:group>
+
+</xsd:schema>

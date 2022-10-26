@@ -1,0 +1,3080 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM WebSphere DataPower Appliances
+Copyright IBM Corporation 2007,2015. All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+    -->
+<log-catalog xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="log-catalog.xsd">
+  <type name="xquery" id="49">
+    <entry name="err_xqst0090" id="1">
+      <code>0x086200001</code>
+      <text>[XQST0090] Well-formedness constraint: Legal Character, Characters referred to using character references must match the production for Char.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0090.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0045" id="2">
+      <code>0x086200002</code>
+      <text>[XQST0045] It is a static error if the function name in a function declaration is in one of the following namespaces: http://www.w3.org/XML/1998/namespace, http://www.w3.org/2001/XMLSchema, http://www.w3.org/2001/XMLSchema-instance, http://www.w3.org/2005/xpath-functions. The function "%s" is in error.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0045.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0060" id="3">
+      <code>0x086200003</code>
+      <text>[XQST0060] It is a static error if the name of a function in a function declaration is not in a namespace (expanded QName has a null namespace URI). The function "%s" is in error.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0060.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0022" id="4">
+      <code>0x086200004</code>
+      <text>[XQST0022] It is a static error if the value of a namespace declaration attribute is not a URILiteral.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0022.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0034" id="5">
+      <code>0x086200005</code>
+      <text>[XQST0034] It is an error to define more than one function with the same name, arity and import precedence. Function "%s" has already been defined in this scope.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0034.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0039" id="6">
+      <code>0x086200006</code>
+      <text>[XQST0039] The function "%1$s" has more than one parameter with the name "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:XQST0039.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0031" id="7">
+      <code>0x086200007</code>
+      <text>[XQST0031] The version "%s" specified in the version declaration is not supported.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0031.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0087" id="8">
+      <code>0x086200008</code>
+      <text>[XQST0087] The encoding name "%s" specified in the version declaration is not valid.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0087.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0070" id="9">
+      <code>0x086200009</code>
+      <text>[XQST0070] The processor has encountered an incorrect namespace declaration. Either a namespace URI is bound to the prefix 'xmlns', a namespace URI other than 'http://www.w3.org/XML/1998/namespace' is bound to the prefix 'xml', or a prefix other than 'xml' is bound to the namespace URI 'http://www.w3.org/XML/1998/namespace'.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0070.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0070_2" id="10">
+      <code>0x08620000a</code>
+      <text>[XQST0070] The namespace prefix specified in a schema import, module import or module declaration must not be 'xml' or 'xmlns'.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0070.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0071" id="11">
+      <code>0x08620000b</code>
+      <text>[XQST0071] A static error is raised if the namespace declaration attributes of a direct element constructor do not have distinct names.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0071.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0033" id="12">
+      <code>0x08620000c</code>
+      <text>[XQST0033] The query contains multiple bindings for the same namespace prefix: "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XQST0033.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0016" id="13">
+      <code>0x08620000d</code>
+      <text>[XQST0016] The processor does not support module declarations or imports.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0016.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0009" id="14">
+      <code>0x08620000e</code>
+      <text>[XQST0009] The processor does not support schema import.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0009.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0075" id="15">
+      <code>0x08620000f</code>
+      <text>[XQST0075] The processor does not support schema validation.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0075.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0066" id="16">
+      <code>0x086200010</code>
+      <text>[XQST0066] A static error is raised if a prolog contains more than one default element/type namespace declaration, or more than one default function namespace declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0066.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0064" id="17">
+      <code>0x086200011</code>
+      <text>[XQDY0064] The value of the name expression in the computed processing instruction constructor is equal to 'XML' (in any combination of upper and lower case).</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0064.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0064_2" id="18">
+      <code>0x086200012</code>
+      <text>[XQDY0064] The value of the name expression in the computed processing instruction constructor is equal to 'XML' (in any combination of upper and lower case).</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0064.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0040" id="19">
+      <code>0x086200013</code>
+      <text>[XQST0040] The attributes specified by a direct element constructor do not have distinct expanded QNames.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0040.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0068" id="20">
+      <code>0x086200014</code>
+      <text>[XQST0068] The Prolog section of the query contains more than one boundary-space declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0068.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0049" id="21">
+      <code>0x086200015</code>
+      <text>[XQST0049] Two or more variables declared in prolog are having the same QName "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XQST0049.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0067" id="22">
+      <code>0x086200016</code>
+      <text>[XQST0067] The Prolog section of the query contains more than one construction declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0067.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0038" id="23">
+      <code>0x086200017</code>
+      <text>[XQST0038] The Prolog section of the query contains more than one default collation declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0038.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0032" id="24">
+      <code>0x086200018</code>
+      <text>[XQST0032] The Prolog section of the query contains more than one base URI declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0032.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0065" id="25">
+      <code>0x086200019</code>
+      <text>[XQST0065] The Prolog section of the query contains more than one ordering mode declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0065.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0069" id="26">
+      <code>0x08620001a</code>
+      <text>[XQST0069] The Prolog section of the query contains more than one empty order declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0069.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0058" id="27">
+      <code>0x08620001b</code>
+      <text>[XQST0058] The query contains multiple schema imports with the same target namespace "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XQST0058.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0057" id="28">
+      <code>0x08620001c</code>
+      <text>[XQST0057] The query contains a schema import binding a namespace prefix "%s" to a zero-length string target namespace.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0057.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0059" id="29">
+      <code>0x08620001d</code>
+      <text>[XQST0059] Failed to locate a schema for the target namespace "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XQST0059.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0059_2" id="30">
+      <code>0x08620001e</code>
+      <text>[XQST0059] Failed to locate a module for the target namespace "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XQST0059.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0088" id="31">
+      <code>0x08620001f</code>
+      <text>[XQST0088] The query contains a module import or module declaration binding the namespace prefix "%s" to a target namespace of zero length.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0088.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0047" id="32">
+      <code>0x086200020</code>
+      <text>[XQST0047] The query prolog contains more than one module import with the same target namespace"%s".</text>
+      <summary />
+      <description>This is XQuery error err:XQST0047.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0089" id="33">
+      <code>0x086200021</code>
+      <text>[XQST0089] A variable bound in a for clause of a FLWOR expression and its associated positional variable must have distinct expanded QNames. The variables named "%s" are not distinct.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0089.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0079" id="34">
+      <code>0x086200022</code>
+      <text>[XQST0079] The extension expression contains neither a pragma that is recognized by this implementation nor an expression enclosed in curly braces.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0079.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0054" id="35">
+      <code>0x086200023</code>
+      <text>[XQST0054] Variable "%s" depends on itself.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0054.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0035" id="36">
+      <code>0x086200024</code>
+      <text>[XQST0035] Two imported schema components both define the same name in the same symbol space and in the same scope: %s</text>
+      <summary />
+      <description>This is XQuery error err:XQST0035.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0012" id="37">
+      <code>0x086200025</code>
+      <text>[XQST0012] Schemas imported by a Prolog do not satisfy the conditions for schema validity specified by XML Schema Part 1: %s</text>
+      <summary />
+      <description>This is XQuery error err:XQST0012.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqty0030" id="38">
+      <code>0x086200026</code>
+      <text>[XQTY0030] The 'operand node' passed to the 'validate' expression must evaluate to exactly one document or element node.</text>
+      <summary />
+      <description>This is XQuery error err:XQTY0030.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqty0030_2" id="39">
+      <code>0x086200027</code>
+      <text>[XQTY0030] The 'operand node' passed to the 'validate' expression must evaluate to exactly one document or element node.</text>
+      <summary />
+      <description>This is XQuery error err:XQTY0030.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0048" id="40">
+      <code>0x086200028</code>
+      <text>[XQST0048] The namespace of the variable "%1$s" does not match the target namespace "%2$s" of the library module.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0048.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0048_2" id="41">
+      <code>0x086200029</code>
+      <text>[XQST0048] The namespace of the function "%1$s" does not match the target namespace "%2$s" of the library module.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0048.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0036" id="42">
+      <code>0x08620002a</code>
+      <text>[XQST0036] The schema type "%s" is not in the in-scope schema types but the module uses a variable or function from an imported module that refers to this type in its declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0036.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0036_2" id="43">
+      <code>0x08620002b</code>
+      <text>[XQST0036] The schema element "%s" is not in the in-scope element declarations but the module uses a variable or function from an imported module that refers to this element in its declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0036.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0036_3" id="44">
+      <code>0x08620002c</code>
+      <text>[XQST0036] The schema attribute "%s" is not in the in-scope attribute declarations but the module uses a variable or function from an imported module that refers to this attribute in its declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0036.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0093" id="45">
+      <code>0x08620002d</code>
+      <text>[XQST0093] It is an error for a module to depend on itself through some chain of module dependencies. The declaration "%s" is involved in such a chain of dependencies.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0093.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0026" id="46">
+      <code>0x08620002e</code>
+      <text>[XQDY0026] The result of the content expression of a computed processing instruction constructor contains the string '?&gt;'.</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0026.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0041" id="47">
+      <code>0x08620002f</code>
+      <text>[XQDY0041] The value of the name expression in a computed processing instruction constructor cannot be cast to the type xs:NCName.</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0041.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0074" id="48">
+      <code>0x086200030</code>
+      <text>[XQDY0074] The value of the name expression in a computed element or attribute constructor cannot be converted to an expanded QName.</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0074.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0072" id="49">
+      <code>0x086200031</code>
+      <text>[XQDY0072] The result of the content expression of a computed comment constructor contains two adjacent hyphens or ends with a hyphen.</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0072.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0044" id="50">
+      <code>0x086200032</code>
+      <text>[XQDY0044] The node name constructed by a computed attribute constructor is in the namespace http://www.w3.org/2000/xmlns/ (corresponding to namespace prefix xmlns), or is in no namespace and has local name xmlns.</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0044.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqty0024" id="51">
+      <code>0x086200033</code>
+      <text>[XQTY0024] The result sequence used to construct the content of an element node contains a namespace node or attribute node named "%s" that is preceded in the sequence by a node that is neither a namespace node nor an attribute node. Attribute and namespace nodes must precede all other kinds of nodes in the sequence used to construct the content of an element.</text>
+      <summary />
+      <description>This is XQuery error err:XQTY0024.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0025" id="52">
+      <code>0x086200034</code>
+      <text>[XQDY0025] The result sequence used to construct the content of an element node contains a duplicate attribute named "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0025.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0061" id="53">
+      <code>0x086200035</code>
+      <text>[XQDY0061] The document node to be validated must contain exactly one element node and zero or more comment and processing instruction nodes.</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0061.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0084" id="54">
+      <code>0x086200036</code>
+      <text>[XQDY0084] The "validate" expression has the mode "strict", and there is no matching top-level declaration in the schema with the name "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0084.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0027" id="55">
+      <code>0x086200037</code>
+      <text>[XQDY0027] The 'validate' expression has the mode 'strict' and schema validity assessment concludes that the validity of the element is invalid or unknown, or the 'validate' expression has the mode 'lax' and schema validity assessment concludes that the validity of the element is invalid.</text>
+      <summary />
+      <description>This is XQuery error err:XQDY0027.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0085" id="56">
+      <code>0x086200038</code>
+      <text>[XQST0085] It is a static error if the namespace URI in a namespace declaration attribute is a zero-length string, since this implementation does not support [XML Names 1.1].</text>
+      <summary />
+      <description>This is XQuery error err:XQST0085.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0076" id="57">
+      <code>0x086200039</code>
+      <text>[XQST0076] Static error: An order by clause of a FLWOR expression specifies the collation "%s" which is not present in the statically known collations.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0076.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_27" id="58">
+      <code>0x08620003a</code>
+      <text>[XPTY0004] An order by spec in a FLWOR expression, after atomization, must result in an atomic value or an empty sequence. See section 3.8.3 of the XQuery 1.0 spec.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0055" id="59">
+      <code>0x08620003b</code>
+      <text>[XQST0055] It is a static error if a Prolog contains more than one copy-namespaces declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0055.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqty0086" id="60">
+      <code>0x08620003c</code>
+      <text>[XQTY0086] It is a type error if the typed value of a copied element or attribute node is namespace-sensitive when construction mode is preserve and copy-namespaces mode is no-preserve.</text>
+      <summary />
+      <description>This is XQuery error err:XQTY0086.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqdy0096" id="61">
+      <code>0x08620003d</code>
+      <text>[XQDY0096] The node-name of a node constructed by a computed element constructor has a prefix or URI which is in conflict with a prefix or URL reserved by XML.</text>
+      <summary />
+      <description>This is XQuery error XQDY0096.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0013" id="62">
+      <code>0x08620003e</code>
+      <text>[XQST0013] Pragma content is invalid.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0013.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0046" id="63">
+      <code>0x08620003f</code>
+      <text>[XQST0046] The value of a URILiteral is of nonzero length and is not in the lexical space of xs:anyURI.</text>
+      <summary />
+      <description>This is XQuery error err:XQST0046.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xqst0073" id="64">
+      <code>0x086200040</code>
+      <text>[XQST0073] (Error code invoked but not used by XQuery specification).</text>
+      <summary />
+      <description>This is XQuery error err:XQST0073.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+  </type>
+  <type name="xpath2" id="50">
+    <entry name="err_xpst0008" id="1">
+      <code>0x086400001</code>
+      <text>[XPST0008] It is an error to refer to a variable or parameter that is not defined. Variable or parameter "%s" is undefined.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0008.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0008_2" id="2">
+      <code>0x086400002</code>
+      <text>[XPST0008] It is an error to use a name with an undeclared namespace prefix. The namespace prefix "%s" is not declared.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0008.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0008_3" id="3">
+      <code>0x086400003</code>
+      <text>[XPST0008] A sequence type expression refers to a schema attribute "%s" that is not defined in the in-scope attribute declarations.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0008.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0008_4" id="4">
+      <code>0x086400004</code>
+      <text>[XPST0008] A sequence type expression refers to a schema element "%s" that is not defined in the in-scope element declarations.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0008.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0008_5" id="5">
+      <code>0x086400005</code>
+      <text>[XPST0008] Expression "%1$s" refers to variable name "%2$s" that is not defined in the static context of use-when.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0008.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0008_6" id="6">
+      <code>0x086400006</code>
+      <text>[XPST0008] No binding was found for the external variable "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0008.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003" id="7">
+      <code>0x086400007</code>
+      <text>[XPST0003] Parsing XPath expression "%s" has caused an error. The XPath expression is syntactically incorrect.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_2" id="8">
+      <code>0x086400008</code>
+      <text>[XPST0003] The XPath expression "%s" is syntactically invalid.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_3" id="9">
+      <code>0x086400009</code>
+      <text>[XPST0003] Multiple comparisons are illegal in XPath 2.0</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_4" id="10">
+      <code>0x08640000a</code>
+      <text>[XPST0003] The name "%1$s" used in the end tag of a direct element constructor must exactly match the name used in the corresponding start tag "%2$s", including its prefix or absence of a prefix.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_5" id="11">
+      <code>0x08640000b</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10; Cause: "%s"</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004" id="12">
+      <code>0x08640000c</code>
+      <text>[XPTY0004] The XPath expression "%s" has a type that is not appropriate for the context in which it occurs.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_2" id="13">
+      <code>0x08640000d</code>
+      <text>[XPTY0004] "%s" is not a valid kind test subtype.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_3" id="14">
+      <code>0x08640000e</code>
+      <text>[XPTY0004] An error occurred while checking the type of the expression "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_4" id="15">
+      <code>0x08640000f</code>
+      <text>[XPTY0004] An error occurred while checking the type of an expression at an unknown location.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_5" id="16">
+      <code>0x086400010</code>
+      <text>[XPTY0004] It is a type error if, during the static analysis phase, an expression is found to have a static type that is not appropriate for the context in which the expression occurs.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_6" id="17">
+      <code>0x086400011</code>
+      <text>[XPTY0004] For function "%1$s", the static type of the argument "%2$s" at index %3$s does not match the expected type "%4$s".</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_7" id="18">
+      <code>0x086400012</code>
+      <text>[XPTY0004] The second operand in the treat expression has type "%s", which is not a valid sequence type.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_8" id="19">
+      <code>0x086400013</code>
+      <text>[XPTY0004] The type name "%s" appeared in an element test, but the name is not in the in-scope schema types.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_9" id="20">
+      <code>0x086400014</code>
+      <text>[XPTY0004] The type name "%s" appeared in an attribute test, but the name is not in the in-scope schema types.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_10" id="21">
+      <code>0x086400015</code>
+      <text>[XPTY0004] A cast as expression or constructor function specified xs:NOTATION as the target type. The type xs:NOTATION is not instantiable.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_11" id="22">
+      <code>0x086400016</code>
+      <text>[XPTY0004] The arguments for operator: "%s" are not type compatible or are not valid types for the operator.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_12" id="23">
+      <code>0x086400017</code>
+      <text>[XPTY0004] Conversion from type "%1$s" to type "%2$s" is not supported.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_13" id="24">
+      <code>0x086400018</code>
+      <text>[XPTY0004] The expected type of the argument is "%s", but the value specified does not match that type. It is a type error if a value does not match a required type as specified by the SequenceType matching rules.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_14" id="25">
+      <code>0x086400019</code>
+      <text>[XPTY0004] The argument was expected to be a sequence containing one item, but the value is a sequence containing no items or more than one item. It is a type error if a value does not match a required type as specified by the SequenceType matching rules.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_15" id="26">
+      <code>0x08640001a</code>
+      <text>[XPTY0004] The argument was expected to be a sequence containing no items or one item, but the value is a sequence containing more than one item. It is a type error if a value does not match a required type as specified by the SequenceType matching rules.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_16" id="27">
+      <code>0x08640001b</code>
+      <text>[XPTY0004] The operand types are not compatible for the %s operator.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_17" id="28">
+      <code>0x08640001c</code>
+      <text>[XPTY0004] One or more operands of the %s operator is a sequence that contains more than one item.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_18" id="29">
+      <code>0x08640001d</code>
+      <text>[XPTY0004] A sequence of more than one atomic value cannot be cast to type "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_19" id="30">
+      <code>0x08640001e</code>
+      <text>[XPTY0004] An empty sequence cannot be cast to type "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_20" id="31">
+      <code>0x08640001f</code>
+      <text>[XPTY0004] An expression is found to have a static type that is not appropriate for the context in which the expression occurs, or during the dynamic evaluation phase, the dynamic type of a value does not match a required type as specified by the matching rules.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_21" id="32">
+      <code>0x086400020</code>
+      <text>[XPTY0004] The evaluated argument cannot be cast as an xs:QName.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_22" id="33">
+      <code>0x086400021</code>
+      <text>[XPTY0004] The value of the name expression in the computed processing instruction is not a single atomic value of type xs:NCName, xs:string, or xs:untypedAtomic.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_23" id="34">
+      <code>0x086400022</code>
+      <text>[XPTY0004] The value of the name expression in the computed element instruction is not a single atomic value of type xs:NCName, xs:string, or xs:untypedAtomic.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_24" id="35">
+      <code>0x086400023</code>
+      <text>[XPTY0004] The value of the name expression in the computed attribute constructor is not a single atomic value of type xs:NCName, xs:string, or xs:untypedAtomic.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_25" id="36">
+      <code>0x086400024</code>
+      <text>[XPTY0004] The value of the external variable "%s" returned by the expression does not match the declared type.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_26" id="37">
+      <code>0x086400025</code>
+      <text>[XPTY0004] The item "%1$s" must be a node when used as an argument to the "%2$s" operator.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0081" id="38">
+      <code>0x086400026</code>
+      <text>[XPST0081] A QName used in a query contains a namespace prefix that cannot be expanded into a namespace URI by using the statically known namespaces. Prefix "%s" is undefined.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0081.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0081_2" id="39">
+      <code>0x086400027</code>
+      <text>[XPST0081] A QName used in a query contains a namespace prefix that cannot be expanded into a namespace URI by using the statically known namespaces.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0081.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0017" id="40">
+      <code>0x086400028</code>
+      <text>[XPST0017] The processor is unable to resolve the call to function "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0017.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0017_2" id="41">
+      <code>0x086400029</code>
+      <text>[XPST0017] The function "%1$s" with arity %2$s is not in the in-scope function declarations.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0017.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0017_3" id="42">
+      <code>0x08640002a</code>
+      <text>[XPST0017] No constructor function exists for xs:NOTATION.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0017.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpdy0050" id="43">
+      <code>0x08640002b</code>
+      <text>[XPDY0050] The type of the first operand of a treat expression is "%1$s", which does not match the specified sequence type of "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:XPDY0050.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpdy0050_2" id="44">
+      <code>0x08640002c</code>
+      <text>[XPDY0050] The operand of a treat expression does not match the sequence type specified by the treat expression.</text>
+      <summary />
+      <description>This is XQuery error err:XPDY0050.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpdy0050_3" id="45">
+      <code>0x08640002d</code>
+      <text>[XPDY0050] A path expression begins with '/' or '//' but the context node is not in a tree that is rooted at a document node.</text>
+      <summary />
+      <description>This is XQuery error err:XPDY0050.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0051" id="46">
+      <code>0x08640002e</code>
+      <text>[XPST0051] A sequence type expression refers to a schema type name "%s" that is not defined in the in-scope schema types or is not atomic.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0051.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpdy0002" id="47">
+      <code>0x08640002f</code>
+      <text>[XPDY0002] Context item is undefined in the dynamic context of use-when expressions: %s</text>
+      <summary />
+      <description>This is XQuery error err:XPDY0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpdy0002_2" id="48">
+      <code>0x086400030</code>
+      <text>[XPDY0002] Evaluation of the XPath function %s failed because the context item is undefined.</text>
+      <summary />
+      <description>This is XQuery error err:XPDY0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpdy0002_3" id="49">
+      <code>0x086400031</code>
+      <text>[XPDY0002] Evaluation of the context item expression '.' or an expression that implicitly refers to the context item failed because the context item is undefined.</text>
+      <summary />
+      <description>This is XQuery error err:XPDY0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0080" id="50">
+      <code>0x086400032</code>
+      <text>[XPST0080] The target type of a cast or castable expression is xs:NOTATION or xs:anyAtomicType.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0080.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0018" id="51">
+      <code>0x086400033</code>
+      <text>[XPTY0018] The result of the last step in a path expression contains both nodes and atomic values.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0018.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0020" id="52">
+      <code>0x086400034</code>
+      <text>[XPTY0020] The context item is not a node.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0002" id="53">
+      <code>0x086400035</code>
+      <text>[XPTY0002] No binding was found for the external variable "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0019" id="54">
+      <code>0x086400036</code>
+      <text>[XPTY0019] The result of a step in the path expression contains an atomic value.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0019.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_55" id="55">
+      <code>0x086400037</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10; Type: %1$s &#10; Cause: "%2$s"</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_58" id="58">
+      <code>0x08640003a</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Column %1$d, Error detected at token: %2$s&#10;Cannot match to any predicted input.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_67" id="67">
+      <code>0x086400043</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Column %1$d, Error detected at token: %2$s&#10;Syntax error.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_69" id="69">
+      <code>0x086400045</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Column %1$d, Error detected at token: %2$s&#10;Mismatched token exception.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_70" id="70">
+      <code>0x086400046</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Column %1$d, Error detected at token: %2$s&#10;Character in a set was not found.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_71" id="71">
+      <code>0x086400047</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Column %1$d, Error detected at token: %2$s&#10;A rule predicting at least n elements found less than that.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_72" id="72">
+      <code>0x086400048</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Column %1$d, Error detected at token: %2$s&#10;Extraneous token.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_73" id="73">
+      <code>0x086400049</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Column %1$d, Error detected at token: %2$s&#10;Missing token.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_76" id="76">
+      <code>0x08640004c</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Column %1$d, Error detected at token: %2$s&#10;Expected %3$s</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_85" id="85">
+      <code>0x086400055</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in a start tag.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_86" id="86">
+      <code>0x086400056</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in element content.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_87" id="87">
+      <code>0x086400057</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in an end tag.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_88" id="88">
+      <code>0x086400058</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in an XML comment.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_89" id="89">
+      <code>0x086400059</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in an XQuery comment.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_90" id="90">
+      <code>0x08640005a</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in processing instruction.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_91" id="91">
+      <code>0x08640005b</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in processing instruction content.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_92" id="92">
+      <code>0x08640005c</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in a CData section.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_93" id="93">
+      <code>0x08640005d</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in an attribute value started with a quote.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_94" id="94">
+      <code>0x08640005e</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in an attribute value started with an apostrophe.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_95" id="95">
+      <code>0x08640005f</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in pragma contents.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_96" id="96">
+      <code>0x086400060</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in pragma contents (waiting for space or "#)").</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_97" id="97">
+      <code>0x086400061</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in pragma.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_98" id="98">
+      <code>0x086400062</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in string started by a quote.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_99" id="99">
+      <code>0x086400063</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %d&#10;Premature EOF in string started by an apostrophe.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_100" id="100">
+      <code>0x086400064</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;Delimiter required after literal of type integer, before next non-delimiting token.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_101" id="101">
+      <code>0x086400065</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;Delimiter required after literal of type decimal, before next non-delimiting token.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_102" id="102">
+      <code>0x086400066</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;Delimiter required after literal of type double, before next non-delimiting token.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_103" id="103">
+      <code>0x086400067</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;"--" not allowed in XML Comment.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_104" id="104">
+      <code>0x086400068</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;Given the ampersand in apostrophe delimited attribute content, expected a character reference. Ampersands can be escaped by using "&amp;amp;".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_105" id="105">
+      <code>0x086400069</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;Given the ampersand in quote delimited attribute content, expected a character reference. Ampersands can be escaped by using "&amp;amp;".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_106" id="106">
+      <code>0x08640006a</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;The "}" character is not allowed in attribute content, without being escaped. It can be escaped by using "}}".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_107" id="107">
+      <code>0x08640006b</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;The "&lt;" character is not allowed in attribute content, without being escaped. It can be escaped by using "&amp;lt;".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_108" id="108">
+      <code>0x08640006c</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;Given the ampersand in element content, expected a character reference. Ampersands can be escaped by using "&amp;amp;".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_109" id="109">
+      <code>0x08640006d</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;The "}" character is not allowed in element content, without being escaped. It can be escaped by using "}}".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_110" id="110">
+      <code>0x08640006e</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;Given the ampersand in apostrophe delimited string content, expected a character reference. Ampersands can be escaped by using "&amp;amp;".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_111" id="111">
+      <code>0x08640006f</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery. &#10;Lexical analysis failed at column %1$d, Error detected at token: %2$s&#10;Given the ampersand in quote delimited string content, expected a character reference. Ampersands can be escaped by using "&amp;amp;".</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0003_112" id="112">
+      <code>0x086400070</code>
+      <text>[XPST0003] An expression is not a valid instance of the grammar defined for XQuery.&#10;Lexical analysis failed at column %1$d, Error detected at token: "%2$s"&#10;Character not recognized.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpst0010" id="113">
+      <code>0x086400071</code>
+      <text>[XPST0010] Axis not supported in this implementation.</text>
+      <summary />
+      <description>This is XQuery error err:XPST0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_28" id="114">
+      <code>0x086400072</code>
+      <text>[XPTY0004] The right argument of 'is' must be a node.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_29" id="115">
+      <code>0x086400073</code>
+      <text>[XPTY0004] The left argument of 'is' must be a node.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_30" id="116">
+      <code>0x086400074</code>
+      <text>[XPTY0004] The right argument of '&lt;&lt;' must be a node.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_31" id="117">
+      <code>0x086400075</code>
+      <text>[XPTY0004] The left argument of '&lt;&lt;' must be a node.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_32" id="118">
+      <code>0x086400076</code>
+      <text>[XPTY0004] Unary plus must be applied to a number.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_33" id="119">
+      <code>0x086400077</code>
+      <text>[XPTY0004] Unary minus must be applied to a number.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_34" id="120">
+      <code>0x086400078</code>
+      <text>[XPTY0004] fn:abs applied to non-numeric argument: %s</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_35" id="121">
+      <code>0x086400079</code>
+      <text>[XPTY0004] fn:ceiling applied to non-numeric argument: %s</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_36" id="122">
+      <code>0x08640007a</code>
+      <text>[XPTY0004] fn:floor applied to non-numeric argument: %s</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_37" id="123">
+      <code>0x08640007b</code>
+      <text>[XPTY0004] fn:round applied to non-numeric argument: %s</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_38" id="124">
+      <code>0x08640007c</code>
+      <text>[XPTY0004] fn:round-half-to-even function applied to non-numeric argument: %s</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_39" id="125">
+      <code>0x08640007d</code>
+      <text>[XPTY0004] The right argument of '&gt;&gt;' must be a node.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_40" id="126">
+      <code>0x08640007e</code>
+      <text>[XPTY0004] The left argument of '&gt;&gt;' must be a node.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_41" id="127">
+      <code>0x08640007f</code>
+      <text>[XPTY0004] Dynamically detected type error.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xpty0004_42" id="128">
+      <code>0x086400080</code>
+      <text>[XPTY0004] Caste from type "%1$s" to type "%2$s" is not allowed.</text>
+      <summary />
+      <description>This is XQuery error err:XPTY0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+  </type>
+  <type name="xslt2" id="51">
+    <entry name="err_xtse0660" id="1">
+      <code>0x086600001</code>
+      <text>[XTSE0660] It is an error to define more than one template with the same name and the same import precedence. Template "%s" is already defined in this stylesheet.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0660.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0770" id="2">
+      <code>0x086600002</code>
+      <text>[XTSE0770] It is an error to define more than one function with the same name, arity, and import precedence. Function "%s" has already been defined in this scope.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0770.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010" id="3">
+      <code>0x086600003</code>
+      <text>[XTSE0010] The required attribute %s is missing.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_2" id="4">
+      <code>0x086600004</code>
+      <text>[XTSE0010] It is an error to define attribute "%s" outside of an element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_3" id="5">
+      <code>0x086600005</code>
+      <text>[XTSE0010] At least one xsl:when element is required in an xsl:choose element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_4" id="6">
+      <code>0x086600006</code>
+      <text>[XTSE0010] It is an error to define more than one xsl:otherwise element in an xsl:choose element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_5" id="7">
+      <code>0x086600007</code>
+      <text>[XTSE0010] An xsl:otherwise element can only be used within xsl:choose element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_6" id="8">
+      <code>0x086600008</code>
+      <text>[XTSE0010] An xsl:when element can only be used within an xsl:choose element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_7" id="9">
+      <code>0x086600009</code>
+      <text>[XTSE0010] An xsl:when element must be used before the xsl:otherwise element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_8" id="10">
+      <code>0x08660000a</code>
+      <text>[XTSE0010] An xsl:attribute-set element is missing the required name attribute.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_9" id="11">
+      <code>0x08660000b</code>
+      <text>[XTSE0010] An illegal child element "%s" is specified for xsl:attribute-set.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_10" id="12">
+      <code>0x08660000c</code>
+      <text>[XTSE0010] XSL element "%s" is not recognized as part of the XSL syntax.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_11" id="13">
+      <code>0x08660000d</code>
+      <text>[XTSE0010] xsl:sort can only be used within xsl:for-each or xsl:apply-templates.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_12" id="14">
+      <code>0x08660000e</code>
+      <text>[XTSE0010] The tunnel param "%s" must be a template parameter. It should be defined as a child of an xsl:template element, before any non-xsl:param children of the xsl:template element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_13" id="15">
+      <code>0x08660000f</code>
+      <text>[XTSE0010] The tunnel with-param "%s" must be within an xsl:apply-templates, xsl:call-template, xsl:apply-imports, or xsl:next-match element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_14" id="16">
+      <code>0x086600010</code>
+      <text>[XTSE0010] An xsl:import-schema declaration is permitted to have only an optional xs:schema element as its content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_15" id="17">
+      <code>0x086600011</code>
+      <text>[XTSE0010] An xsl:analyze-string instruction is permitted to have an optional xsl:matching-substring, an optional xsl:non-matching-substring, and xsl:fallback as its content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_16" id="18">
+      <code>0x086600012</code>
+      <text>[XTSE0010] An xsl:sequence instruction is permitted to have only optional xsl:fallback elements as its content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_17" id="19">
+      <code>0x086600013</code>
+      <text>[XTSE0010] "%s" is an invalid value for the level attribute of the xsl:number instruction. Valid values are "single", "multiple", and "any".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_18" id="20">
+      <code>0x086600014</code>
+      <text>[XTSE0010] "%s" is an invalid value for the letter-value attribute of the xsl:number instruction. Valid values are "alphabetic" and "traditional".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_19" id="21">
+      <code>0x086600015</code>
+      <text>[XTSE0010] "%s" is an invalid value for the grouping-separator attribute of xsl:number. A valid value is a Char.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_20" id="22">
+      <code>0x086600016</code>
+      <text>[XTSE0010] The %1$s element is missing the required %2$s attribute.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_21" id="23">
+      <code>0x086600017</code>
+      <text>[XTSE0010] The content of an element does not correspond to the content that is allowed for the element. An xsl:sort element should be the first child of the containing instruction %s.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_22" id="24">
+      <code>0x086600018</code>
+      <text>[XTSE0010] The element %1$s is not allowed for the content of the element %2$s.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_23" id="25">
+      <code>0x086600019</code>
+      <text>[XTSE0010] The content of an element does not correspond to the content that is allowed for the element. An xsl:param declaration must not be preceded in the content of an %s element by a non-whitespace text node or by another element except another xsl:param declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_24" id="26">
+      <code>0x08660001a</code>
+      <text>[XTSE0010] More than one stylesheet is defined in the same file.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_25" id="27">
+      <code>0x08660001b</code>
+      <text>[XTSE0010] The stylesheet or query attempted to create an attribute "%s" outside of an element or after a child node had already been added to the containing element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0010_26" id="28">
+      <code>0x08660001c</code>
+      <text>[XTSE0010] The stylesheet contains an unsupported element in the XSLT namespace named "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0010.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0890" id="29">
+      <code>0x08660001d</code>
+      <text>[XTDE0890] The invalid name "%s" is specified for a processing instruction.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0890.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0890_2" id="30">
+      <code>0x08660001e</code>
+      <text>[XTDE0890] The effective value of the name attribute of the xsl:processing-instruction "%s" is not both an NCNameNames and a PITargetXML.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0890.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0090" id="31">
+      <code>0x08660001f</code>
+      <text>[XTSE0090] It is an error to define attribute "%s" on the containing element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0090.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0090_2" id="32">
+      <code>0x086600020</code>
+      <text>[XTSE0090] The declaration of the parameter named "%1$s" in the stylesheet function "%2$s" specified the %3$s attribute. The %4$s attribute must not be specified for a parameter of a stylesheet function.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0090.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0090_3" id="33">
+      <code>0x086600021</code>
+      <text>[XTSE0090] The declaration of the template parameter or stylesheet parameter "%s" supplied a default value. The declaration of a parameter that has a required attribute with the value "yes" must not also supply a default value.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0090.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0180" id="34">
+      <code>0x086600022</code>
+      <text>[XTSE0180] It is an error to use circular definitions on xsl:import or xsl:include instructions. The stylesheet "%s" is already loaded.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0180.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1290" id="35">
+      <code>0x086600023</code>
+      <text>[XTSE1290] It is an error to define a decimal format more than once. Decimal format "%s" is already defined.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1290.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0110" id="36">
+      <code>0x086600024</code>
+      <text>[XTSE0110] The version attribute must have a numeric value. "%s" is not a valid value.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0110.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0850" id="37">
+      <code>0x086600025</code>
+      <text>[XTDE0850] It is an error to create an attribute with a name that is not a valid XML name. "%s" is not a valid attribute name.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0850.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0850_2" id="38">
+      <code>0x086600026</code>
+      <text>[XTDE0850] The string "%s" is used where a QName is required.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0850.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0120" id="39">
+      <code>0x086600027</code>
+      <text>[XTSE0120] It is an error to define text data outside of a top-level xsl:stylesheet element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0120.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0120_2" id="40">
+      <code>0x086600028</code>
+      <text>[XTSE0120] An xsl:stylesheet element must not have any text node children.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0120.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0370" id="41">
+      <code>0x086600029</code>
+      <text>[XTSE0370] It is a static error if an unescaped right curly bracket appears in a fixed part of an attribute value template without a matching left curly bracket: "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0370.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020" id="42">
+      <code>0x08660002a</code>
+      <text>[XTSE0020] The value for the %s attribute should be "yes" or "no".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_2" id="43">
+      <code>0x08660002b</code>
+      <text>[XTSE0020] An attribute whose value must be a QName or whitespace-separated list of QNames has the invalid value "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_3" id="44">
+      <code>0x08660002c</code>
+      <text>[XTSE0020] An attribute whose value must be an NCName has the invalid value "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_4" id="45">
+      <code>0x08660002d</code>
+      <text>[XTSE0020] "%1$s" is an invalid value for the "%2$s" "%3$s" attribute. Valid values are "%4$s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_5" id="46">
+      <code>0x08660002e</code>
+      <text>[XTSE0020] An attribute whose value must be a whitespace-separated list of %1$s had the invalid value "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_6" id="47">
+      <code>0x08660002f</code>
+      <text>[XTSE0020] An attribute whose value must be of type %1$s had the invalid value "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_7" id="48">
+      <code>0x086600030</code>
+      <text>[XTSE0020] The %1$s attribute has an invalid value of "%2$s". The attribute is ignored.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_8" id="49">
+      <code>0x086600031</code>
+      <text>[XTSE0020] The character attribute of the xsl:output-character element is not a single XML character.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_9" id="50">
+      <code>0x086600032</code>
+      <text>[XTSE0020] The value of the name attribute of the xsl:character-map element is "%s", but this is not a valid QName.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_10" id="51">
+      <code>0x086600033</code>
+      <text>[XTSE0020] The value of the %1$s attribute of the %2$s element is "%3$s". Valid values are "yes" or "no".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_11" id="52">
+      <code>0x086600034</code>
+      <text>[XTSE0020] The effective value of the href attribute of an xsl:result-document instruction is "%s", which is an invalid URI.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_12" id="53">
+      <code>0x086600035</code>
+      <text>[XTSE0020] The %s attribute in an xsl:decimal-format declaration has an incorrect value.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_13" id="54">
+      <code>0x086600036</code>
+      <text>[XTSE0020] The only supported values for the data-type attribute of an xsl:sort element are "text" and "number", but the value "%s" is specified. The data-type attribute is ignored.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_14" id="55">
+      <code>0x086600037</code>
+      <text>[XTSE0020] The order attribute of an xsl:sort element must have one of the values "ascending" or "descending", but the value "%s" is specified.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0020_15" id="56">
+      <code>0x086600038</code>
+      <text>[XTSE0020] The value "%s" is specified for xml:id, but an NCName is expected.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0080" id="57">
+      <code>0x086600039</code>
+      <text>[XTSE0080] The %1$s attribute of %2$s cannot refer to a reserved namespace.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0080.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0080_2" id="58">
+      <code>0x08660003a</code>
+      <text>[XTSE0080] It is a static error to use a reserved namespace in the name of a mode. The prefix "%1$s" resolves to reserved namespace "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0080.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0840" id="59">
+      <code>0x08660003b</code>
+      <text>[XTSE0840] The select attribute of the xsl:attribute element cannot be present when the element has non-empty content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0840.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0880" id="60">
+      <code>0x08660003c</code>
+      <text>[XTSE0880] The select attribute of the xsl:processing-instruction cannot be present when the element has non-empty content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0880.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0910" id="61">
+      <code>0x08660003d</code>
+      <text>[XTSE0910] The select attribute of the xsl:namespace element cannot be present when the element has non-empty content other than xsl:fallback elements.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0910.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0910_2" id="62">
+      <code>0x08660003e</code>
+      <text>[XTSE0910] The xsl:namespace element has a select attribute that has a value that results in a zero-length string, or the content of the element results in a zero-length string.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0910.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0940" id="63">
+      <code>0x08660003f</code>
+      <text>[XTSE0940] The select attribute of the xsl:comment element cannot be present when the element has non-empty content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0940.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1080" id="64">
+      <code>0x086600040</code>
+      <text>[XTSE1080] One and only one of the following attributes must be specified: group-by, group-adjacent, group-starting-with, or group-ending-with.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1080.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1090" id="65">
+      <code>0x086600041</code>
+      <text>[XTSE1090] The collation attribute may only be specified when either the group-by or the group-adjacent attribute is also specified.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1090.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1040" id="66">
+      <code>0x086600042</code>
+      <text>[XTSE1040] The content of an xsl:perform-sort element with a select attribute may only contain xsl:sort and xsl:fallback elements.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1040.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1017" id="67">
+      <code>0x086600043</code>
+      <text>[XTSE1017] Only the first xsl:sort element in a sequence of sibling xsl:sort elements may have a stable attribute.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1017.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1015" id="68">
+      <code>0x086600044</code>
+      <text>[XTSE1015] An xsl:sort element with a select attribute must not contain content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1015.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0215" id="69">
+      <code>0x086600045</code>
+      <text>[XTSE0215] An xsl:import-schema declaration must not have both an xs:schema element child and a schema-location attribute.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0215.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0215_2" id="70">
+      <code>0x086600046</code>
+      <text>[XTSE0215] When an xsl:import-schema declaration has both a namespace attribute and an xs:schema element child, the xs:schema must have a targetNamespace attribute that has the same value as that specified by the namespace attribute.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0215.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0125" id="71">
+      <code>0x086600047</code>
+      <text>[XTSE0125] The element "%1$s" has an [xsl:]default-collation attribute with value "%2$s", but this collation URI is not recognized.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0125.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0150" id="72">
+      <code>0x086600048</code>
+      <text>[XTSE0150] A literal result element that is used as the outermost element of a simplified stylesheet module must have an xsl:version attribute.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0150.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0870" id="73">
+      <code>0x086600049</code>
+      <text>[XTSE0870] The select attribute of the xsl:value-of element is present when the content of the element is non-empty, or the select attribute is absent when the content is empty.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0870.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1130" id="74">
+      <code>0x08660004a</code>
+      <text>[XTSE1130] The xsl:analyze-string instruction contains neither an xsl:matching-substring nor an xsl:non-matching-substring element.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1130.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0280" id="75">
+      <code>0x08660004b</code>
+      <text>[XTSE0280] The value of the name attribute of the xsl:character-map element is "%1$s", but the namespace prefix "%2$s" is not declared.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0280.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0280_2" id="76">
+      <code>0x08660004c</code>
+      <text>[XTSE0280] The namespace prefix of the character map reference "%1$s" in the use-character-maps attribute of the %2$s element is not declared.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0280.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0280_3" id="77">
+      <code>0x08660004d</code>
+      <text>[XTSE0280] The CDATA element name "%1$s" in the cdata-section-elements attribute of the %2$s element is an invalid QName.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0280.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0280_4" id="78">
+      <code>0x08660004e</code>
+      <text>[XTSE0280] The namespace prefix "%s" is used in a QName, but the prefix has not been declared.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0280.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1580" id="79">
+      <code>0x08660004f</code>
+      <text>[XTSE1580] There are two xsl:character-map elements with the name "%s" and the same import precedence.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1580.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1580_2" id="80">
+      <code>0x086600050</code>
+      <text>[XTSE1580] The stylesheet contains two or more xsl:character-map elements with the name "%1$s", the URI "%2$s", and the same import precedence.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1580.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1590" id="81">
+      <code>0x086600051</code>
+      <text>[XTSE1590] The character map reference "%1$s" in the use-character-maps attribute of the %2$s element is an invalid QName.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1590.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1590_2" id="82">
+      <code>0x086600052</code>
+      <text>[XTSE1590] The %1$s element refers to a character map with name "%2$s" and URI "%3$s", but that character map is not defined.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1590.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1600" id="83">
+      <code>0x086600053</code>
+      <text>[XTSE1600] The xsl:character-map declaration referenced itself. The circular dependency is "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1600.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1570" id="84">
+      <code>0x086600054</code>
+      <text>[XTSE1570] The method attribute of the %1$s element has the value "%2$s". Valid values are "xml", "html", "text", or "xhtml".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1570.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0580" id="85">
+      <code>0x086600055</code>
+      <text>[XTSE0580] Two parameters of a template or of a stylesheet function cannot have the same QName "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0580.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0630" id="86">
+      <code>0x086600056</code>
+      <text>[XTSE0630] It is an error if a stylesheet contains more than one binding of a global variable or parameter with the same name and same import precedence, unless it also contains another binding with the same name and higher import precedence. Two variables or parameters have the same QName "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0630.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0500" id="87">
+      <code>0x086600057</code>
+      <text>[XTSE0500] An xsl:template element must have a match attribute, or a name attribute, or both. An xsl:template element that has no match attribute must have no mode attribute and no priority attribute.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0500.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0820" id="88">
+      <code>0x086600058</code>
+      <text>[XTDE0820] The effective value of the name attribute is not a lexical QName. The element name "%s" is not valid.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0820.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0830" id="89">
+      <code>0x086600059</code>
+      <text>[XTDE0830] The xsl:element has no namespace attribute and the effective value of the name attribute is a QName whose prefix is not declared in an in-scope namespace declaration for the xsl:element instruction. Prefix "%s" is not declared.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0830.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0830_2" id="90">
+      <code>0x08660005a</code>
+      <text>[XTDE0830] The namespace prefix "%s" is used in the element name, but there is no namespace declaration in scope for that prefix.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0830.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1505" id="91">
+      <code>0x08660005b</code>
+      <text>[XTSE1505] The literal result element "%s" cannot have both the xsl:type and xsl:validation attributes.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1505.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1505_2" id="92">
+      <code>0x08660005c</code>
+      <text>[XTSE1505] The element "%s" cannot have both the xsl:type and xsl:validation attributes.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1505.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0340" id="93">
+      <code>0x08660005d</code>
+      <text>[XTSE0340] Only id() or key() can be used at the top level in match patterns. "%s" is an invalid pattern.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0340.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0560" id="94">
+      <code>0x08660005e</code>
+      <text>[XTDE0560] It is an error to evaluate an xsl:apply-imports or an xsl:next-match instruction when the current template rule is null. When an xsl:for-each, xsl:for-each-group, or xsl:analyze-string instruction is evaluated, a sequence constructor contained in an xsl:sort or xsl:key element is evaluated, a stylesheet function is called, or a global variable is evaluated, the current template rule becomes null for the evaluation of that instruction, sequence constructor, or function.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0560.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0560_2" id="95">
+      <code>0x08660005f</code>
+      <text>[XTDE0560] It is an error to evaluate an xsl:apply-imports or an xsl:next-match instruction when the current template rule is null. When an xsl:for-each, xsl:for-each-group, or xsl:analyze-string instruction is evaluated, a sequence constructor contained in an xsl:sort or xsl:key element is evaluated, a stylesheet function is called, or a global variable is evaluated, the current template rule becomes null for the evaluation of that instruction, sequence constructor, or function.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0560.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0530" id="96">
+      <code>0x086600060</code>
+      <text>[XTSE0530] The value "%s" is not valid for the priority attribute of an xsl:template. The priority must be a valid xs:decimal value.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0530.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0165" id="97">
+      <code>0x086600061</code>
+      <text>[XTSE0165] The value "%s" is not valid for an href attribute. The value must be a valid URI.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0165.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0165_2" id="98">
+      <code>0x086600062</code>
+      <text>[XTSE0165] The processor is unable to retrieve the resource identified by the URI "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0165.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0200" id="99">
+      <code>0x086600063</code>
+      <text>[XTSE0200] The xsl:import element children must precede all other element children, including any xsl:include.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0200.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0805" id="100">
+      <code>0x086600064</code>
+      <text>[XTSE0805] It is an error if an attribute is in the XSLT namespace but is not defined in XSLT. The attribute "%s" is in error.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0805.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0130" id="101">
+      <code>0x086600065</code>
+      <text>[XTSE0130] It is an error if the xsl:stylesheet element has a child element whose name has a null namespace URI. The element named "%s" is in error.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0130.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0860" id="102">
+      <code>0x086600066</code>
+      <text>[XTDE0860] The xsl:attribute had no namespace attribute and the effective value of the name attribute is a QName whose prefix is not declared in an in-scope namespace declaration for the xsl:attribute instruction. Prefix "%s" is not declared.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0860.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1430" id="103">
+      <code>0x086600067</code>
+      <text>[XTSE1430] An [xsl:]extension-element-prefixes attribute specifies the prefix "%s" which is not bound to any namespace.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1430.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1430_2" id="104">
+      <code>0x086600068</code>
+      <text>[XTSE1430] An [xsl:]extension-element-prefixes attribute specifies the prefix '#default', and there is no default namespace.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1430.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0808" id="105">
+      <code>0x086600069</code>
+      <text>[XTSE0808] An [xsl:]exclude-result-prefixes attribute specifies the prefix "%s" which is not bound to any namespace.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0808.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0809" id="106">
+      <code>0x08660006a</code>
+      <text>[XTSE0809] An [xsl:]exclude-result-prefixes attribute specified the prefix '#default', but there is no default namespace.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0809.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0760" id="107">
+      <code>0x08660006b</code>
+      <text>[XTSE0760] The declaration of the parameter named "%1$s" in the stylesheet function "%2$s" supplied a default value. The declaration of a parameter of a stylesheet function must not supply a default value.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0760.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0550" id="108">
+      <code>0x08660006c</code>
+      <text>[XTSE0550] The list of tokens for the mode attribute of an xsl:template must not be empty, include the same token more than once, contain an invalid token, or contain the token '#all' in combination with any other value.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0550.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0550_2" id="109">
+      <code>0x08660006d</code>
+      <text>[XTSE0550] "%s" is not a valid value for the mode attribute of an xsl:apply-templates. The value must be a valid QName, "#default", or "#current".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0550.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1205" id="110">
+      <code>0x08660006e</code>
+      <text>[XTSE1205] Element %1$s is not allowed for the content of element %2$s when the use attribute is specified.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1205.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1205_2" id="111">
+      <code>0x08660006f</code>
+      <text>[XTSE1205] The xsl:key element must have either the use attribute specified or content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1205.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0670" id="112">
+      <code>0x086600070</code>
+      <text>[XTSE0670] An %1$s element contains more than one xsl:with-param element with a name attribute with the value "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0670.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0265" id="113">
+      <code>0x086600071</code>
+      <text>[XTSE0265] Both 'input-type-annotations="strip"' and 'input-type-annotations="preserve"' cannot be specified in the stylesheet.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0265.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0710" id="114">
+      <code>0x086600072</code>
+      <text>[XTSE0710] The specified xsl:attribute-set "%s" does not exist.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0710.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0620" id="115">
+      <code>0x086600073</code>
+      <text>[XTSE0620] The variable or parameter with name "%s" cannot contain a select attribute and non-empty content.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0620.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1560" id="116">
+      <code>0x086600074</code>
+      <text>[XTSE1560] It is illegal for the xsl:output attribute "%s" to have different values at the highest import precedence.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1560.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0350" id="117">
+      <code>0x086600075</code>
+      <text>[XTSE0350] It is a static error if an unescaped left curly bracket appears in a fixed part of an attribute value template without a matching right curly bracket: "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0350.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0812" id="118">
+      <code>0x086600076</code>
+      <text>[XTSE0812] There is no in-scope binding for the namespace prefix "%1$s" specified by attribute "%2$s" of the xsl:namespace-alias declaration.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0812.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0810" id="119">
+      <code>0x086600077</code>
+      <text>[XTSE0810] There is more than one xsl:namespace-alias declaration with the same literal namespace URI and the same import precedence and different values for the target namespace URI.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0810.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1060" id="120">
+      <code>0x086600078</code>
+      <text>[XTSE1060] It is a static error if the current-group function is used in a pattern.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1060.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1070" id="121">
+      <code>0x086600079</code>
+      <text>[XTSE1070] It is a static error if the current-grouping-key function is used in a pattern.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1070.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0220" id="122">
+      <code>0x08660007a</code>
+      <text>[XTSE0220] The synthetic schema document does not satisfy the constraints described in XML Schema Part 1. Target namespace can not be an empty string.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0220.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0220_2" id="123">
+      <code>0x08660007b</code>
+      <text>[XTSE0220] The synthetic schema document does not satisfy the constraints described in XML Schema Part 1: %s</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0220.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0260" id="124">
+      <code>0x08660007c</code>
+      <text>[XTSE0260] The element %1$s is required to be empty but contained the element "%2$s". Any content other than comments or processing instructions, including any whitespace text node preserved using the xml:space="preserve" attribute, is not allowed.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0260.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0975" id="125">
+      <code>0x08660007d</code>
+      <text>[XTSE0975] The attribute %1$s can be present for the xsl:number element only if the attribute %2$s is absent.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0975.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1460" id="126">
+      <code>0x08660007e</code>
+      <text>[XTDE1460] The effective value of the format attribute of an xsl:result-document instruction is the QName "%s", but it does not match the expanded QName of an output definition in the stylesheet.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1460.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1490" id="127">
+      <code>0x08660007f</code>
+      <text>[XTDE1490] Only one xsl:result-document instruction may omit the href attribute or provide an empty value, or none if there is an implicit final result tree.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1490.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1490_2" id="128">
+      <code>0x086600080</code>
+      <text>[XTDE1490] An xsl:result-document instruction attempted to create more than one final result tree with the same resolved URI. The href value is "%1$s", and the base output URI is "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1490.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0030" id="129">
+      <code>0x086600081</code>
+      <text>[XTDE0030] The value "%1$s" is not valid for the %2$s attribute of the %3$s element.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0030.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0030_2" id="130">
+      <code>0x086600082</code>
+      <text>[XTDE0030] "%s" is not a valid value for the order attribute of an xsl:sort element. The valid values are "ascending" and "descending".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0030.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0030_3" id="131">
+      <code>0x086600083</code>
+      <text>[XTDE0030] "%s" is not a supported value for the data-type attribute of an xsl:sort element. Supported values are "text" and "number". The data-type attribute is ignored.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0030.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0030_4" id="132">
+      <code>0x086600084</code>
+      <text>[XTDE0030] "%s" is not a valid value for the case-order attribute of an xsl:sort element. The valid values are "upper-first" and "lower-first".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0030.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0030_5" id="133">
+      <code>0x086600085</code>
+      <text>[XTDE0030] The value "%1$s" is not one of the permitted values for attribute %2$s.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0030.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1480" id="134">
+      <code>0x086600086</code>
+      <text>[XTDE1480] The xsl:result-document instruction cannot be evaluated in a temporary output state.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1480.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1260" id="135">
+      <code>0x086600087</code>
+      <text>[XTDE1260] The key referenced by "%s" is an invalid QName.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1260.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1260_2" id="136">
+      <code>0x086600088</code>
+      <text>[XTDE1260] The key referenced by "%s" is undeclared in the stylesheet.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1260.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1220" id="137">
+      <code>0x086600089</code>
+      <text>[XTSE1220] Multiple xsl:key declarations have the same name but different collation attributes.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1220.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0650" id="138">
+      <code>0x08660008a</code>
+      <text>[XTSE0650] The template "%s" is not defined in this stylesheet.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0650.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1210" id="139">
+      <code>0x08660008b</code>
+      <text>[XTSE1210] The collation attribute "%s" whose value after resolving against the base URI is not a URI recognized by the implementation as referring to a collation.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1210.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte0505" id="140">
+      <code>0x08660008c</code>
+      <text>[XTTE0505] The supplied value cannot be converted to the required type defined in the as attribute "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTTE0505.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1400" id="141">
+      <code>0x08660008d</code>
+      <text>[XTDE1400] The argument of the function-available function must be a valid QName, but the value of the argument that is supplied is "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1400.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1400_2" id="142">
+      <code>0x08660008e</code>
+      <text>[XTDE1400] The argument of the function-available function must be a valid QName, but the value of the argument that is supplied is "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1400.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1428" id="143">
+      <code>0x08660008f</code>
+      <text>[XTDE1428] The argument of the type-available function must be a valid QName, but the value of the argument that is supplied is "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1428.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1428_2" id="144">
+      <code>0x086600090</code>
+      <text>[XTDE1428] The argument of the type-available function must be a valid QName, but the value of the argument that is supplied is "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1428.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0680" id="145">
+      <code>0x086600091</code>
+      <text>[XTSE0680] It is a static error to pass a parameter that is not a tunnel parameter "%s" to a template that does not have a template parameter that has the same expanded QName.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0680.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1440" id="146">
+      <code>0x086600092</code>
+      <text>[XTDE1440] The value of the argument to the element-available function must be a lexical QName, and any prefix must have a namespace declaration in scope. The argument value "%s" is not a lexical QName or did not have a namespace declaration for its prefix.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1440.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1440_2" id="147">
+      <code>0x086600093</code>
+      <text>[XTDE1440] The argument "%s" does not evaluate to a string that is a valid QName.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1440.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0690" id="148">
+      <code>0x086600094</code>
+      <text>[XTSE0690] The required parameter "%1$s" in template "%2$s" is not supplied.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0690.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1300" id="149">
+      <code>0x086600095</code>
+      <text>[XTSE1300] The picture string "%s" has been duplicated for decimal format.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1300.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1295" id="150">
+      <code>0x086600096</code>
+      <text>[XTSE1295] The zero-digit attribute must be a numeric and have the numeric value zero.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1295.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse0720" id="151">
+      <code>0x086600097</code>
+      <text>[XTSE0720] It is illegal for the xsl:attribute-set element "%s" to reference itself via the names in an use-attribute-sets attribute.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE0720.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1520" id="152">
+      <code>0x086600098</code>
+      <text>[XTSE1520] The type named in an [xsl:]type attribute, "%s", is not the name of a type definition in the in-scope schema components for the stylesheet.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1520.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtse1530" id="153">
+      <code>0x086600099</code>
+      <text>[XTSE1530] The value of the "type" attribute, "%s", in an xsl:attribute instruction refers to a complex-type definition.</text>
+      <summary />
+      <description>This is XQuery error err:XTSE1530.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0640" id="154">
+      <code>0x08660009a</code>
+      <text>[XTDE0640] It is illegal to use circular xsl:variable or xsl:param references in "%s". This error also applies to xsl:key when a circular key reference is detected.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0640.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1450" id="155">
+      <code>0x08660009b</code>
+      <text>[XTDE1450] The extension instruction "%s" is not supported. It is an error if a stylesheet instantiates an extension instruction that is not supported and the element has no xsl:fallback children.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1450.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1270" id="156">
+      <code>0x08660009c</code>
+      <text>[XTDE1270] Calling the key() function "%s" but there is no context node.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1270.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1270_2" id="157">
+      <code>0x08660009d</code>
+      <text>[XTDE1270] Calling the key() function "%s" but the root of the tree containing the context node is not a document node.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1270.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0440" id="158">
+      <code>0x08660009e</code>
+      <text>[XTDE0440] The element node being constructed, "%1$s", is in no namespace, but the result sequence that it is being constructed from contains a namespace node defining the default namespace with URI "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0440.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1145" id="159">
+      <code>0x08660009f</code>
+      <text>[XTDE1145] The effective value of the flags attribute of an xsl:analyze-string element is "%s". It is a non-recoverable dynamic error if the value contains characters other than the characters "s", "m", "i" or "x".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1145.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1150" id="160">
+      <code>0x0866000a0</code>
+      <text>[XTDE1150] The regex attribute of an xsl:analyze-string element has the effective value "%s". It is a non-recoverable dynamic error if the value is a regular expression that matches a zero-length string.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1150.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1140" id="161">
+      <code>0x0866000a1</code>
+      <text>[XTDE1140] The regex attribute of an xsl:analyze-string element has the effective value "%s", which does not conform to the defined regular expression syntax. This is a non-recoverable dynamic error.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1140.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1170" id="162">
+      <code>0x0866000a2</code>
+      <text>[XTDE1170] The URI argument specified in a reference to the unparsed-text function could not be used to retrieve a resource containing text. This is a non-recoverable dynamic error.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1170.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1200" id="163">
+      <code>0x0866000a3</code>
+      <text>[XTDE1200] The second argument of the unparsed-text function is omitted, the processor could not infer the encoding using external information, and the resource is not encoded in UTF-8. This is a non-recoverable dynamic error.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1200.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1190" id="164">
+      <code>0x0866000a4</code>
+      <text>[XTDE1190] The resource retrieved for a reference to the unparsed-text function contained bytes that the processor could not decode into Unicode characters using the specified encoding, the processor does not support the requested encoding, or the resulting characters are not permitted in an XML document. This is a non-recoverable dynamic error.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1190.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1340" id="165">
+      <code>0x0866000a5</code>
+      <text>[XTDE1340] The value of the picture string argument in a reference to the format-date, format-time, or format-dateTime function contains a right square bracket character "%1$s" that does not match a corresponding left square bracket. If the right square bracket is intended to be used as a literal value, it must be doubled as "%2$s%3$s".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1340.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1340_2" id="166">
+      <code>0x0866000a6</code>
+      <text>[XTDE1340] The picture string argument supplied in a reference to the format-date, format-time, or format-dateTime function contains the characters "%s". The picture string must contain only alphanumeric characters.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1340.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1340_3" id="167">
+      <code>0x0866000a7</code>
+      <text>[XTDE1340] The width modifier "%s" in the picture string argument in a reference to the format-date, format-time, or format-dateTime function does not match the required syntax of a width modifier.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1340.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1340_4" id="168">
+      <code>0x0866000a8</code>
+      <text>[XTDE1340] In the supplied picture string argument in a reference to the format-date, format-time, or format-dateTime function, the value of a maximum width modifier specified is less than the corresponding minimum width. The value of a maximum width modifier must be greater than or equal to the value of the corresponding minimum width modifier.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1340.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1350" id="169">
+      <code>0x0866000a9</code>
+      <text>[XTDE1350] The specifier "%s" is not valid in the picture string argument for the format-dateTime function.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1350.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1350_2" id="170">
+      <code>0x0866000aa</code>
+      <text>[XTDE1350] The specifier "%s" is not valid in the picture string argument for the format-date function.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1350.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1350_3" id="171">
+      <code>0x0866000ab</code>
+      <text>[XTDE1350] The specifier "%s" is not valid in the picture string argument for the format-time function.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1350.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1360" id="172">
+      <code>0x0866000ac</code>
+      <text>[XTDE1360] The current() function cannot be evaluated within an expression where the context item is undefined.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1360.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0420" id="173">
+      <code>0x0866000ad</code>
+      <text>[XTDE0420] The result sequence used to construct the content of a document node contains a namespace node or attribute node whose name is "%s". A document node must not contain a namespace node or an attribute node.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0420.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0420_2" id="174">
+      <code>0x0866000ae</code>
+      <text>[XTDE0420] The result sequence used to construct the content of a document node contains a namespace node for the default namespace. A document node must not contain a namespace node or an attribute node.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0420.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0410" id="175">
+      <code>0x0866000af</code>
+      <text>[XTDE0410] The result sequence used to construct the content of an element node contains a namespace node or attribute node named "%s" that is preceded in the sequence by a node that is neither a namespace node nor an attribute node. Attribute and namespace nodes must precede all other kinds of nodes in the sequence used to construct the content of an element.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0410.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0410_2" id="176">
+      <code>0x0866000b0</code>
+      <text>[XTDE0410] The result sequence used to construct the content of an element node contains a namespace node for the default namespace that is preceded in the sequence by a node that is neither a namespace node nor an attribute node. Attribute and namespace nodes must precede all other kinds of nodes in the sequence used to construct the content of an element.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0410.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0430" id="177">
+      <code>0x0866000b1</code>
+      <text>[XTDE0430] The result sequence contains two or more namespace nodes that map the same prefix to different namespace URIs.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0430.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1100" id="178">
+      <code>0x0866000b2</code>
+      <text>[XTTE1100] The grouping key evaluated using the group-adjacent attribute is an empty sequence or a sequence containing more than one item.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1100.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1120" id="179">
+      <code>0x0866000b3</code>
+      <text>[XTTE1120] The result of evaluating a select expression with a group-starting-with or group-ending-with attribute contains an item that is not a node.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1120.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1020" id="180">
+      <code>0x0866000b4</code>
+      <text>[XTTE1020] A sort key value, after atomization and any type conversion required by the data-type attribute, is a sequence containing more than one item.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1020.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1370" id="181">
+      <code>0x0866000b5</code>
+      <text>[XTDE1370] The unparsed-entity-uri() function is called when there is no context node or when the root of the tree containing the context node is not a document node.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1370.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1380" id="182">
+      <code>0x0866000b6</code>
+      <text>[XTDE1380] The unparsed-entity-public-id() function is called when there is no context node or when the root of the tree containing the context node is not a document node.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1380.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1390" id="183">
+      <code>0x0866000b7</code>
+      <text>[XTDE1390] The value "%s" passed to the system-property() function is not a valid QName, or there is no namespace declaration in scope for the prefix of the QName.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1390.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1540" id="184">
+      <code>0x0866000b8</code>
+      <text>[XTTE1540] An [xsl:]type attribute with value "%s" was specified for the constructed document, element or attribute, and after schema validity assessment the "validity" property of that information item was other than "valid". This is a type error.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1540.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1510" id="185">
+      <code>0x0866000b9</code>
+      <text>[XTTE1510] The [xsl:]validation attribute of an xsl:element, xsl:attribute, xsl:copy, xsl:copy-of, xsl:result-document, or literal result element has the effective value 'strict', and schema validity assessment concludes that the validity of the element or attribute is invalid or unknown.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1510.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1515" id="186">
+      <code>0x0866000ba</code>
+      <text>[XTTE1515] The [xsl:]validation attribute of an xsl:element, xsl:attribute, xsl:copy, xsl:copy-of, xsl:result-document, or literal result element has the effective value 'lax', and schema validity assessment concludes that the validity of the element or attribute is invalid.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1515.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1512" id="187">
+      <code>0x0866000bb</code>
+      <text>[XTTE1512] The [xsl:]validation attribute of an xsl:element, xsl:attribute, xsl:copy, xsl:copy-of, xsl:result-document, or literal result element has the effective value "strict", and there is no matching top-level declaration in the schema with the name "%s".</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1512.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1550" id="188">
+      <code>0x0866000bc</code>
+      <text>[XTTE1550] A document node that has more than one element node child was validated, which results in a type error.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1550.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1550_2" id="189">
+      <code>0x0866000bd</code>
+      <text>[XTTE1550] A document node that has text node children was validated, which results in a type error.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1550.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1550_3" id="190">
+      <code>0x0866000be</code>
+      <text>[XTTE1550] A document node that has no element node children was validated, which results in a type error.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1550.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1310" id="191">
+      <code>0x0866000bf</code>
+      <text>[XTDE1310] The picture string "%s" passed to format-number() is not well-formed.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1310.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0980" id="192">
+      <code>0x0866000c0</code>
+      <text>[XTDE0980] Items in the atomized sequence supplied as the value of the value attribute of xsl:number cannot be converted to an integer, or if the resulting integer is less than 0 (zero).</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0980.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0040" id="193">
+      <code>0x0866000c1</code>
+      <text>[XTDE0040] An initial template is specified, but a template named "%s" is not defined in the stylesheet.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0040.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0045" id="194">
+      <code>0x0866000c2</code>
+      <text>[XTDE0045] An initial mode is specified, but there are no templates defined for the mode "%s" in the stylesheet.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0045.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0047" id="195">
+      <code>0x0866000c3</code>
+      <text>[XTDE0047] Both an initial mode "%1$s" and an initial template "%2$s" are specified.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0047.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0060" id="196">
+      <code>0x0866000c4</code>
+      <text>[XTDE0060] The initial template cannot be used because it has a required parameter.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0060.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0050" id="197">
+      <code>0x0866000c5</code>
+      <text>[XTDE0050] The required stylesheet parameter: "%s" was not supplied.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0050.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0700" id="198">
+      <code>0x0866000c6</code>
+      <text>[XTDE0700] A template is invoked that declares a template parameter "%s" which has not been supplied by the calling function.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0700.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte1545" id="199">
+      <code>0x0866000c7</code>
+      <text>[XTTE1545] The attribute "%1$s" was validated using the type "%2$s" which is derived from xs:QName or xs:NOTATION. It is a type error if an attribute that is being constructed is validated against a type that is derived from either xs:QName or xs:NOTATION.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE1545.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0920" id="200">
+      <code>0x0866000c8</code>
+      <text>[XTDE0920] The name attribute "%s" of xsl:namespace must be either a zero-length string or an xs:NCName Names, and it must not be "xmlns".</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0920.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0925" id="201">
+      <code>0x0866000c9</code>
+      <text>[XTDE0925] The xsl:namespace instruction generates a namespace node, if its name is xml, its string value must be http://www.w3.org/XML/1998/namespace, vice visa.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0925.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde0930" id="202">
+      <code>0x0866000ca</code>
+      <text>[XTDE0930] The xsl:namespace instruction generates a namespace node, its string value must not be a zero-length string.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE0930.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte0950" id="203">
+      <code>0x0866000cb</code>
+      <text>[XTTE0950] It is a type error to use the xsl:copy or xsl:copy-of instruction to copy a node that has namespace-sensitive content, when the copy-namespaces attribute has the value no and its explicit or implicit validation attribute has the value preserve.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE0950.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte0950_2" id="204">
+      <code>0x0866000cc</code>
+      <text>[XTTE0950] It is a type error to use the xsl:copy or xsl:copy-of instruction to copy an attribute having namespace-sensitive content, when its explicit or implicit validation attribute has the value preserve, unless the parent element is also copied.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE0950.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte0510" id="205">
+      <code>0x0866000cd</code>
+      <text>[XTTE0510] An attempt was made to evaluate an xsl:apply-templates element without a select attribute when the context item was not a node.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE0510.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtte0520" id="206">
+      <code>0x0866000ce</code>
+      <text>[XTTE0520] The expression used in the select attribute of an xsl:apply-templates element does not evaulate to a node.</text>
+      <summary />
+      <description>This is XQuery error err:XTTE0520.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_xtde1280" id="207">
+      <code>0x0866000cf</code>
+      <text>[XTDE1280] The named decimal-format "%s" referenced in a format-number() call was not found.</text>
+      <summary />
+      <description>This is XQuery error err:XTDE1280.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+  </type>
+  <type name="fando" id="52">
+    <entry name="err_foch0003" id="1">
+      <code>0x086800001</code>
+      <text>[FOCH0003] The normalization form "%s" is not supported.</text>
+      <summary />
+      <description>This is XQuery error err:FOCH0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foch0003_2" id="2">
+      <code>0x086800002</code>
+      <text>[FOCH0003] The normalization form "%s" is not supported.</text>
+      <summary />
+      <description>This is XQuery error err:FOCH0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0005" id="3">
+      <code>0x086800003</code>
+      <text>[FORG0005] The fn:exactly-one function is called with a sequence containing zero or more than one item.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0005.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0005_2" id="4">
+      <code>0x086800004</code>
+      <text>[FORG0005] The argument to the fn:exactly-one function must be a sequence containing one item. The function is called with a sequence containing no items or more than one item.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0005.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0003" id="5">
+      <code>0x086800005</code>
+      <text>[FORG0003] The fn:zero-or-one function is called with a sequence containing more than one item.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0003_2" id="6">
+      <code>0x086800006</code>
+      <text>[FORG0003] The argument to the fn:zero-or-one function must be a sequence containing at most one item. The function was called with a sequence containing more than one item.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fons0004" id="7">
+      <code>0x086800007</code>
+      <text>[FONS0004] The prefix "%s" does not map to a namespace.</text>
+      <summary />
+      <description>This is XQuery error err:FONS0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fons0004_2" id="8">
+      <code>0x086800008</code>
+      <text>[FONS0004] The prefix does not map to a namespace.</text>
+      <summary />
+      <description>This is XQuery error err:FONS0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0001" id="9">
+      <code>0x086800009</code>
+      <text>[FORG0001] "%1$s" does not have the correct lexical form for %2$s.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0001_2" id="10">
+      <code>0x08680000a</code>
+      <text>[FORG0001] The operand cannot be cast to type "%s".</text>
+      <summary />
+      <description>This is XQuery error err:FORG0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foch0002" id="11">
+      <code>0x08680000b</code>
+      <text>[FOCH0002] The reference to the function "%1$s" used the unrecognized collation URI "%2$s".</text>
+      <summary />
+      <description>This is XQuery error err:FOCH0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foch0002_2" id="12">
+      <code>0x08680000c</code>
+      <text>[FOCH0002] The specified collation URI, "%s", was not associated with a Collator. Use one of the XDynamicContext.bindCollation methods to associate the collation URI with a Collator.</text>
+      <summary />
+      <description>This is XQuery error err:FOCH0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0004" id="13">
+      <code>0x08680000d</code>
+      <text>[FORG0004] The argument to the fn:one-or-more function must be a sequence containing at least one item. The function is called with a sequence containing no items.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forx0003" id="14">
+      <code>0x08680000e</code>
+      <text>[FORX0003] The regular expression that is provided as an argument in a reference to the fn:tokenize or the fn:replace function is able to match a zero-length string. This is a dynamic error.</text>
+      <summary />
+      <description>This is XQuery error err:FORX0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0006" id="15">
+      <code>0x08680000f</code>
+      <text>[FORG0006] The argument type is not valid.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0006.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foch0001" id="16">
+      <code>0x086800010</code>
+      <text>[FOCH0001] The code point is not valid.</text>
+      <summary />
+      <description>This is XQuery error err:FOCH0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0008" id="17">
+      <code>0x086800011</code>
+      <text>[FORG0008] Both arguments to fn:dateTime have a specified time zone.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0008.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0009" id="18">
+      <code>0x086800012</code>
+      <text>[FORG0009] The relative URI could not be resolved against the base URI in fn:resolve-uri.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0009.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forx0001" id="19">
+      <code>0x086800013</code>
+      <text>[FORX0001] The regular expression flags "%s" are not valid.</text>
+      <summary />
+      <description>This is XQuery error err:FORX0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forx0002" id="20">
+      <code>0x086800014</code>
+      <text>[FORX0002] The regular expression is not valid.</text>
+      <summary />
+      <description>This is XQuery error err:FORX0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forx0004" id="21">
+      <code>0x086800015</code>
+      <text>[FORX0004] The replacement string is not valid.</text>
+      <summary />
+      <description>This is XQuery error err:FORX0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foar0001" id="22">
+      <code>0x086800016</code>
+      <text>[FOAR0001] An attempt was made to divide by zero.</text>
+      <summary />
+      <description>This is XQuery error err:FOAR0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foar0002" id="23">
+      <code>0x086800017</code>
+      <text>[FOAR0002] A numeric operation resulted in overflow.</text>
+      <summary />
+      <description>This is XQuery error err:FOAR0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foca0003" id="24">
+      <code>0x086800018</code>
+      <text>[FOCA0003] An input value is too large for integer.</text>
+      <summary />
+      <description>This is XQuery error err:FOCA0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foca0005" id="25">
+      <code>0x086800019</code>
+      <text>[FOCA0005] NaN is supplied as float or double value to a duration operation.</text>
+      <summary />
+      <description>This is XQuery error err:FOCA0005.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fodt0002" id="26">
+      <code>0x08680001a</code>
+      <text>[FODT0002] Overflow occurred while performing a duration operation.</text>
+      <summary />
+      <description>This is XQuery error err:FODT0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fodt0003" id="27">
+      <code>0x08680001b</code>
+      <text>[FODT0003] "%s" is an invalid time zone value. The value should range from -PT14H to PT14H, inclusive.</text>
+      <summary />
+      <description>This is XQuery error err:FODT0003.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fodc0005" id="28">
+      <code>0x08680001c</code>
+      <text>[FODC0005] The URI string "%s" does not map to an available document.</text>
+      <summary />
+      <description>This is XQuery error err:FODC0005.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fodc0004" id="29">
+      <code>0x08680001d</code>
+      <text>[FODC0004] The collection for "%s" cannot be resolved as no collection resolver was registered with the dynamic context. An empty sequence will be used.</text>
+      <summary />
+      <description>This is XQuery error err:FODC0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fodc0004_2" id="30">
+      <code>0x08680001e</code>
+      <text>[FODC0004] Available collections are none in the dynamic context of use-when expression.</text>
+      <summary />
+      <description>This is XQuery error err:FODC0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fodc0001" id="31">
+      <code>0x08680001f</code>
+      <text>[FODC0001] The node passed to %s is not a context document node.</text>
+      <summary />
+      <description>This is XQuery error err:FODC0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foca0002" id="32">
+      <code>0x086800020</code>
+      <text>[FOCA0002] "%s" does not have the correct lexical form for xs:QName.</text>
+      <summary />
+      <description>This is XQuery error err:FOCA0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0002" id="33">
+      <code>0x086800021</code>
+      <text>[FORG0002] The argument "%s" of fn:resolve-uri is an invalid xs:anyURI.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foty0012" id="34">
+      <code>0x086800022</code>
+      <text>[FOTY0012] The argument node does not have a typed value.</text>
+      <summary />
+      <description>This is XQuery error err:FOTY0012.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_senr0001" id="35">
+      <code>0x086800023</code>
+      <text>[SENR0001] Attribute nodes are not allowed at this point during sequence serialization.</text>
+      <summary />
+      <description>This is XQuery error err:SENR0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foca0001" id="36">
+      <code>0x086800024</code>
+      <text>[FOCA0001] Input value "%s" too large for decimal.</text>
+      <summary />
+      <description>This is XQuery error err:FOCA0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fodc0002" id="37">
+      <code>0x086800025</code>
+      <text>[FODC0002] Error retrieving resource "%s".</text>
+      <summary />
+      <description>This is XQuery error err:FODC0002.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foer0000" id="38">
+      <code>0x086800026</code>
+      <text>[FOER0000] Unidentified error.</text>
+      <summary />
+      <description>This is XQuery error err:FOER0000.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foch0004" id="39">
+      <code>0x086800027</code>
+      <text>[FOCH0004] Collation does not support collation units.</text>
+      <summary />
+      <description>This is XQuery error err:FOCH0004.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fodt0001" id="40">
+      <code>0x086800028</code>
+      <text>[FODT0001] Overflow/underflow in date/time operation.</text>
+      <summary />
+      <description>This is XQuery error err:FODT0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_fons0005" id="41">
+      <code>0x086800029</code>
+      <text>[FONS0005] No base-uri property in the static context.</text>
+      <summary />
+      <description>This is XQuery error err:FONS0005.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_forg0001_3" id="42">
+      <code>0x08680002a</code>
+      <text>[FORG0001] "%1$s" of type %2$s can not be cast to %3$s.</text>
+      <summary />
+      <description>This is XQuery error err:FORG0001.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foca0002_2" id="43">
+      <code>0x08680002b</code>
+      <text>[FOCA0002] "%s" of type %s is an invalid value for conversion to %s.</text>
+      <summary />
+      <description>This is XQuery error err:FOCA0002, Invalid lexical value.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+    <entry name="err_foca0006" id="44">
+      <code>0x08680002c</code>
+      <text>[FOCA0006] String to be cast to decimal has too many digits of precision.</text>
+      <summary />
+      <description>This is XQuery error err:FOCA0006.</description>
+      <suggestion>For more information, see the XQuery specification.</suggestion>
+    </entry>
+  </type>
+  <type name="serialization" id="53">
+    <entry name="err_senr0001" id="1">
+      <code>0x086a00001</code>
+      <text>[SENR0001] It is an error if an item in S6 in sequence normalization is an attribute node or a namespace node.</text>
+      <summary />
+      <description>This is Serialization error err:SENR0001.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sere0003" id="2">
+      <code>0x086a00002</code>
+      <text>[SERE0003] It is an error if the serializer is unable to satisfy the rules for either a well-formed XML document entity or a well-formed XML external general parsed entity, or both, except for content modified by the character expansion phase of serialization.</text>
+      <summary />
+      <description>This is Serialization error err:SERE0003.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sepm0004" id="3">
+      <code>0x086a00003</code>
+      <text>[SEPM0004] It is an error to specify the doctype-system parameter, or to specify the standalone parameter with a value other than omit, if the instance of the data model contains text nodes or multiple element nodes as children of the root node.</text>
+      <summary />
+      <description>This is Serialization error err:SEPM0004.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sere0005" id="4">
+      <code>0x086a00004</code>
+      <text>[SERE0005] It is an error if the serialized result would contain an NCName Names that contains a character that is not permitted by the version of Namespaces in XML specified by the version parameter.</text>
+      <summary />
+      <description>This is Serialization error err:SERE0005.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sere0006" id="5">
+      <code>0x086a00005</code>
+      <text>[SERE0006] It is an error if the serialized result would contain a character that is not permitted by the version of XML specified by the version parameter.</text>
+      <summary />
+      <description>This is Serialization error err:SERE0006.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sesu0007" id="6">
+      <code>0x086a00006</code>
+      <text>[SESU0007] It is an error if an output encoding other than UTF-8 or UTF-16 is requested and the serializer does not support that encoding.</text>
+      <summary />
+      <description>This is Serialization error err:SESU0007.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sere0008" id="7">
+      <code>0x086a00007</code>
+      <text>[SERE0008] It is an error if a character that cannot be represented in the encoding that the serializer is using for output appears in a context where character references are not allowed (for example if the character occurs in the name of an element).</text>
+      <summary />
+      <description>This is Serialization error err:SERE0008.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sepm0009" id="8">
+      <code>0x086a00008</code>
+      <text>[SEPM0009] It is an error if the omit-xml-declaration parameter has the value yes, and the standalone attribute has a value other than omit; or the version parameter has a value other than 1.0 and the doctype-system parameter is specified.</text>
+      <summary />
+      <description>This is Serialization error err:SEPM0009.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sepm0010" id="9">
+      <code>0x086a00009</code>
+      <text>[SEPM0010] It is an error if the output method is xml, the value of the undeclare-prefixes parameter is yes, and the value of the version parameter is 1.0.</text>
+      <summary />
+      <description>This is Serialization error err:SEPM0010.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sesu0011" id="10">
+      <code>0x086a0000a</code>
+      <text>[SESU0011] It is an error if the value of the normalization-form parameter specifies a normalization form that is not supported by the serializer.</text>
+      <summary />
+      <description>This is Serialization error err:SESU0011.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sere0012" id="11">
+      <code>0x086a0000b</code>
+      <text>[SERE0012] It is an error if the value of the normalization-form parameter is fully-normalized and any relevant construct of the result begins with a combining character.</text>
+      <summary />
+      <description>This is Serialization error err:SERE0012.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sesu0013" id="12">
+      <code>0x086a0000c</code>
+      <text>[SESU0013] It is an error if the serializer does not support the version of XML or HTML specified by the version parameter.</text>
+      <summary />
+      <description>This is Serialization error err:SESU0013.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sere0014" id="13">
+      <code>0x086a0000d</code>
+      <text>[SERE0014] It is an error to use the HTML output method when characters which are legal in XML but not in HTML, specifically the control characters #x7F-#x9F, appear in the instance of the data model.</text>
+      <summary />
+      <description>This is Serialization error err:SERE0014.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sere0015" id="14">
+      <code>0x086a0000e</code>
+      <text>[SERE0015] It is an error to use the HTML output method when &gt; appears within a processing instruction in the data model instance being serialized.</text>
+      <summary />
+      <description>This is Serialization error err:SERE0015.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+    <entry name="err_sepm0016" id="15">
+      <code>0x086a0000f</code>
+      <text>[SEPM0016] It is a an error if a parameter value is invalid for the defined domain.</text>
+      <summary />
+      <description>This is Serialization error err:SEPM0016.</description>
+      <suggestion>For more information, see the XSLT 2.0 and XQuery 1.0 Serialization (Second Edition) specification.</suggestion>
+    </entry>
+  </type>
+</log-catalog>
+

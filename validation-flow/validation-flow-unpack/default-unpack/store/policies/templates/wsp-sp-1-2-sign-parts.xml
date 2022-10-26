@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2007,2007. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<wsp:Policy xmlns:wsp="http://www.w3.org/ns/ws-policy" 
+            xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702">
+
+  <dpe:summary xmlns="" xmlns:dpe="http://www.datapower.com/extensions">
+    <dppolicy:domain xmlns:dppolicy="http://www.datapower.com/policy">
+      http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702
+    </dppolicy:domain>
+    <description>
+      Implements WS Security Policy 1.2 - support SignedParts
+    </description>
+  </dpe:summary>
+
+  <wsp:ExactlyOne>
+    <wsp:All>
+      <sp:SignedParts>
+        <sp:Body/>
+      </sp:SignedParts>
+    </wsp:All>
+  </wsp:ExactlyOne>
+</wsp:Policy>
+
+
+
+
+

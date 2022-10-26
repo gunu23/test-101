@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2008,2017. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<xsd:schema xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+            xmlns:tns='http://www.datapower.com/schemas/user-interface/1.0'
+            elementFormDefault='qualified'
+            targetNamespace='http://www.datapower.com/schemas/user-interface/1.0'>
+
+
+<xsd:annotation>
+    <xsd:documentation xml:lang="en">
+        DataPower device schema that defines user interface customization extensions
+    </xsd:documentation>
+</xsd:annotation>
+
+
+  <!-- HTML Fragment Type -->
+
+  <xsd:group name="html-tags">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            Supported HTML tags allowed in Web-based user interface banner messages:
+            'em', 'strong', 'tt', or 'p' HTML tags
+        </xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element name="em"/>
+      <xsd:element name="strong"/>
+      <xsd:element name="tt"/>
+      <xsd:element name="p"/>
+    </xsd:choice>
+  </xsd:group>
+
+  <xsd:complexType name="html-fragment" mixed="true">
+    <xsd:group ref="tns:html-tags" minOccurs="0" maxOccurs="unbounded"/>       
+  </xsd:complexType>
+
+
+  <!-- Banner Types -->
+
+  <xsd:simpleType name="banner-type">
+    <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="pre-login"/>
+        <xsd:enumeration value="post-login"/>
+        <xsd:enumeration value="system-banner"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="location-type">
+    <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="header"/>
+        <xsd:enumeration value="footer"/>
+        <xsd:enumeration value="both"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="color-type">
+    <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="none"/>
+        <xsd:enumeration value="red"/>
+        <xsd:enumeration value="orange"/>
+        <xsd:enumeration value="yellow"/>
+        <xsd:enumeration value="blue"/>
+        <xsd:enumeration value="green"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:complexType name="markup-banner">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            Custom banner used by device's Web Management user interface.
+            Banner must have a 'type' defined, and optionally a 'location' and colors attributes.  
+        </xsd:documentation>
+    </xsd:annotation>  
+    <xsd:complexContent>
+      <xsd:extension base="tns:html-fragment">
+        <xsd:attribute name='type' type='tns:banner-type' use='required'/>
+        <xsd:attribute name='location' type='tns:location-type' use='optional' default='both'/>
+        <xsd:attribute name='foreground-color' type='tns:color-type' use='optional' default='none'/>
+        <xsd:attribute name='background-color' type='tns:color-type' use='optional' default='none'/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="text-banner">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            Custom banner used by device's CLI user interface.
+            Banner must have a 'type' defined.  
+        </xsd:documentation>
+    </xsd:annotation>  
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:string">
+        <xsd:attribute name='type' type='tns:banner-type' use='required'/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:simpleType name="custom-prompt">
+    <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+            Custom CLI prompt prefix. Customization is include the system name
+            from System Settings or tenant name as shown in show firmware-version.
+            - To enable the use of the system name, set element content to %s
+            - To enable the use of the tenant name, set element content to %p
+        </xsd:documentation>
+    </xsd:annotation>  
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="%p"/>
+      <xsd:enumeration value="%s"/>
+    </xsd:restriction>
+  </xsd:simpleType> 
+
+
+  <!-- Root element "User-Interface" -->
+
+  <xsd:element name='User-Interface'>
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name='CustomPrompt' type='tns:custom-prompt' minOccurs="0" maxOccurs="1" />
+        <xsd:element name='MarkupBanner' type='tns:markup-banner' minOccurs="0" maxOccurs="4" />
+        <xsd:element name='TextBanner' type='tns:text-banner' minOccurs="0" maxOccurs="3" />
+      </xsd:sequence>        
+    </xsd:complexType>
+
+    
+    <!-- Enforce that each TextBanner element has a unique "type" attribute value -->
+    <xsd:unique name="uniqueTextBanner-type"> 
+      <xsd:selector xpath="tns:TextBanner"/>
+      <xsd:field xpath="@type"/>
+    </xsd:unique>
+
+    <!-- Enforce that each MarkupBanner element has a unique "type" and "location" attribute values -->
+    <xsd:unique name="uniqueMarkupBanner-type-location"> 
+      <xsd:selector xpath="tns:MarkupBanner"/>
+      <xsd:field xpath="@type"/>
+      <xsd:field xpath="@location"/>
+    </xsd:unique>
+
+  </xsd:element>
+
+</xsd:schema>

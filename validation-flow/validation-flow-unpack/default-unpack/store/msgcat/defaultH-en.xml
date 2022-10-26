@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM WebSphere DataPower Appliances
+Copyright IBM Corporation 2007,2015. All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+    -->
+<log-catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="log-catalog.xsd">
+  <type name="scc" id="36">
+    <entry name="tcp_conn_established" id="1">
+      <code>0x084800001</code>
+      <text>Established a TCP connection to host %1$.100s on port %2$s.</text>
+      <summary />
+      <description>The appliance established a TCP connection with the specified host on the specified port. This message indicates the start of an attempt to create an SSH tunnel with the remote host.</description>
+      <suggestion>This message is informational.</suggestion>
+    </entry>
+    <entry name="auth_pk_ok" id="2">
+      <code>0x084800002</code>
+      <text>Local host authenticated successfully.</text>
+      <summary />
+      <description>The remote host authenticated the local host. This message indicates an attempt to create an SSH tunnel progressed far enough for the local host to be authenticated successfully.</description>
+      <suggestion>This message is informational.</suggestion>
+    </entry>
+    <entry name="tcp_conn_error_details" id="3">
+      <code>0x084800003</code>
+      <text>Error opening a TCP connection to host %1$.100s on port %2$s: %3$s</text>
+      <summary />
+      <description>The appliance could not establish a TCP connection with the specified host on the specified port. Information about the error is at the end of the message.</description>
+      <suggestion>Use the error information to determine why the Secure Cloud Connection moved to the "down - TCP connection to remote host could not be opened" state.</suggestion>
+    </entry>
+    <entry name="legacy_fatal_error" id="4">
+      <code>0x084800004</code>
+      <text>SSH runtime encountered a fatal error: %s</text>
+      <summary />
+      <description>The SSH runtime encountered a fatal error. Error details are at the end of the message.</description>
+      <suggestion>Use the error information to determine why the Secure Cloud Connection moved to the "down - SSH connection failure" state.</suggestion>
+    </entry>
+    <entry name="legacy_generic_error" id="5">
+      <code>0x084800005</code>
+      <text>SSH runtime encountered error: %s</text>
+      <summary />
+      <description>The SSH runtime encountered a non-fatal error. Error details are at the end of the message.</description>
+      <suggestion>This message is for debug purposes.</suggestion>
+    </entry>
+    <entry name="legacy_generic_info" id="6">
+      <code>0x084800006</code>
+      <text>SSH runtime information: %s</text>
+      <summary />
+      <description>The SSH runtime issued an informational message. Informational details are at the end of the message.</description>
+      <suggestion>This message is for debug purposes.</suggestion>
+    </entry>
+    <entry name="server_version_info" id="7">
+      <code>0x084800007</code>
+      <text>Remote server version is %1$s, and the remote server protocol is %2$d.</text>
+      <summary />
+      <description>Indicates the version and protocol for the remote server. This information is obtained from the remote server while creating an SSH tunnel.</description>
+      <suggestion>Use this information to determine why the Secure Cloud Connection moved to a "down - Remote server version is not supported" or to a "down - Remote server protocol version is not supported" state.</suggestion>
+    </entry>
+    <entry name="remote_tun_creation_error_details" id="8">
+      <code>0x084800008</code>
+      <text>Error encountered opening remote tun device: %s</text>
+      <summary />
+      <description>The remote server could not create the tun device for the SSH tunnel. The error details at the end of the message are from the remote server.</description>
+      <suggestion>Use this information to determine why the Secure Cloud Connection moved to the "down - Remote tun device creation failed" state.</suggestion>
+    </entry>
+    <entry name="service_startup_failure" id="9">
+      <code>0x084800009</code>
+      <text>Failed to start the Secure Cloud Connector service.</text>
+      <summary />
+      <description>The appliance encountered a fatal error when starting the Secure Cloud Connector service. The appliance will make no further attempts to start the service without user intervention.</description>
+      <suggestion>Validate the installation of the firmware image. If the firmware is installed correctly, contact IBM Support.</suggestion>
+    </entry>
+    <entry name="unmapped_msg" id="10">
+      <code>0x08480000a</code>
+      <text>Unmapped SSH runtime error: %s</text>
+      <summary />
+      <description>The process for the secure cloud connector received a unknown message from the SSH runtime. These details are at the end of the message.</description>
+      <suggestion>Validate the installation of the firmware image. If the firmware is installed correctly, contact IBM Support.</suggestion>
+    </entry>
+    <entry name="addr_collision_multiple_routes" id="11">
+      <code>0x08480000b</code>
+      <text>The remote tunnel address %1$s is colliding with the following Secure Cloud Connector instances: %2$s.</text>
+      <summary />
+      <description>Multiple remote endpoints are assigned the same private IP address. The private IP address with the list of Secure Cloud Connector instances are at the end of the message. Only one of the IP addresses will be routable, so traffic meant for one endpoint might be misdirected to another with the same address. This behavior can have serious functional and security consequences.</description>
+      <suggestion>Ensure that the same private IP address is not assigned to multiple tunnels. Usually, this situation represents a configuration error.</suggestion>
+    </entry>
+    <entry name="addr_collision_remote_endpoint" id="12">
+      <code>0x08480000c</code>
+      <text>Address %1$s is assigned to multiple interfaces on the remote endpoint: %2$s</text>
+      <summary />
+      <description>Multiple interfaces on the remote endpoint are assigned the same IP address. If this is unintentional, it can interfere with source-based routing.</description>
+      <suggestion>Validate that the IP addresses are assigned correctly.</suggestion>
+    </entry>
+    <entry name="network_interface_check_failed" id="13">
+      <code>0x08480000d</code>
+      <text>The network interface to create the outbound connection is down.</text>
+      <summary />
+      <description>After verifying with multiple attempts, the network interface for the outbound connection is down.</description>
+      <suggestion>Ensure that the routing table entry correctly reflects which interface to use to create the connection, and ensure that the interface is operational.</suggestion>
+    </entry>
+  </type>
+</log-catalog>
+

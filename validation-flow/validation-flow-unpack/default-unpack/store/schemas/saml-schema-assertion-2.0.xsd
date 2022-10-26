@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<!--
+Copyright OASIS 1993?2007. All Rights Reserved. OASIS trademark, IPR and other policies apply.
+
+All capitalized terms in the following text have the meanings assigned to them in the OASIS Intellectual Property Rights Policy (the "OASIS IPR Policy"). The full Policy may be found at the OASIS website.
+
+This document and translations of it may be copied and furnished to others, and derivative works that comment on or otherwise explain it or assist in its implementation may be prepared, copied, published, and distributed, in whole or in part, without restriction of any kind, provided that the above copyright notice and this section are included on all such copies and derivative works. However, this document itself may not be modified in any way, including by removing the copyright notice or references to OASIS, except as needed for the purpose of developing any document or deliverable produced by an OASIS Technical Committee (in which case the rules applicable to copyrights, as set forth in the OASIS IPR Policy, must be followed) or as required to translate it into languages other than English.
+
+The limited permissions granted above are perpetual and will not be revoked by OASIS or its successors or assigns.
+
+This document and the information contained herein is provided on an "AS IS" basis and OASIS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION HEREIN WILL NOT INFRINGE ANY OWNERSHIP RIGHTS OR ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.
+
+OASIS requests that any OASIS Party or any other party that believes it has patent claims that would necessarily be infringed by implementations of this OASIS Committee Specification or OASIS Standard, to notify OASIS TC Administrator and provide an indication of its willingness to grant patent licenses to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification.
+
+OASIS invites any party to contact the OASIS TC Administrator if it is aware of a claim of ownership of any patent claims that would necessarily be infringed by implementations of this specification by a patent holder that is not willing to provide a license to such patent claims in a manner consistent with the IPR Mode of the OASIS Technical Committee that produced this specification. OASIS may include such claims on its website, but disclaims any obligation to do so.
+
+OASIS takes no position regarding the validity or scope of any intellectual property or other rights that might be claimed to pertain to the implementation or use of the technology described in this document or the extent to which any license under such rights might or might not be available; neither does it represent that it has made any effort to identify any such rights. Information on OASIS' procedures with respect to rights in any document or deliverable produced by an OASIS Technical Committee can be found on the OASIS website. Copies of claims of rights made available for publication and any assurances of licenses to be made available, or the result of an attempt made to obtain a general license or permission for the use of such proprietary rights by implementers or users of this OASIS Committee Specification or OASIS Standard, can be obtained from the OASIS TC Administrator. OASIS makes no representation that any information or list of intellectual property rights will at any time be complete, or that any claims in such list are, in fact, Essential Claims.
+
+The name "OASIS" is a trademark of OASIS, the owner and developer of this specification, and should be used only to refer to the organization and its official outputs. OASIS welcomes reference to, and implementation and use of, specifications, while reserving the right to enforce its marks against misleading uses. Please see http://www.oasis-open.org/who/trademark.php for above guidance.
+
+The spec can be found at: http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=security
+-->
+<schema
+    targetNamespace="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+    xmlns:xenc="http://www.w3.org/2001/04/xmlenc#"
+    elementFormDefault="unqualified"
+    attributeFormDefault="unqualified"
+    blockDefault="substitution"
+    version="2.0">
+    <import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="store:///schemas/xmldsig-core-schema.xsd"/>
+    <import namespace="http://www.w3.org/2001/04/xmlenc#" schemaLocation="store:///schemas/xenc-schema.xsd"/>
+    <annotation>
+        <documentation>
+            Document identifier: saml-schema-assertion-2.0
+            Location: http://docs.oasis-open.org/security/saml/v2.0/
+            Revision history:
+            V1.0 (November, 2002):
+              Initial Standard Schema.
+            V1.1 (September, 2003):
+              Updates within the same V1.0 namespace.
+            V2.0 (March, 2005):
+              New assertion schema for SAML V2.0 namespace.
+        </documentation>
+    </annotation>
+    <attributeGroup name="IDNameQualifiers">
+        <attribute name="NameQualifier" type="string" use="optional"/>
+        <attribute name="SPNameQualifier" type="string" use="optional"/>
+    </attributeGroup>
+    <element name="BaseID" type="saml:BaseIDAbstractType"/>
+    <complexType name="BaseIDAbstractType" abstract="true">
+        <attributeGroup ref="saml:IDNameQualifiers"/>
+    </complexType>
+    <element name="NameID" type="saml:NameIDType"/>
+    <complexType name="NameIDType">
+        <simpleContent>
+            <extension base="string">
+                <attributeGroup ref="saml:IDNameQualifiers"/>
+                <attribute name="Format" type="anyURI" use="optional"/>
+                <attribute name="SPProvidedID" type="string" use="optional"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+    <complexType name="EncryptedElementType">
+        <sequence>
+            <element ref="xenc:EncryptedData"/>
+            <element ref="xenc:EncryptedKey" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <element name="EncryptedID" type="saml:EncryptedElementType"/>
+    <element name="Issuer" type="saml:NameIDType"/>
+    <element name="AssertionIDRef" type="NCName"/>
+    <element name="AssertionURIRef" type="anyURI"/>
+    <element name="Assertion" type="saml:AssertionType"/>
+    <complexType name="AssertionType">
+        <sequence>
+            <element ref="saml:Issuer"/>
+            <element ref="ds:Signature" minOccurs="0"/>
+            <element ref="saml:Subject" minOccurs="0"/>
+            <element ref="saml:Conditions" minOccurs="0"/>
+            <element ref="saml:Advice" minOccurs="0"/>
+            <choice minOccurs="0" maxOccurs="unbounded">
+                <element ref="saml:Statement"/>
+                <element ref="saml:AuthnStatement"/>
+                <element ref="saml:AuthzDecisionStatement"/>
+                <element ref="saml:AttributeStatement"/>
+            </choice>
+        </sequence>
+        <attribute name="Version" type="string" use="required"/>
+        <attribute name="ID" type="ID" use="required"/>
+        <attribute name="IssueInstant" type="dateTime" use="required"/>
+    </complexType>
+    <element name="Subject" type="saml:SubjectType"/>
+    <complexType name="SubjectType">
+        <choice>
+            <sequence>
+                <choice>
+                    <element ref="saml:BaseID"/>
+                    <element ref="saml:NameID"/>
+                    <element ref="saml:EncryptedID"/>
+                </choice>
+                <element ref="saml:SubjectConfirmation" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+            <element ref="saml:SubjectConfirmation" maxOccurs="unbounded"/>
+        </choice>
+    </complexType>
+    <element name="SubjectConfirmation" type="saml:SubjectConfirmationType"/>
+    <complexType name="SubjectConfirmationType">
+        <sequence>
+            <choice minOccurs="0">
+                <element ref="saml:BaseID"/>
+                <element ref="saml:NameID"/>
+                <element ref="saml:EncryptedID"/>
+            </choice>
+            <element ref="saml:SubjectConfirmationData" minOccurs="0"/>
+        </sequence>
+        <attribute name="Method" type="anyURI" use="required"/>
+    </complexType>
+    <element name="SubjectConfirmationData" type="saml:SubjectConfirmationDataType"/>
+    <complexType name="SubjectConfirmationDataType" mixed="true">
+        <complexContent>
+            <restriction base="anyType">
+                <sequence>
+                    <any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+                </sequence>
+                <attribute name="NotBefore" type="dateTime" use="optional"/>
+                <attribute name="NotOnOrAfter" type="dateTime" use="optional"/>
+                <attribute name="Recipient" type="anyURI" use="optional"/>
+                <attribute name="InResponseTo" type="NCName" use="optional"/>
+                <attribute name="Address" type="string" use="optional"/>
+                <anyAttribute namespace="##other" processContents="lax"/>
+            </restriction>
+        </complexContent>
+    </complexType>
+    <complexType name="KeyInfoConfirmationDataType" mixed="false">
+        <complexContent>
+            <restriction base="saml:SubjectConfirmationDataType">
+                <sequence>
+                    <element ref="ds:KeyInfo" maxOccurs="unbounded"/>
+                </sequence>
+            </restriction>
+        </complexContent>
+    </complexType>
+    <element name="Conditions" type="saml:ConditionsType"/>
+    <complexType name="ConditionsType">
+        <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="saml:Condition"/>
+            <element ref="saml:AudienceRestriction"/>
+            <element ref="saml:OneTimeUse"/>
+            <element ref="saml:ProxyRestriction"/>
+        </choice>
+        <attribute name="NotBefore" type="dateTime" use="optional"/>
+        <attribute name="NotOnOrAfter" type="dateTime" use="optional"/>
+    </complexType>
+    <element name="Condition" type="saml:ConditionAbstractType"/>
+    <complexType name="ConditionAbstractType" abstract="true"/>
+    <element name="AudienceRestriction" type="saml:AudienceRestrictionType"/>
+    <complexType name="AudienceRestrictionType">
+        <complexContent>
+            <extension base="saml:ConditionAbstractType">
+                <sequence>
+                    <element ref="saml:Audience" maxOccurs="unbounded"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="Audience" type="anyURI"/>
+    <element name="OneTimeUse" type="saml:OneTimeUseType" />
+    <complexType name="OneTimeUseType">
+        <complexContent>
+            <extension base="saml:ConditionAbstractType"/>
+        </complexContent>
+    </complexType>
+    <element name="ProxyRestriction" type="saml:ProxyRestrictionType"/>
+    <complexType name="ProxyRestrictionType">
+    <complexContent>
+        <extension base="saml:ConditionAbstractType">
+            <sequence>
+                <element ref="saml:Audience" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+            <attribute name="Count" type="nonNegativeInteger" use="optional"/>
+        </extension>
+	</complexContent>
+    </complexType>
+    <element name="Advice" type="saml:AdviceType"/>
+    <complexType name="AdviceType">
+        <choice minOccurs="0" maxOccurs="unbounded">
+            <element ref="saml:AssertionIDRef"/>
+            <element ref="saml:AssertionURIRef"/>
+            <element ref="saml:Assertion"/>
+            <element ref="saml:EncryptedAssertion"/>
+            <any namespace="##other" processContents="lax"/>
+        </choice>
+    </complexType>
+    <element name="EncryptedAssertion" type="saml:EncryptedElementType"/>
+    <element name="Statement" type="saml:StatementAbstractType"/>
+    <complexType name="StatementAbstractType" abstract="true"/>
+    <element name="AuthnStatement" type="saml:AuthnStatementType"/>
+    <complexType name="AuthnStatementType">
+        <complexContent>
+            <extension base="saml:StatementAbstractType">
+                <sequence>
+                    <element ref="saml:SubjectLocality" minOccurs="0"/>
+                    <element ref="saml:AuthnContext"/>
+                </sequence>
+                <attribute name="AuthnInstant" type="dateTime" use="required"/>
+                <attribute name="SessionIndex" type="string" use="optional"/>
+                <attribute name="SessionNotOnOrAfter" type="dateTime" use="optional"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="SubjectLocality" type="saml:SubjectLocalityType"/>
+    <complexType name="SubjectLocalityType">
+        <attribute name="Address" type="string" use="optional"/>
+        <attribute name="DNSName" type="string" use="optional"/>
+    </complexType>
+    <element name="AuthnContext" type="saml:AuthnContextType"/>
+    <complexType name="AuthnContextType">
+        <sequence>
+            <choice>
+                <sequence>
+                    <element ref="saml:AuthnContextClassRef"/>
+                    <choice minOccurs="0">
+                        <element ref="saml:AuthnContextDecl"/>
+                        <element ref="saml:AuthnContextDeclRef"/>
+                    </choice>
+                </sequence>
+                <choice>
+                    <element ref="saml:AuthnContextDecl"/>
+                    <element ref="saml:AuthnContextDeclRef"/>
+                </choice>
+            </choice>
+            <element ref="saml:AuthenticatingAuthority" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <element name="AuthnContextClassRef" type="anyURI"/>
+    <element name="AuthnContextDeclRef" type="anyURI"/>
+    <element name="AuthnContextDecl" type="anyType"/>
+    <element name="AuthenticatingAuthority" type="anyURI"/>
+    <element name="AuthzDecisionStatement" type="saml:AuthzDecisionStatementType"/>
+    <complexType name="AuthzDecisionStatementType">
+        <complexContent>
+            <extension base="saml:StatementAbstractType">
+                <sequence>
+                    <element ref="saml:Action" maxOccurs="unbounded"/>
+                    <element ref="saml:Evidence" minOccurs="0"/>
+                </sequence>
+                <attribute name="Resource" type="anyURI" use="required"/>
+                <attribute name="Decision" type="saml:DecisionType" use="required"/>
+            </extension>
+        </complexContent>
+    </complexType>
+    <simpleType name="DecisionType">
+        <restriction base="string">
+            <enumeration value="Permit"/>
+            <enumeration value="Deny"/>
+            <enumeration value="Indeterminate"/>
+        </restriction>
+    </simpleType>
+    <element name="Action" type="saml:ActionType"/>
+    <complexType name="ActionType">
+        <simpleContent>
+            <extension base="string">
+                <attribute name="Namespace" type="anyURI" use="required"/>
+            </extension>
+        </simpleContent>
+    </complexType>
+    <element name="Evidence" type="saml:EvidenceType"/>
+    <complexType name="EvidenceType">
+        <choice maxOccurs="unbounded">
+            <element ref="saml:AssertionIDRef"/>
+            <element ref="saml:AssertionURIRef"/>
+            <element ref="saml:Assertion"/>
+            <element ref="saml:EncryptedAssertion"/>
+        </choice>
+    </complexType>
+    <element name="AttributeStatement" type="saml:AttributeStatementType"/>
+    <complexType name="AttributeStatementType">
+        <complexContent>
+            <extension base="saml:StatementAbstractType">
+                <choice maxOccurs="unbounded">
+                    <element ref="saml:Attribute"/>
+                    <element ref="saml:EncryptedAttribute"/>
+                </choice>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="Attribute" type="saml:AttributeType"/>
+    <complexType name="AttributeType">
+        <sequence>
+            <element ref="saml:AttributeValue" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+        <attribute name="Name" type="string" use="required"/>
+        <attribute name="NameFormat" type="anyURI" use="optional"/>
+        <attribute name="FriendlyName" type="string" use="optional"/>
+        <anyAttribute namespace="##other" processContents="lax"/>
+    </complexType>
+    <element name="AttributeValue" type="anyType" nillable="true"/>
+    <element name="EncryptedAttribute" type="saml:EncryptedElementType"/>
+</schema>

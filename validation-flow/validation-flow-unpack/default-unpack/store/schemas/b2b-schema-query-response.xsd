@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2019, 2020. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<xsd:schema
+  attributeFormDefault="unqualified"
+  elementFormDefault="qualified"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:complexType name="query-response">
+    <xsd:sequence>
+      <xsd:element name="response-metadata" type="response-metadata"/>
+      <xsd:element name="transaction-logs" type="transaction-logs"/>
+    </xsd:sequence>
+    <xsd:attribute name="operation">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="b2b-query-metadata"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+
+  <xsd:complexType name="response-metadata">
+    <xsd:sequence>
+      <xsd:element name="query-result" type="query-result"/>
+      <xsd:element name="user" type="xsd:string"/>
+      <xsd:element name="domain" type="xsd:string"/>
+      <xsd:element name="user-comment" type="xsd:string"/>
+      <xsd:element name="request-timestamp" type="xsd:dateTime"/>
+      <xsd:element name="response-timestamp" type="xsd:dateTime"/>
+      <xsd:element name="total-matching-rows" type="xsd:unsignedInt" minOccurs="0"/>
+      <xsd:element name="total-output-rows" type="xsd:unsignedInt" minOccurs="0"/>
+      <xsd:element name="start-index" type="xsd:unsignedInt" minOccurs="0"/>
+      <xsd:element name="input-query" type="input-query"/>
+      <xsd:element name="input-result-constraints" type="result-constraints"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="query-result">
+    <xsd:sequence>
+      <xsd:element name="description" type="xsd:string"/>
+      <xsd:element name="events" type="events" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute type="xsd:string" name="code" use="required"/>
+    <xsd:attribute type="xsd:string" name="complete" use="required"/>
+  </xsd:complexType>
+  
+  <xsd:complexType name="events">
+    <xsd:sequence>
+      <xsd:element name="event" type="event"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="event">
+    <xsd:sequence>
+      <xsd:element name="message" type="xsd:string"/>
+      <xsd:element name="description" type="xsd:string"/>
+      <xsd:element name="suggestion" type="xsd:string"/>
+    </xsd:sequence>
+    <xsd:attribute name="level" type="xsd:NCName" use="required"/>
+    <xsd:attribute name="seq" type="xsd:integer" use="required"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="input-query">
+    <xsd:sequence>
+      <xsd:any processContents="skip" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="result-constraints">
+    <xsd:all>
+      <xsd:element name="max-rows" type="xsd:unsignedInt" minOccurs="0"/>
+      <xsd:element name="start-index" type="xsd:unsignedInt" minOccurs="0"/>
+      <xsd:element name="include-properties" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="property-name" type="xsd:string" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="exclude-properties" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="property-name" type="xsd:string" maxOccurs="unbounded"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="sort-order" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="property-name" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:simpleContent>
+                  <xsd:extension base="xsd:string">
+                    <xsd:attribute type="xsd:string" name="direction"/>
+                  </xsd:extension>
+                </xsd:simpleContent>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+	</xsd:all>
+  </xsd:complexType>
+
+  <xsd:complexType name="transaction-logs">
+    <xsd:sequence>
+      <xsd:element name="B2BTransactionLog" type="B2BTransactionLog" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="B2BTransactionLog">
+    <xsd:sequence>
+      <xsd:element name="TransactionSetID" type="xsd:unsignedInt" minOccurs="0"/>
+      <xsd:element name="TransactionID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="GatewayName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="Domain" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SenderID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="SenderName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReceiverID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ReceiverName" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="InboundURL" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OutboundURL" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="InputTime" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="BeginMessageRetry" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ProcessingCompleted" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ResultCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ResultText" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MDNType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MDNStatus" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OutputTime" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MDNSent" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MDNReceived" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="RetrySentTime" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="MessageIDHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContentTypeHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ASFromHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ASToHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DateHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DispositionHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DispositionOptionsHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ContentLengthHeader" type="nullOrInteger" minOccurs="0"/>
+      <xsd:element name="ContentDispositionHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="OriginalMessageIDHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="ASVersion" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="IsInbound" type="xsd:unsignedByte" minOccurs="0"/>
+      <xsd:element name="SubjectHeader" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DocumentID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="DocumentType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MessageDisposition" type="xsd:string" minOccurs="0"/>        
+      <xsd:element name="FilesCreatedBitMask" type="nullOrUnsignedInt" minOccurs="0"/>
+      <xsd:element name="IntegrationID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="MaxResend" type="nullOrInteger" minOccurs="0"/>
+      <xsd:element name="ResendStatus" type="nullOrInteger" minOccurs="0"/>
+      <xsd:element name="ResendCount" type="nullOrInteger" minOccurs="0"/>
+      <xsd:element name="EBMSMessageID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSRefToMessageID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSCPAID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSFromPartyID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSToPartyID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSFromRole" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSToRole" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSConversationID" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSService" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSServiceType" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSAction" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSTimeToPersist" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSSyncReplyMode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSDuplicateElimination" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="EBMSAckRequested" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:simpleType name="nullOrUnsignedInt">
+    <xsd:union memberTypes="xsd:unsignedInt null"/>
+  </xsd:simpleType>
+  
+  <xsd:simpleType name="nullOrInteger">
+    <xsd:union memberTypes="xsd:integer null"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="null">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

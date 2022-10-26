@@ -1,0 +1,2239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Licensed Materials - Property of IBM
+IBM WebSphere DataPower Appliances
+Copyright IBM Corporation 2007,2015. All Rights Reserved.
+US Government Users Restricted Rights - Use, duplication or disclosure
+restricted by GSA ADP Schedule Contract with IBM Corp.
+    -->
+<log-catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="log-catalog.xsd">
+  <type name="xslt" id="4">
+    <entry name="rbmnodomain" id="1">
+      <code>0x080800001</code>
+      <text>RBM: Cannot extract domain from request</text>
+      <summary />
+      <description>The user for the request is not associated with a domain. This is an internal error.</description>
+      <suggestion>Contact IBM Support.</suggestion>
+    </entry>
+    <entry name="rbmaufailed" id="2">
+      <code>0x080800002</code>
+      <text>RBM: Authentication failed - Access Denied</text>
+      <summary />
+      <description>User authentication failed because the user does not exist or the password did not match. If a remote authentication service is configured, you might also not be able to connect to it. This message could indicate a break-in attempt.</description>
+      <suggestion>Verify the correct spelling of the user and password. Check if CAPS-Lock was mistakenly enabled. When using a remote authentication service, check if the service is up and that the user exists. You can enable RBM debugging from the Troubleshooting screen.</suggestion>
+    </entry>
+    <entry name="rbmnocred" id="3">
+      <code>0x080800003</code>
+      <text>RBM: No user access policy - Access Denied</text>
+      <summary />
+      <description>RBM could not map the user to a valid access policy. This failure usually indicates a configuration error in the map credentials phase of RBM. The user was authenticated but failed to match to any access policy.</description>
+      <suggestion>Verify the configuration in the map credentials phase of RBM. Verify that the mapping from the user name to the access profile exists. You can enable RBM debugging from the Troubleshooting screen.</suggestion>
+    </entry>
+    <entry name="rbminvfileop" id="4">
+      <code>0x080800004</code>
+      <text>RBM: Attempted invalid file operation - Access denied.</text>
+      <summary />
+      <description>A file operation is violating static directory access permission, which could be attempting to write to a read-only directory or reading from a write-only directory. This violation could indicate a break-in attempt.</description>
+      <suggestion />
+    </entry>
+    <entry name="rbmpolicydef1" id="5">
+      <code>0x080800005</code>
+      <text>RBM: Policies contradict, use default - Access allowed.</text>
+      <summary />
+      <description>The user credentials have conflicting access policies of equal weight. In this case, RBM bases its decision on the default policy, which is 'allow all'.</description>
+      <suggestion>Review the access policy of the user. RBM uses the longest best match algorithm to assign weights to individual policy statements.</suggestion>
+    </entry>
+    <entry name="rbmpolicydef2" id="6">
+      <code>0x080800006</code>
+      <text>RBM: Policies contradict, use default - Access denied.</text>
+      <summary />
+      <description>The user credentials have conflicting access policies of equal weight. In this case, RBM bases its decision on the default policy, which is 'deny all' unless overwritten by the user.</description>
+      <suggestion>Review the access policy of the user. RBM uses the longest best match algorithm to assign weights to individual policy statements.</suggestion>
+    </entry>
+    <entry name="rbmnoxmlfile" id="7">
+      <code>0x080800007</code>
+      <text>RBM: Missing or corrupt RBM information file.</text>
+      <summary />
+      <description>The map credentials phase of RBM is configured to use an XML file. This file either does not exist or cannot be parsed.</description>
+      <suggestion>Review the RBM map credentials phase. Verify that the RBM information file exists and is valid XML.</suggestion>
+    </entry>
+    <entry name="rbmbadxmlfile" id="8">
+      <code>0x080800008</code>
+      <text>RBM: Unsupported version of the RBM information file.</text>
+      <summary />
+      <description>The map credentials phase of RBM is configured to use an XML file. The firmware does not support the format version of this file.</description>
+      <suggestion>Change the format version to a supported value in the XML file.</suggestion>
+    </entry>
+    <entry name="xmlmgmtinvservice" id="9">
+      <code>0x080800009</code>
+      <text>Invalid service URI for the XML management interface.</text>
+      <summary />
+      <description>The service URI for the XML management interface is invalid. The request was not processed.</description>
+      <suggestion>Verify the service URI.</suggestion>
+    </entry>
+    <entry name="xmlmgmtnoservice" id="10">
+      <code>0x08080000a</code>
+      <text>Requested XML management interface service is disabled.</text>
+      <summary />
+      <description>The requested XML management interface service is disabled. The request was not processed.</description>
+      <suggestion>Verify the configuration of the XML management interface. You can enable and disable individual services.</suggestion>
+    </entry>
+    <entry name="rbminvcred" id="11">
+      <code>0x08080000b</code>
+      <text>Missing or incomplete user credentials.</text>
+      <summary />
+      <description>The user credentials to access the XML management interface are missing or incomplete. Accessing the XML management interface requires valid credentials. Valid credentials are usually user name and password through HTTP basic authentication.</description>
+      <suggestion>Verify the RBM configuration to determine the type of user credentials. Verify your request to ensure that it contains the required credentials.</suggestion>
+    </entry>
+    <entry name="rbmazfailed" id="12">
+      <code>0x08080000c</code>
+      <text>RBM: Authorization failed - Access denied.</text>
+      <summary />
+      <description>The user failed to authorize. The user attempted an action that is not permitted under the defined access policy.</description>
+      <suggestion>If this failure is not intentional, add permission for this action to this user in the RBM access policy.</suggestion>
+    </entry>
+    <entry name="profilerbmerror" id="13">
+      <code>0x08080000d</code>
+      <text>Profile Conformance: Authorization failed - Access denied.</text>
+      <summary />
+      <description>The user failed to authorize. The user attempted to run the profile checker, and the access policy does not permit this action. Running a profile checker requires read permission to the configurations being profiled.</description>
+      <suggestion>If this failure is not intentional, add permission for this action to this user in the RBM access policy.</suggestion>
+    </entry>
+    <entry name="profilecfgerror" id="14">
+      <code>0x08080000e</code>
+      <text>Profile Conformance: Requested configuration does not exist.</text>
+      <summary />
+      <description>A profile conformance request was made for a configuration that does not exist. There was no matching configuration for the request.</description>
+      <suggestion>Check that the name of the configuration was correctly entered in the request.</suggestion>
+    </entry>
+    <entry name="profilecheckererror" id="15">
+      <code>0x08080000f</code>
+      <text>Profile Conformance: Requested checker could not be run.</text>
+      <summary />
+      <description>A profile conformance request failed, because the requested profile checker could not be run.</description>
+      <suggestion>Verify that the checker XSLT compiles and that the requested checker is in the store:///profiles/ directory.</suggestion>
+    </entry>
+    <entry name="wspdomainerror" id="16">
+      <code>0x080800010</code>
+      <text>Policy Mapping: Invalid domain in mapping request.</text>
+      <summary />
+      <description>A policy mapping request failed, because the domain in the mapping request is invalid.</description>
+      <suggestion>Verify the domain in the policy mapping request.</suggestion>
+    </entry>
+    <entry name="wspnserror" id="17">
+      <code>0x080800011</code>
+      <text>Policy Mapping: No matching namespace mapping found.</text>
+      <summary />
+      <description>A policy mapping request failed, because no matching namespace mapping stylesheet was found.</description>
+      <suggestion>Verify the namespace of your policy domain. Verify that a mapping stylesheet for the namespace of your policy domain is in the store:///policies/mappings/ (default mapping stylesheets), the store:///policies/custom/ (global custom mapping stylesheets), or the policy: (domain local mapping stylesheets) directory.</suggestion>
+    </entry>
+    <entry name="wspinterror" id="18">
+      <code>0x080800012</code>
+      <text>Policy Mapping: Internal Error.</text>
+      <summary />
+      <description>A policy mapping request failed because of an internal error.</description>
+      <suggestion>Contact IBM Support.</suggestion>
+    </entry>
+    <entry name="wspactionerror" id="19">
+      <code>0x080800013</code>
+      <text>Policy Mapping: Generated configuration contains an action without an @assertionNo attribute.</text>
+      <summary />
+      <description>The policy mapping failed due to invalid configuration. The generated configuration contains an action without an @assertionNo attribute. The @assertionNo attribute is required to allow the sequencing of the generated actions in the processing rule.</description>
+      <suggestion>Verify your mapping stylesheet, and ensure that each generated action contains an @assertionNo attribute. If you do not have a custom mapping stylesheet, contact IBM Support.</suggestion>
+    </entry>
+    <entry name="secpolclientcertnoresp" id="20">
+      <code>0x080800014</code>
+      <text>WS-Security Policy Mapping: Ignoring RequireClientCertificate assertion in a response action.</text>
+      <summary />
+      <description>A policy subject contains a RequireClientCertificate WS-Security Policy assertion in a calculated effective policy alternative. The policy for the policy subject applies to the response-side message flow. The TLS client certificate policy assertion will be enforced for request messages but ignored for the corresponding response messages.</description>
+      <suggestion />
+    </entry>
+    <entry name="secpolbasicauthnoresp" id="21">
+      <code>0x080800015</code>
+      <text>WS-Security Policy Mapping: Ignoring HttpBasicAuthentication assertion in a response action.</text>
+      <summary />
+      <description>A policy subject contains a HttpBasicAuthentication WS-Security Policy assertion in a calculated effective policy alternative. The policy for the policy subject applies to the response-side message flow. The HTTP basic authentication policy assertion will be enforced for request messages but ignored for the corresponding response messages.</description>
+      <suggestion />
+    </entry>
+    <entry name="rbmrestrictedadmin" id="22">
+      <code>0x080800016</code>
+      <text>RBM: Log in of 'admin' restricted - Access denied.</text>
+      <summary />
+      <description>The login attempt by the 'admin' account was denied. The RBM configuration allows the restriction of the 'admin' account to log in through only the serial connection.</description>
+      <suggestion>Contact the system administrator of your DataPower Gateway to obtain a valid user account or to remove the access restrictions for the 'admin' account.</suggestion>
+    </entry>
+    <entry name="rbmrestrictedfallback" id="23">
+      <code>0x080800017</code>
+      <text>RBM: Restricted login mode - Access denied.</text>
+      <summary />
+      <description>The login attempt of the user in fallback mode was denied. The RBM configuration allows a subset of local users to log in when in fallback mode.</description>
+      <suggestion>Contact the system administrator of your DataPower Gateway to add the user to the list of allowed fallback users.</suggestion>
+    </entry>
+    <entry name="rbminternalerror" id="24">
+      <code>0x080800018</code>
+      <text>RBM: Resource access denied.</text>
+      <summary />
+      <description>The access of the user to a resource was denied.</description>
+      <suggestion>Check the RBM access profile of the user that denies or allows access to the requested resource.</suggestion>
+    </entry>
+    <entry name="secpolfilternosign" id="25">
+      <code>0x080800019</code>
+      <text>Ignoring signing-related assertion in filter mode</text>
+      <summary />
+      <description>A signing-related assertion was found in a response-side alternative in filter mode, which indicates that the message should be signed. In filter policy mode, the input message cannot be altered. The assertion will be ignored.</description>
+      <suggestion>If the message should be signed, change the policy mode from filter to enforce. Alternatively, remove the signing-related assertion from the effective WS-Policy for this policy subject.</suggestion>
+    </entry>
+    <entry name="secpolfilternoencrypt" id="26">
+      <code>0x08080001a</code>
+      <text>Ignoring encryption-related assertion in filter mode</text>
+      <summary />
+      <description>An encryption-related assertion was found in a response-side alternative in filter mode, which indicates that the message should be encrypted. In filter mode, the input message cannot be altered. The assertion will be ignored.</description>
+      <suggestion>If the message should be encrypted, change the policy mode from filter to enforce. Alternatively, remove the encryption-related assertion from the effective WS-Policy for this policy subject.</suggestion>
+    </entry>
+    <entry name="secpolnotoken" id="27">
+      <code>0x08080001b</code>
+      <text>No child token assertion found for binding</text>
+      <summary />
+      <description>Cannot find the required child token assertion for the AsymmetricBinding or SymmetricBinding assertion. One of the following child token assertions is required: ProtectionToken, EncryptionToken, InitiatorToken, or InitiatorEncryptionToken.</description>
+      <suggestion>Add the appropriate child token assertion to the AsymmetricBinding or SymmetricBinding assertion.</suggestion>
+    </entry>
+    <entry name="secpoltransbindingnotendpoint" id="28">
+      <code>0x08080001c</code>
+      <text>Found transport assertion attached to non-endpoint policy subject.</text>
+      <summary />
+      <description>Found a TransportBinding or TransportToken assertion attached to a non-endpoint policy subject. A transport assertion can be attached to only an endpoint subject.</description>
+      <suggestion>Attach the transport assertion to an endpoint policy subject.</suggestion>
+    </entry>
+    <entry name="rbmnouser" id="29">
+      <code>0x08080001d</code>
+      <text>RBM: Cannot extract user from request.</text>
+      <summary />
+      <description>The request is not associated with a user. This is an internal error.</description>
+      <suggestion>Contact IBM Support.</suggestion>
+    </entry>
+    <entry name="secpolsymbindingwrongsubject" id="30">
+      <code>0x08080001e</code>
+      <text>Found SymmetricBinding attached to improper policy subject.</text>
+      <summary />
+      <description>A SymmetricBinding assertion is attached to an improper policy subject. SymmetricBinding assertions should be applied to endpoint policy subjects and can be applied to operation policy subjects. Attaching the assertion to a different policy subject is not recommended.</description>
+      <suggestion>Associate the SymmetricBinding assertion to an endpoint or operation policy subject.</suggestion>
+    </entry>
+    <entry name="secpolasymbindingwrongsubject" id="31">
+      <code>0x08080001f</code>
+      <text>Found AsymmetricBinding attached to improper policy subject.</text>
+      <summary />
+      <description>An AsymmetricBinding assertion is attached to an improper policy subject. AsymmetricBinding assertions should be applied to endpoint policy subjects and can be applied to operation policy subjects. Attaching the assertion to a different policy subject is not recommended.</description>
+      <suggestion>Associate the AsymmetricBinding assertion to an endpoint or operation policy subject.</suggestion>
+    </entry>
+    <entry name="secpolsymbindnotoken" id="32">
+      <code>0x080800020</code>
+      <text>Found SymmetricBinding without child protection assertion.</text>
+      <summary />
+      <description>Did not find a child protection assertion for the SymmetricBinding assertion. SymmetricBinding assertions must contain a child protection assertion: ProtectionToken assertion or an EncryptionToken-SignatureToken assertion pair.</description>
+      <suggestion>Add a child protection assertion to the SymmetricBinding assertion.</suggestion>
+    </entry>
+    <entry name="secpolsymbindtoomanytokens" id="33">
+      <code>0x080800021</code>
+      <text>Found SymmetricBinding with too many child protection assertions.</text>
+      <summary />
+      <description>A SymmetricBinding assertion has too many child protection assertions. SymmetricBinding assertions must contain a child protection assertion: ProtectionToken assertion or an EncryptionToken-SignatureToken assertion pair. Found a ProtectionToken assertion and an EncryptionToken or SignatureToken assertion.</description>
+      <suggestion>Use a single child protection assertion for the SymmetricBinding assertion.</suggestion>
+    </entry>
+    <entry name="secpolsymbindnoalgosuite" id="34">
+      <code>0x080800022</code>
+      <text>Found SymmetricBinding without a child AlgorithmSuite assertion.</text>
+      <summary />
+      <description>A SymmetricBinding assertion did not contain an AlgorithmSuite assertion. SymmetricBinding assertions must contain an AlgorithmSuite assertion.</description>
+      <suggestion>Add a child AlgorithmSuite assertion to the SymmetricBinding assertion.</suggestion>
+    </entry>
+    <entry name="secpolasymbindnoalgosuite" id="35">
+      <code>0x080800023</code>
+      <text>Found AsymmetricBinding without a child AlgorithmSuite assertion.</text>
+      <summary />
+      <description>An AsymmetricBinding assertion did not contain an AlgorithmSuite assertion. AsymmetricBinding assertions must contain an AlgorithmSuite assertion.</description>
+      <suggestion>Add a child AlgorithmSuite assertion to the AsymmetricBinding assertion.</suggestion>
+    </entry>
+    <entry name="secpolenforcenotsign" id="36">
+      <code>0x080800024</code>
+      <text>WS-Security Policy Mapping: Cannot sign a message during enforcement.</text>
+      <summary />
+      <description>The DataPower Gateway is not configured to sign messages, so the message must be signed when passing through the DataPower Gateway.</description>
+      <suggestion>To configure the DataPower Gateway to sign a message during enforcement, ensure that you provide all required parameters.</suggestion>
+    </entry>
+    <entry name="secpolenforcenotencrypt" id="37">
+      <code>0x080800025</code>
+      <text>WS-Security Policy Mapping: Cannot encrypt a message during enforcement</text>
+      <summary />
+      <description>The DataPower Gateway is not configured to encrypt messages, so the message must be encrypted when passing through the DataPower Gateway.</description>
+      <suggestion>To configure the DataPower Gateway to encrypt a message during enforcement, ensure that you provide all required parameters.</suggestion>
+    </entry>
+    <entry name="secpolunsupportedtoken" id="38">
+      <code>0x080800026</code>
+      <text>WS-Security Policy Mapping: Policy contains unknown token information.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion>Check the policy template to ensure that the token is valid.</suggestion>
+    </entry>
+    <entry name="secpolmisconfiguration" id="39">
+      <code>0x080800027</code>
+      <text>WS-Security Policy Mapping: Misconfiguration.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion>Ensure that the template is properly specified and that you provided all required parameters. For example, if layout assertion requires a timestamp, ensure that the IncludeTimestamp parameter is specified.</suggestion>
+    </entry>
+    <entry name="rmpolwrongsubject" id="40">
+      <code>0x080800028</code>
+      <text>WS-Reliable Messaging Policy Mapping: RMAssertion is attached to an improper policy subject</text>
+      <summary />
+      <description>An RMAssertion assertion is attached to an improper policy subject. This assertion can be attached to only service and message policy subjects.</description>
+      <suggestion>Associate the RMAssertion to a proper policy subject.</suggestion>
+    </entry>
+    <entry name="secpolenforcetokenmissing" id="41">
+      <code>0x080800029</code>
+      <text>WS-Security Policy Mapping: During enforcement, cannot generate a token that conforms to the WS-Security Policy.</text>
+      <summary />
+      <description>The DataPower Gateway is not configured to generate a token that conforms to the WS-Security Policy, so the message must contain the token when passing through the DataPower Gateway.</description>
+      <suggestion>To configure the DataPower Gateway to generate a token during enforcement, ensure that you provide all required parameters. For example, ensure that you associate an appropriately configured AAA policy.</suggestion>
+    </entry>
+    <entry name="secpolbootstrapnobinding" id="42">
+      <code>0x08080002a</code>
+      <text>WS-Security Policy Mapping: Found a BootstrapPolicy assertion without an outer binding.</text>
+      <summary />
+      <description>A BootstrapPolicy assertion is an optional child of a SecureConversationToken assertion. The BootstrapPolicy assertion indicates the initial exchange that establishes the relevant security context. This exchange requires a binding assertion to determine the exchange details.</description>
+      <suggestion>Enclose the BootstrapPolicy assertion in a binding, such as a SymmetricBinding or AsymmetricBinding assertion.</suggestion>
+    </entry>
+    <entry name="secpolbootstrapnochildbinding" id="43">
+      <code>0x08080002b</code>
+      <text>WS-Security Policy Mapping: Found a BootstrapPolicy assertion without a child binding assertion.</text>
+      <summary />
+      <description>A BootstrapPolicy assertion is an optional child of a SecureConversationToken assertion. The BootstrapPolicy assertion indicates the initial exchange that establishes the relevant security context. The bootstrap assertion requires a child binding assertion to configure this initial exchange.</description>
+      <suggestion>Add a binding as a child of the BootstrapPolicy assertion, such as a SymmetricBinding or AsymmetricBinding assertion.</suggestion>
+    </entry>
+    <entry name="profilecheckerschemaerror" id="44">
+      <code>0x08080002c</code>
+      <text>Profile Conformance: Schema violation in output from requested checker.</text>
+      <summary />
+      <description>A profile conformance request failed because the requested profile checker returned a report that did not conform to the report schema.</description>
+      <suggestion>Verify that the checker xslt delivers a schema-correct report. The schema can be found in store:///schemas/dp-config-conformance-report.xsd</suggestion>
+    </entry>
+    <entry name="wspemptyexactlyone" id="45">
+      <code>0x08080002d</code>
+      <text>WS-Policy processing discovered an empty assertion.</text>
+      <summary />
+      <description>The processing of the WS-Policy discovered an empty assertion. The DataPower Gateway interprets an empty assertion to mean that no input can satisfy policy requirements. Accordingly, the DataPower Gateway generated a policy to reject all input.</description>
+      <suggestion>Verify that your policy does not contain an empty ExactlyOne element.</suggestion>
+    </entry>
+    <entry name="secpolunsupportedtokentype" id="46">
+      <code>0x08080002e</code>
+      <text>WS-Security Policy Mapping: An unknown or unsupported token type is specified in the policy.</text>
+      <summary />
+      <description>See message.</description>
+      <suggestion>Verify that the policy uses a supported token type.</suggestion>
+    </entry>
+    <entry name="secpolbootstrapnotfilter" id="47">
+      <code>0x08080002f</code>
+      <text>WS-Security Policy Mapping: A bootstrap policy assertion cannot be processed in filter mode.</text>
+      <summary />
+      <description>The effective policy was found to contain a bootstrap policy assertion. This assertion typically generates a RequestSecurityTokenResponse (RSTR) from a RequestSecurityToken (RST) message, which involves altering the message. Altering messages is possible in only enforce mode.</description>
+      <suggestion>Remove the bootstrap policy assertion, or change the policy mode to enforce.</suggestion>
+    </entry>
+    <entry name="secpolsymsignbodyonly" id="48">
+      <code>0x080800030</code>
+      <text>WS-Security Policy Mapping: WS-SecureConversation digital signatures are over only the SOAP body.</text>
+      <summary />
+      <description>According to the WS-SecureConversation specification, support for digital signatures that use derived keys are for signatures over only the SOAP body element.</description>
+      <suggestion>When using WS-SecureConversation derived keys, verify that your policy does not rely on integrity over other message parts.</suggestion>
+    </entry>
+    <entry name="confpolwrongsubject" id="49">
+      <code>0x080800031</code>
+      <text>WS-I Conformance Policy Mapping: A conformance requirement is attached to an improper policy subject.</text>
+      <summary />
+      <description>A conformance requirement is attached to an improper policy subject. A conformance requirement can be attached to only a service policy subject.</description>
+      <suggestion>Associate the conformance requirement with a service policy subject.</suggestion>
+    </entry>
+    <entry name="confpolunsupportedbinding" id="50">
+      <code>0x080800032</code>
+      <text>WS-I Conformance Policy Mapping: Unrecognized binding element.</text>
+      <summary />
+      <description>Internal error: Passed an invalid binding element to the mapping stylesheet.</description>
+      <suggestion>Contact IBM Support.</suggestion>
+    </entry>
+    <entry name="secpolnosupporttokenref" id="51">
+      <code>0x080800033</code>
+      <text>WS-Security Policy Mapping: No support for external references and only partial support for embedded token references.</text>
+      <summary />
+      <description>The DataPower Gateway does not support external references (sp:MustSupportRefExternalURI) and only partially supports embedded token references (sp:MustSupportRefEmbeddedToken).</description>
+      <suggestion>Verify that your policy does not contain sp:MustSupportRefExternalURI or sp:MustSuportRefEmbeddedToken.</suggestion>
+    </entry>
+    <entry name="secpolmismatchtokenref" id="52">
+      <code>0x080800034</code>
+      <text>WS-Security Policy Mapping: Mismatch between the X509Token reference and SOAP message security.</text>
+      <summary />
+      <description>According to the policy, there is a mismatch between how the token should be referenced in the message versus what the SOAP Message Security option supports.</description>
+      <suggestion>Verify that there is no mismatch between the required X509Token reference and SOAP Message Security Option.</suggestion>
+    </entry>
+    <entry name="secpolembeddedtokenref" id="53">
+      <code>0x080800035</code>
+      <text>WS-Security Policy Mapping: Limited support for embedded token reference.</text>
+      <summary />
+      <description>The DataPower Gateway can verify and decrypt a message with an embedded token Reference. However, it does not support signing and encrypting a message with an embedded token reference.</description>
+      <suggestion>Specify a supported token reference in WS-Security Policy.</suggestion>
+    </entry>
+    <entry name="secpolmismatchbindingtoken" id="54">
+      <code>0x080800036</code>
+      <text>WS-Security Policy Mapping: The asymmetric or symmetric binding does not contain the matched tokens for signing.</text>
+      <summary />
+      <description>The binding for signing requires a specific type of tokens, but the security policy does not provide them correctly. The asymmetric binding requires the key-certificate pair, but the binding does not contain the right tokens.</description>
+      <suggestion>Specify the tokens for the binding in the WS-Security Policy.</suggestion>
+    </entry>
+    <entry name="secpolmissingkerberosparam" id="55">
+      <code>0x080800037</code>
+      <text>WS-Security Policy Mapping: Required Kerberos parameters not present.</text>
+      <summary />
+      <description>A required Kerberos principal or keytab parameter is not configured for this endpoint or operation. For verify operations, the keytab and server principal parameters are required, and the client principal parameter is optional. For sign operations, the keytab, client principal, and server principal parameters are required. If the assertion is attached to a bidirectional WSDL policy subject (service, endpoint, or operation), all three parameters must be provided, as both sign and verify operations will be generated.</description>
+      <suggestion>Specify the required parameters.</suggestion>
+    </entry>
+    <entry name="importfilesystemfull" id="56">
+      <code>0x080800038</code>
+      <text>Import: File system full.</text>
+      <summary />
+      <description>The import could not complete due to insufficient file system space.</description>
+      <suggestion>Check the content of the file system and remove obsolete and unnecessary files. Files to remove are firmware files in the image: directory or export packages in export: directory.</suggestion>
+    </entry>
+    <entry name="importswitchfailed" id="57">
+      <code>0x080800039</code>
+      <text>Import: No domain access.</text>
+      <summary />
+      <description>The import could not be completed due to a failure to access a domain. The domain might not exist or was filtered, access to the domain was restricted, or the domain might not be operational.</description>
+      <suggestion>Check that you have valid access to the domain. If you are using a deployment policy, verify that the domain configuration is not being filtered.</suggestion>
+    </entry>
+    <entry name="secpolmissingbootstrap" id="58">
+      <code>0x08080003a</code>
+      <text>Security Policy: Bootstrap policy is missing.</text>
+      <summary />
+      <description>BootstrapPolicy should be attached to operation RequestSecurityToken.</description>
+      <suggestion>Make sure that the correct security policy is attached to the operation, RequestSecurityToken.</suggestion>
+    </entry>
+    <entry name="secpolnosignedelement" id="59">
+      <code>0x08080003b</code>
+      <text>No element to be signed.</text>
+      <summary />
+      <description>Nothing is specified in the policy to be signed.</description>
+      <suggestion />
+    </entry>
+    <entry name="policyassert" id="60">
+      <code>0x08080003c</code>
+      <text>Processing policy assertions in '%1$s' for policy ID '%2$s'.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="seqstrassert" id="61">
+      <code>0x08080003d</code>
+      <text>{'%s'}SequenceSTR assertion is not supported and will not be enforced.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="secpolprocessassertion" id="62">
+      <code>0x08080003e</code>
+      <text>Processing policy assertion in '%s'.</text>
+      <summary />
+      <description>Processing policy assertion in a given security policy namespace.</description>
+      <suggestion />
+    </entry>
+    <entry name="secpolunknownlayout" id="63">
+      <code>0x08080003f</code>
+      <text>Unknown WS-Security Policy message layout assertion found %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="aaa_aaainfo_edit" id="64">
+      <code>0x080800040</code>
+      <text>Editing AAA information file %1$s containing %2$s nodes, %3$s total nodes.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="aaa_aaainfo_save" id="65">
+      <code>0x080800041</code>
+      <text>Saved new file to %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="aaa_message" id="66">
+      <code>0x080800042</code>
+      <text>%s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="usercertautherror" id="67">
+      <code>0x080800043</code>
+      <text>User certificate authentication error: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="ei_session" id="68">
+      <code>0x080800044</code>
+      <text>Extract identity: Session [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="mc_input" id="69">
+      <code>0x080800045</code>
+      <text>Map credentials: Input [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="mr_input" id="70">
+      <code>0x080800046</code>
+      <text>Map resources: Input [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="noentryfound" id="72">
+      <code>0x080800048</code>
+      <text>No entries found for '%s'.</text>
+      <summary />
+      <description>The LDAP server contains no entries that match the search criteria.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="multentryfound" id="73">
+      <code>0x080800049</code>
+      <text>Multiple entries found for '%s'.</text>
+      <summary />
+      <description>The LDAP server contains multiple entries that match the search criteria.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="noattrfound" id="74">
+      <code>0x08080004a</code>
+      <text>No attribute found for '%s'.</text>
+      <summary />
+      <description>The LDAP server contains no entries that match the search criteria.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="multattrfound" id="75">
+      <code>0x08080004b</code>
+      <text>Multiple attributes found for '%s'.</text>
+      <summary />
+      <description>The LDAP server contains multiple entries that match the search criteria.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="mc_credlookup" id="76">
+      <code>0x08080004c</code>
+      <text>Map credentials: Searching for credentials with '%s'.</text>
+      <summary />
+      <description>Attempting to find credentials in the LDAP server that match the search criteria.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="mc_internalerror" id="77">
+      <code>0x08080004d</code>
+      <text>Internal Error - Unsupported Map credentials type.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="mc_inputmapsto" id="78">
+      <code>0x08080004e</code>
+      <text>Map credentials: Input maps to '%s'.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="mc_retpolicyfor" id="79">
+      <code>0x08080004f</code>
+      <text>Map credentials: Return policy for [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="mc_nocreduser" id="80">
+      <code>0x080800050</code>
+      <text>Map credentials: No credentials for '%s'.</text>
+      <summary />
+      <description>Cannot find credentials for the cited user or group.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="map_rbm_column_visibility" id="81">
+      <code>0x080800051</code>
+      <text>MAP: RBM column visibility [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="map_rbm_partner_visibility" id="82">
+      <code>0x080800052</code>
+      <text>MAP: RBM partner visibility [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="resolved_restype" id="83">
+      <code>0x080800053</code>
+      <text>Authorization response: Resolved resource type [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="resolved_resname" id="84">
+      <code>0x080800054</code>
+      <text>Authorization response: Resolved resource name [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="eval_policy" id="85">
+      <code>0x080800055</code>
+      <text>Authorization response: Evaluating policy [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="policy_grantperm" id="86">
+      <code>0x080800056</code>
+      <text>Authorization response: Policy grants permission [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="policy_denyperm" id="87">
+      <code>0x080800057</code>
+      <text>Authorization response: Policy denies permission [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="policy_failedperm" id="88">
+      <code>0x080800058</code>
+      <text>Authorization response: Cannot determine permission - Ignoring.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="policy_discard" id="89">
+      <code>0x080800059</code>
+      <text>Authorization response: Policy discarded due to mismatch [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="resp_accept_weight" id="90">
+      <code>0x08080005a</code>
+      <text>Authorization response: Accept weight (%1$s) - %2$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="resp_reject_weight" id="91">
+      <code>0x08080005b</code>
+      <text>Authorization response: Reject weight (%1$s) - %2$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="one_policy_pass" id="92">
+      <code>0x08080005c</code>
+      <text>Authorization response: One policy accepts and none rejects - Pass through</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="one_policy_filter" id="93">
+      <code>0x08080005d</code>
+      <text>Authorization response: One policy rejects and none accepts - Filter</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="morespecific_policy_pass" id="94">
+      <code>0x08080005e</code>
+      <text>Authorization response: Policy to accept more specific - Pass through</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="morespecific_policy_filter" id="95">
+      <code>0x08080005f</code>
+      <text>Authorization response: Policy to reject more specific - Filter</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="policy_contradict_pass" id="96">
+      <code>0x080800060</code>
+      <text>Authorization response: Policies contradict, using default - Pass through</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="policy_contradict_filter" id="97">
+      <code>0x080800061</code>
+      <text>Authorization response: Policies contradict, using default - Filter</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="resp_nopolicymatch_pass" id="98">
+      <code>0x080800062</code>
+      <text>Authorization response: No policy matched, using default - Pass through</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="resp_nopolicymatch_filter" id="99">
+      <code>0x080800063</code>
+      <text>Authorization response: No policy matched, using default - Filter</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="azpolicy_discard" id="100">
+      <code>0x080800064</code>
+      <text>Authorization: Policy discarded due to mismatch [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="eval_access_todomain" id="101">
+      <code>0x080800065</code>
+      <text>Authorization: Evaluating access to domain [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="accept_weight" id="102">
+      <code>0x080800066</code>
+      <text>Authorization: Accept weight (%1$s) - %2$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="reject_weight" id="103">
+      <code>0x080800067</code>
+      <text>Authorization: Reject weight (%1$s) - %2$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="domain_access_allowed" id="104">
+      <code>0x080800068</code>
+      <text>Authorization: Domain [%s] - Access allowed</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="domain_access_denied" id="105">
+      <code>0x080800069</code>
+      <text>Authorization: Domain [%s] - Access denied</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="policy_contradict_access_allowed" id="106">
+      <code>0x08080006a</code>
+      <text>Authorization: Policies contradict, using default - Access allowed</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="policy_contradict_access_denied" id="107">
+      <code>0x08080006b</code>
+      <text>Authorization: Policies contradict, using default - Access denied</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="nopolicymatch_pass" id="108">
+      <code>0x08080006c</code>
+      <text>Authorization: No policy matched, using default - Access allowed</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="nopolicymatch_filter" id="109">
+      <code>0x08080006d</code>
+      <text>Authorization: No policy matched, using default - Access denied</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_input_identity" id="110">
+      <code>0x08080006e</code>
+      <text>Authorization: Input [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_device_ip" id="111">
+      <code>0x08080006f</code>
+      <text>Authorization: Device IP [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_session" id="112">
+      <code>0x080800070</code>
+      <text>Authorization: Session [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_domain" id="113">
+      <code>0x080800071</code>
+      <text>Authorization: Domain [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_user" id="114">
+      <code>0x080800072</code>
+      <text>Authorization: User [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_file_path" id="115">
+      <code>0x080800073</code>
+      <text>Authorization: File path [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_empty_resources" id="116">
+      <code>0x080800074</code>
+      <text>Authorization: Empty mapped resources - Accept</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_multinode" id="117">
+      <code>0x080800075</code>
+      <text>Authorization: Multi-node configuration - Accept</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_valid_user_session" id="118">
+      <code>0x080800076</code>
+      <text>Authorization: User session and valid session - Accept</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_local_user_flush" id="119">
+      <code>0x080800077</code>
+      <text>Authorization: Local user - Accept, but flush permissions</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_local_user" id="120">
+      <code>0x080800078</code>
+      <text>Authorization: Local user - Accept</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_user_build_access" id="121">
+      <code>0x080800079</code>
+      <text>Authorization: Local user - Build access permissions</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_operation" id="122">
+      <code>0x08080007a</code>
+      <text>Authorization: Operation [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_default_policy" id="123">
+      <code>0x08080007b</code>
+      <text>Authorization: Default policy [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_user_profile" id="124">
+      <code>0x08080007c</code>
+      <text>Authorization: User profile [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_parsing_policy" id="125">
+      <code>0x08080007d</code>
+      <text>Authorization: Parsing policy [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="rbm_invalid_policy" id="126">
+      <code>0x08080007e</code>
+      <text>RBM: Invalid policy [%s] - skipped</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_accept_weight" id="127">
+      <code>0x08080007f</code>
+      <text>Authorization: Accept weight (%1$s) - %2$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_reject_weight" id="128">
+      <code>0x080800080</code>
+      <text>Authorization: Reject weight (%1$s) - %2$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_accept_and_no_reject" id="129">
+      <code>0x080800081</code>
+      <text>Authorization: One policy accepts and none reject - Accept</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_reject_and_no_accept" id="130">
+      <code>0x080800082</code>
+      <text>Authorization: One policy rejects and none accept - Reject</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_accept_more_specific" id="131">
+      <code>0x080800083</code>
+      <text>Authorization: Policy to accept more specific - Accept</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_reject_more_specific" id="132">
+      <code>0x080800084</code>
+      <text>Authorization: Policy to reject more specific - Reject</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_no_policy_match_accept" id="133">
+      <code>0x080800085</code>
+      <text>Authorization: No policy matched, use default - Accept</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="rbm_no_policy_match_reject" id="134">
+      <code>0x080800086</code>
+      <text>RBM: No policy matched, default - Reject</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_flush_user_perm" id="135">
+      <code>0x080800087</code>
+      <text>Authorization: Flush user permission</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_policy_grants_backup" id="136">
+      <code>0x080800088</code>
+      <text>Authorization request: Policy grants permission [backup]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_policy_denies_backup" id="137">
+      <code>0x080800089</code>
+      <text>Authorization request: Policy denies permission [backup]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_policy_discarded" id="138">
+      <code>0x08080008a</code>
+      <text>Authorization request: Policy discarded due to mismatch [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_eval_policy" id="139">
+      <code>0x08080008b</code>
+      <text>Authorization request: Evaluating policy [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_resolved_pol_type" id="140">
+      <code>0x08080008c</code>
+      <text>Authorization request: Resolved policy type [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_resolved_res_type" id="141">
+      <code>0x08080008d</code>
+      <text>Authorization request: Resolved resource type [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_resolved_res_name" id="142">
+      <code>0x08080008e</code>
+      <text>Authorization request: Resolved resource name [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_policy_grants" id="143">
+      <code>0x08080008f</code>
+      <text>Authorization request: Policy grants permission [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_policy_denies" id="144">
+      <code>0x080800090</code>
+      <text>Authorization request: Policy denies permission [%s]</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="az_req_ignore" id="145">
+      <code>0x080800091</code>
+      <text>Authorization request: Cannot determine permissions - Ignore</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_too_many" id="146">
+      <code>0x080800092</code>
+      <text>%s child condition: Will not process additional conditions.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_old_value" id="147">
+      <code>0x080800093</code>
+      <text>%s uses old property-value children and will be ignored.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_unknown_property" id="148">
+      <code>0x080800094</code>
+      <text>Unknown property (%s) in process-condition. Using default value.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_invalid" id="149">
+      <code>0x080800095</code>
+      <text>Invalid condition evaluation type: %s while processing conditions. Defaulting to false.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_empty_and" id="150">
+      <code>0x080800096</code>
+      <text>Empty logical AND condition. Returning %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_empty_or" id="151">
+      <code>0x080800097</code>
+      <text>Empty logical OR condition. Returning %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_empty_not" id="152">
+      <code>0x080800098</code>
+      <text>Empty logical NOT condition. Returning false.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_multiple_not" id="153">
+      <code>0x080800099</code>
+      <text>Logical NOT condition with multiple sub-conditions. Processing only first child.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_uncomparable_value" id="154">
+      <code>0x08080009a</code>
+      <text>Unknown or incomparable condition value identifier in %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_unknown_value" id="155">
+      <code>0x08080009b</code>
+      <text>Unknown condition value identifier %1$s in %2$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="condition_unsupported" id="156">
+      <code>0x08080009c</code>
+      <text>Condition unsupported in context %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_node_id" id="157">
+      <code>0x08080009d</code>
+      <text>@node-id %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_claim_ref" id="158">
+      <code>0x08080009e</code>
+      <text>Claim reference %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_analyzing_response" id="159">
+      <code>0x08080009f</code>
+      <text>Analyzing response against Attachments Profile 1.0</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_analyzing_request" id="160">
+      <code>0x0808000a0</code>
+      <text>Analyzing request against Attachments Profile 1.0</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_attachment_snapshot" id="161">
+      <code>0x0808000a1</code>
+      <text>Actual attachments (snapshot): %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_http_content_type_full" id="162">
+      <code>0x0808000a2</code>
+      <text>HTTP ContentType header (full): %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_http_content_type" id="163">
+      <code>0x0808000a3</code>
+      <text>HTTP ContentType header: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_http_content_type_charset" id="164">
+      <code>0x0808000a4</code>
+      <text>HTTP ContentType character set: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_http_content_type_type" id="165">
+      <code>0x0808000a5</code>
+      <text>HTTP ContentType type: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_encoding_mismatch" id="166">
+      <code>0x0808000a6</code>
+      <text>Encoding mismatch. Writing message.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_mime_info" id="167">
+      <code>0x0808000a7</code>
+      <text>wsdl-binding= %1$s MIME format input: %2$s Required input parts: %3$s MIME format output: %4$s Required output parts: %5$s Required part names: %6$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_attachment_info" id="168">
+      <code>0x0808000a8</code>
+      <text>Analyzing attachment %1$s URI: %2$s. WSDL name: %3$s, PartIsXML: %4$s, Attachment %5$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_checking_msg_against_part" id="169">
+      <code>0x0808000a9</code>
+      <text>Checking message part %1$s against WSDL %2$s, part %3$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_attachment_data" id="170">
+      <code>0x0808000aa</code>
+      <text>Attachment data %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_validation_results" id="171">
+      <code>0x0808000ab</code>
+      <text>Attachment %1$s. Validation results: %2$s, Validation code: %3$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_doc_encoding" id="172">
+      <code>0x0808000ac</code>
+      <text>XML document encoding is %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_soap_http_header" id="173">
+      <code>0x0808000ad</code>
+      <text>SOAPAction HTTP header is %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_request_content_type" id="174">
+      <code>0x0808000ae</code>
+      <text>Request content type %1$s required by WSDL %2$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_ref_consistency_check" id="175">
+      <code>0x0808000af</code>
+      <text>Checking consistency of reference (%1$s) from %2$s to %3$s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_check_ref_empty" id="176">
+      <code>0x0808000b0</code>
+      <text>check-reference-consistency was passed an empty reference.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_check_saml" id="177">
+      <code>0x0808000b1</code>
+      <text>Checking for SAML-&gt;SAML references.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_validating_external_saml" id="178">
+      <code>0x0808000b2</code>
+      <text>Validating external SAML reference.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_checking_for_internal_refs" id="179">
+      <code>0x0808000b3</code>
+      <text>Checking %s for internal XPointer, SAML, REL, and other references.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_reference_via_licenseID" id="180">
+      <code>0x0808000b4</code>
+      <text>Reference via license ID.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_reference_via_saml_assertion" id="181">
+      <code>0x0808000b5</code>
+      <text>Reference via SAML Assertion ID.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_reference_unresolveable_ref" id="182">
+      <code>0x0808000b6</code>
+      <text>Unresolveable reference</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_entering_check_conf" id="183">
+      <code>0x0808000b7</code>
+      <text>Entering template check-conformance (mode=%1$s); policy %2$s: %3$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_streaming" id="184">
+      <code>0x0808000b8</code>
+      <text>Streaming: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_streaming_disabled" id="185">
+      <code>0x0808000b9</code>
+      <text>Streaming disabled by conformance policy</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_analyzing_for_bp_10_conformance" id="186">
+      <code>0x0808000ba</code>
+      <text>Analyzing for BP 1.0 conformance.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_analyzing_claimed_bp_10_conformance" id="187">
+      <code>0x0808000bb</code>
+      <text>Analyzing the claimed BP 1.0 conformance.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_analyzing_for_bp_11_conformance" id="188">
+      <code>0x0808000bc</code>
+      <text>Analyzing for BP 1.1 conformance.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_analyzing_for_ap_10_conformance" id="189">
+      <code>0x0808000bd</code>
+      <text>Analyzing the claimed AP 1.0 conformance.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_analyzing_for_bsp_10_conformance" id="190">
+      <code>0x0808000be</code>
+      <text>Analyzing the claimed BSP 1.0 conformance.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_processing_fixup_stylesheets" id="191">
+      <code>0x0808000bf</code>
+      <text>Processing %s fix-up stylesheets.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_xform_logging" id="192">
+      <code>0x0808000c0</code>
+      <text>Analysis of transform logging.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_check_conf_returning" id="193">
+      <code>0x0808000c1</code>
+      <text>Check-conformance returning: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_exiting_check_conformance" id="194">
+      <code>0x0808000c2</code>
+      <text>Exiting template check-conformance (mode=%s).</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_fixup_schema_violation" id="195">
+      <code>0x0808000c3</code>
+      <text>Schema violation in output of fix-up stylesheet %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_entering_check_parts" id="196">
+      <code>0x0808000c4</code>
+      <text>Entering check parts WSDL, part: %1$s. Checking presence of part %2$s. Attachments supplied: %3$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_wsdl_part_not_found" id="197">
+      <code>0x0808000c5</code>
+      <text>WSDL part %s not found in message.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_swaref_types" id="198">
+      <code>0x0808000c6</code>
+      <text>SWA reference types: %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_swa_ref_content_location_not_found" id="199">
+      <code>0x0808000c7</code>
+      <text>The SWA reference content location %s is not found in message.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_swa_ref_cid_not_found" id="200">
+      <code>0x0808000c8</code>
+      <text>The SWA reference content ID %s is not found in message.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_preparing_report_for_ext_logging" id="201">
+      <code>0x0808000c9</code>
+      <text>Preparing report for external logging.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_posting_conf_report" id="202">
+      <code>0x0808000ca</code>
+      <text>Posting conformance report to URL %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_deferred_mode_cancelled" id="203">
+      <code>0x0808000cb</code>
+      <text>Deferred mode canceled. Will not generate output.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_log_by_policy" id="204">
+      <code>0x0808000cc</code>
+      <text>Log policy: mode %1$s, XSLT results %2$s, MIME results %3$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_verifying_ap10_2926" id="205">
+      <code>0x0808000cd</code>
+      <text>Verifying AP10:2926.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_actual_attachments" id="206">
+      <code>0x0808000ce</code>
+      <text>Actual attachments: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_verifying_ap10_2928" id="207">
+      <code>0x0808000cf</code>
+      <text>Verifying AP10:2928.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_combined_results" id="208">
+      <code>0x0808000d0</code>
+      <text>Combined results: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_log_policy" id="209">
+      <code>0x0808000d1</code>
+      <text>Policy: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_use_response_params" id="210">
+      <code>0x0808000d2</code>
+      <text>Use response parameters: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_report_level" id="211">
+      <code>0x0808000d3</code>
+      <text>Report level from policy: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_sending_log_to_url" id="212">
+      <code>0x0808000d4</code>
+      <text>Sending conformance log to URL %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_rejecting_message" id="213">
+      <code>0x0808000d5</code>
+      <text>Rejecting message.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_returning_message" id="214">
+      <code>0x0808000d6</code>
+      <text>Returning modified message.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_deferred_logger_invoked" id="215">
+      <code>0x0808000d7</code>
+      <text>Deferred logger invoked.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_logging_message" id="216">
+      <code>0x0808000d8</code>
+      <text>Logging message: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="unknown_xml_mgmt_service_uri" id="217">
+      <code>0x0808000d9</code>
+      <text>Unknown service URI %s for XML management interface.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="conf_attachment_addl_info" id="218">
+      <code>0x0808000da</code>
+      <text>AttachmentMIMEContents: %1$s, AttachmentMIMEContent: %2$s, AttachmentIsXML: %3$s, WSDL source: %4$s, WSDL location: %5$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="ldap_rbmerror" id="219">
+      <code>0x0808000db</code>
+      <text>%s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="noeattrfound" id="220">
+      <code>0x0808000dc</code>
+      <text>No attribute found for %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="multeattrfound" id="221">
+      <code>0x0808000dd</code>
+      <text>Multiple attributes found for %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="nopolicymatch_access_allowed" id="222">
+      <code>0x0808000de</code>
+      <text>Authorization: No policy matched, using default - Access allowed.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="nopolicymatch_access_denied" id="223">
+      <code>0x0808000df</code>
+      <text>Authorization: No policy matched, using default - Access denied.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="serving_local_wsdl" id="224">
+      <code>0x0808000e0</code>
+      <text>Serving local WSDL %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="illegal_operation" id="225">
+      <code>0x0808000e1</code>
+      <text>Rejected illegal operation %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="xpath_routing_map" id="226">
+      <code>0x0808000e2</code>
+      <text>XPath routing map configuration %s does not exist.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="nouriforattach" id="227">
+      <code>0x0808000e3</code>
+      <text>No URI for attachment.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="scanningattach" id="228">
+      <code>0x0808000e4</code>
+      <text>Scanning attachment '%s'.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="virusinattach" id="229">
+      <code>0x0808000e5</code>
+      <text>Virus reported in attachment '%s'.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="virusinextracted" id="230">
+      <code>0x0808000e6</code>
+      <text>Virus reported in extracted content. The XPath is %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="virusinbody" id="231">
+      <code>0x0808000e7</code>
+      <text>Virus reported in message body.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="virusscanfailed" id="232">
+      <code>0x0808000e8</code>
+      <text>Virus scan failed: %s</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="virusscanfailed_unknownmode" id="233">
+      <code>0x0808000e9</code>
+      <text>Virus scan failed: Unknown processing mode '%s'.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="virusscanfailed_noatturi" id="234">
+      <code>0x0808000ea</code>
+      <text>Virus scan failed: No attachment URI.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="unscannablestripped" id="235">
+      <code>0x0808000eb</code>
+      <text>Unscannable attachment stripped '%s'.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="infectedstripped" id="236">
+      <code>0x0808000ec</code>
+      <text>Infected attachment stripped '%s'.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="tempfilesaved" id="237">
+      <code>0x0808000ed</code>
+      <text>Temporary file saved to %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="attachis" id="238">
+      <code>0x0808000ee</code>
+      <text>Attachment %1$s is %2$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="route_xpath_unavail" id="239">
+      <code>0x0808000ef</code>
+      <text>XPathRoutingMap.xsl uses unavailable elements: %s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="route_xpath_info" id="240">
+      <code>0x0808000f0</code>
+      <text>Document matching XPath '%1$s' routed to %2$s:%3$s.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="route_no_match_xpath" id="241">
+      <code>0x0808000f1</code>
+      <text>Unable to route document: XPath expressions did not match any rules.</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="user_custom" id="242">
+      <code>0x0808000f2</code>
+      <text>XSLT custom log message '%s'</text>
+      <summary />
+      <description>Custom log message for log event triggers.</description>
+      <suggestion />
+    </entry>
+    <entry name="med_no_context" id="243">
+      <code>0x0808000f3</code>
+      <text>WS-MediationPolicy Mapping: Cannot find the input context: '%s'</text>
+      <summary />
+      <description>The shared input context was not specified correctly.</description>
+      <suggestion>Be sure that all of the WS-Policy policies used by this application domain are syntactically correct and restart the domain.</suggestion>
+    </entry>
+    <entry name="med_bad_logpriority" id="244">
+      <code>0x0808000f4</code>
+      <text>WS-MediationPolicy Mapping: The ws-mediation-LogPriority policy parameter for %1$s is an invalid value (%2$s), using 'debug' instead.</text>
+      <summary />
+      <description>The policy parameter was not specified correctly.</description>
+      <suggestion>Check the value of the policy parameter and correct it.</suggestion>
+    </entry>
+    <entry name="med_bad_output_type" id="245">
+      <code>0x0808000f5</code>
+      <text>WS-MediationPolicy Mapping: The ws-mediation-TransformOutputType policy parameter for %1$s is an invalid value (%2$s), using 'default' instead.</text>
+      <summary />
+      <description>The policy parameter was not specified correctly.</description>
+      <suggestion>Check the value of the policy parameter and correct it.</suggestion>
+    </entry>
+    <entry name="med_output_location" id="246">
+      <code>0x0808000f6</code>
+      <text>WS-MediationPolicy Mapping: The wsmp-config output for %1$s is at %2$s.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="med_bad_policy" id="247">
+      <code>0x0808000f7</code>
+      <text>WS-MediationPolicy Mapping: Policy Error detected, discarding generated configuration.</text>
+      <summary />
+      <description>The contents of the policy document are not correct.</description>
+      <suggestion>Check the policy document and correct it.</suggestion>
+    </entry>
+    <entry name="med_bad_policy_source" id="248">
+      <code>0x0808000f8</code>
+      <text>WS-MediationPolicy Mapping: The policy at %s failed to pass schema validation.</text>
+      <summary />
+      <description>The policy document encountered a schema validation issue.</description>
+      <suggestion>Check the policy document make it comply with the WS-MediationPolicy schema.</suggestion>
+    </entry>
+    <entry name="med_slm_policy_name" id="249">
+      <code>0x0808000f9</code>
+      <text>WS-MediationPolicy Mapping: The generated SLM policy name is %s.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="med_slm_sched_name" id="250">
+      <code>0x0808000fa</code>
+      <text>WS-MediationPolicy Mapping: The generated SLM schedule name is %s.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="med_slm_credclass_name" id="251">
+      <code>0x0808000fb</code>
+      <text>WS-MediationPolicy Mapping: The generated SLM credential class name is %s.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="med_interval_sixty" id="252">
+      <code>0x0808000fc</code>
+      <text>WS-MediationPolicy Mapping: The interval value was not specified. Using 60 as the default value.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Locate the offending condition in the WS-MediationPolicy document and correct it.</suggestion>
+    </entry>
+    <entry name="med_bad_dates" id="253">
+      <code>0x0808000fd</code>
+      <text>WS-MediationPolicy Mapping: The StopDate (%1$s) must be after the StartDate (%2$s). Rendering policy ineffective by setting the end date to 2001-01-01.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Locate the offending schedule element in the WS-MediationPolicy document and correct it.</suggestion>
+    </entry>
+    <entry name="med_wsrr_slash" id="254">
+      <code>0x0808000fe</code>
+      <text>WS-MediationPolicy Mapping: The WSRR URI must end with a slash '/' character. Adding one.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Locate the offending WSRR URI in the WS-MediationPolicy document and correct it.</suggestion>
+    </entry>
+    <entry name="med_wsrr_server_name" id="255">
+      <code>0x0808000ff</code>
+      <text>WS-MediationPolicy Mapping: The WSRR server name is %s.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="med_wsrr_substitution_failed" id="256">
+      <code>0x080800100</code>
+      <text>WS-MediationPolicy Mapping: The WSRR server name substitution failed. The calling action name is %s.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Ensure that the WSRR server is configured correctly, and that the WS-MediationPolicy originated from WSRR.</suggestion>
+    </entry>
+    <entry name="med_notify" id="257">
+      <code>0x080800101</code>
+      <text>WS-MediationPolicy: Notify action triggered ('%1$s') from source policy ('%2$s').</text>
+      <summary />
+      <description>A WS-MediationPolicy assertion containing a Notify action was enforced.</description>
+      <suggestion>No action necessary. The Notify was specified in policy so a message was created to comply with the WS-MediationPolicy specification.</suggestion>
+    </entry>
+    <entry name="med_bad_scope" id="258">
+      <code>0x080800102</code>
+      <text>WS-MediationPolicy Mapping: An invalid value '%s' was found for the Scope element of ValidateMessage.</text>
+      <summary />
+      <description>The Scope attributes must omitted or be one of the following values ('SOAPBody','SOAPBodyOrDetails','SOAPEnvelope' or 'SOAPIgnoreFaults')</description>
+      <suggestion>Change Scope to specify a valid value</suggestion>
+    </entry>
+    <entry name="med_scope_ignored" id="259">
+      <code>0x080800103</code>
+      <text>WS-MediationPolicy Mapping: The Scope element specified for ValidateMessage/WSDL will be ignored.</text>
+      <summary />
+      <description>The Scope element is only valid for ValidateMessage/XSD, if it is specified for ValidateMessage/WSDL it will be ignored.</description>
+      <suggestion>Remove the Scope element from the ValidateMessage element.</suggestion>
+    </entry>
+    <entry name="med_bad_attribute" id="260">
+      <code>0x080800104</code>
+      <text>WS-MediationPolicy Mapping: The value '%s' specified for Attribute is not valid.</text>
+      <summary />
+      <description>The Attruibute element specified for Condition/Expression is incorrect. Valid values are ('ErrorCount', 'MessageCount', 'InternalLatency', 'BackendLatency', and 'TotalLatency').</description>
+      <suggestion>Change the value of the Attribute element to a valid value.</suggestion>
+    </entry>
+    <entry name="med_bad_operator" id="261">
+      <code>0x080800105</code>
+      <text>WS-MediationPolicy Mapping: The value '%s' specified for Operator is not valid.</text>
+      <summary />
+      <description>The Operator element specified for Condition/Expression is incorrect. Valid values are ('GreaterThan', 'LessThan', 'TokenBucket', and 'HighLow').</description>
+      <suggestion>Change the value of the Operator element to a valid value.</suggestion>
+    </entry>
+    <entry name="med_limit_ignored" id="262">
+      <code>0x080800106</code>
+      <text>WS-MediationPolicy Mapping: The Limit element specified for Expression will be ignored.</text>
+      <summary />
+      <description>The Limit element is only valid for an Expression if the Operator is TokenBucket and HighLow.</description>
+      <suggestion>Correct the error in the Expression.</suggestion>
+    </entry>
+    <entry name="med_bad_char_in_days" id="263">
+      <code>0x080800107</code>
+      <text>WS-MediationPolicy Mapping: An invalid character was found for the Days attribute. Days='%s'</text>
+      <summary />
+      <description>The Days attribute in the WeekDays element for the Schedule contains an invalid character. Only the days of the week ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday') separated by a '+' character, are permitted.</description>
+      <suggestion>Correct the error in the Schedule.</suggestion>
+    </entry>
+    <entry name="med_bad_day_in_days" id="264">
+      <code>0x080800108</code>
+      <text>WS-MediationPolicy Mapping: An invalid day name was found for the Days attribute. Days='%s'</text>
+      <summary />
+      <description>The Days attribute in the WeekDays element for the Schedule contains an day name. Only the days of the week ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday') separated by a '+' character, are permitted.</description>
+      <suggestion>Correct the error in the Schedule.</suggestion>
+    </entry>
+    <entry name="med_weekdays_with_no_days" id="265">
+      <code>0x080800109</code>
+      <text>WS-MediationPolicy Mapping: A WeekDays element was found but the Days attribute was empty or missing</text>
+      <summary />
+      <description>The Days attribute is required, and must contain at least one valid day name. Valid day names are ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'). Multiple day names must be separated by a '+' character.</description>
+      <suggestion>Correct the error in the Schedule.</suggestion>
+    </entry>
+    <entry name="med_bad_date_value" id="266">
+      <code>0x08080010a</code>
+      <text>WS-MediationPolicy Mapping: Timezoned values may not be used for the StartDate and StopDate attributes of the Schedule element: %s</text>
+      <summary />
+      <description>Date values specified for Schedule element must be of type xs:date, and must not specify a timezone.</description>
+      <suggestion>Correct the error in the Schedule.</suggestion>
+    </entry>
+    <entry name="med_bad_time_value" id="267">
+      <code>0x08080010b</code>
+      <text>WS-MediationPolicy Mapping: Timezoned and fractional-second values may not be used for the StartTime and StopTime attributes of the Daily element in a Schedule: %s</text>
+      <summary />
+      <description>Time values specified for the Daily element in a Schedule must be of type xs:time, and must not specify a timezone or fractional seconds.</description>
+      <suggestion>Correct the error in the Schedule.</suggestion>
+    </entry>
+    <entry name="med_token_and_latency" id="268">
+      <code>0x08080010c</code>
+      <text>WS-MediationPolicy Mapping: A latency-based Attribute value must not be used when the value of Operator is TokenBucket.</text>
+      <summary />
+      <description>Valid values for Attribute are 'ErrorCount' and 'MessageCount' when the value of Operator is 'TokenBucket'.</description>
+      <suggestion>Correct the error in the Exression.</suggestion>
+    </entry>
+    <entry name="med_no_expr_or_sched" id="269">
+      <code>0x08080010d</code>
+      <text>WS-MediationPolicy Mapping: The Condition element must contain an Expression element, a Schedule element, or both.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the error in the Condition.</suggestion>
+    </entry>
+    <entry name="med_interval_negative" id="270">
+      <code>0x08080010e</code>
+      <text>WS-MediationPolicy Mapping: The Interval element of an Expression must not be negative. The value specified is '%s'.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the error in the Expression.</suggestion>
+    </entry>
+    <entry name="med_interval_months_years" id="271">
+      <code>0x08080010f</code>
+      <text>WS-MediationPolicy Mapping: The Interval element of an Expression must not contain a year or a month value. The value specified is '%s'.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the error in the Expression.</suggestion>
+    </entry>
+    <entry name="med_interval_decimal" id="272">
+      <code>0x080800110</code>
+      <text>WS-MediationPolicy Mapping: The 'seconds' portion of the Interval element must be an integral number (no fractional seconds). The interval value specified is '%s'.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the error in the Expression.</suggestion>
+    </entry>
+    <entry name="med_highlow_missing_limit" id="273">
+      <code>0x080800111</code>
+      <text>WS-MediationPolicy Mapping: A value must be provided for Limit if the Operator is 'HighLow'.</text>
+      <summary />
+      <description>The HighLow algorithm requires that an integer value be specified for the Limit element.</description>
+      <suggestion>Correct the error in the Expression.</suggestion>
+    </entry>
+    <entry name="med_tokenbucket_missing_limit" id="274">
+      <code>0x080800112</code>
+      <text>WS-MediationPolicy Mapping: A value must be provided for Limit if the Operator is 'TokenBucket'.</text>
+      <summary />
+      <description>The TokenBucket algorithm requires that an integer value be specified for the Limit element.</description>
+      <suggestion>Correct the error in the Expression.</suggestion>
+    </entry>
+    <entry name="med_queue_found_in_false" id="275">
+      <code>0x080800113</code>
+      <text>WS-MediationPolicy Mapping: A QueueMessage was found in an Action with a IfCondition='false' attribute. QueueMessage will be ignored.</text>
+      <summary />
+      <description>The QueueMessage element is only supported within Action elements that are invoked when the Condition evaluates to 'true'.</description>
+      <suggestion>Re-arrange the logic in the Condition so that the QueueMessage can be moved to a 'true' Action.</suggestion>
+    </entry>
+    <entry name="med_invalid_protocol_executexsl" id="276">
+      <code>0x080800114</code>
+      <text>WS-MediationPolicy Mapping: An unsupported URL protocol was used for ExecuteXSL. Only local: and store: are allowed. The URL used was: %s</text>
+      <summary />
+      <description>Only local: and store: protocols are allowed for ExecuteXSL</description>
+      <suggestion>Use a valid protocol in the WS-MediationPolicy assertion.</suggestion>
+    </entry>
+    <entry name="wspemptypolicy" id="277">
+      <code>0x080800115</code>
+      <text>Policy Mapping: An empty policy alternative was detected in the policy attahced at %s.</text>
+      <summary>The policy mapping framework detected an empty alternative. The policy author may have intended this so it is not necessarily an error.</summary>
+      <description>An empty policy alternative is an alternative that contains no policy assertions.</description>
+      <suggestion>If the alternative is intentionally empty then take no aciton, otherwise locate policy containing the empty alternative and correct it.</suggestion>
+    </entry>
+    <entry name="med_display_action" id="278">
+      <code>0x080800116</code>
+      <text>WS-MediationPolicy: Non-conditional QueueMessage action ('%1$s') enforced from source policy ('%2$s').</text>
+      <summary />
+      <description>A QueueMessage action was enforced but there was no Expresson to drive the SLM shape condition, thus the message cannot be queued.</description>
+      <suggestion>No action necessary. This message is logged when a QueueMessage action is executed in policy when there is no Condition/Expression to trigger it.</suggestion>
+    </entry>
+    <entry name="med_log" id="279">
+      <code>0x080800117</code>
+      <text>%s</text>
+      <summary />
+      <description>A WS-MediationPolicy assertion containing a Log action was enforced.</description>
+      <suggestion>No action necessary. The Log was specified in policy so a message was created to comply with the WS-MediationPolicy specification.</suggestion>
+    </entry>
+    <entry name="med_algorithm_not_supported" id="280">
+      <code>0x080800118</code>
+      <text>A unsupported algorithm, '%s' was detected.</text>
+      <summary />
+      <description>WS-MediationPolicy: A RouteMessage assertion was detected, but the algorithm name specified is not supported.</description>
+      <suggestion>Choose one of the predefined algorithms supported by the RouteMessage action.</suggestion>
+    </entry>
+    <entry name="wspfiltertypeerror" id="281">
+      <code>0x080800119</code>
+      <text>Policy Mapping: An unsupported filter location type ('%1$s') was detected on filter name '%2$s', location '%3$s'.</text>
+      <summary>The policy mapping framework detected an unsupported filter location type.</summary>
+      <description>A policy attachment was detected that contains an unsupported or empty message content filter location type.</description>
+      <suggestion>Locate the policy attachment and supply a valid value for the filter location type.</suggestion>
+    </entry>
+    <entry name="wspfilteremptyvalue" id="282">
+      <code>0x08080011a</code>
+      <text>Policy Mapping: An empty filter Value element was detected on filter name '%1$s', location type '%2$s', location '%3$s'.</text>
+      <summary>The policy mapping framework detected an empty filter Value element.</summary>
+      <description>A policy attachment was detected that contains an empty message content filter Value element.</description>
+      <suggestion>Locate the policy attachment and supply a non-empty value for the filter Value element.</suggestion>
+    </entry>
+    <entry name="wspfilteremptylocation" id="283">
+      <code>0x08080011b</code>
+      <text>Policy Mapping: An empty filter Location element was detected on filter name '%1$s', location type '%2$s', value '%3$s'.</text>
+      <summary>The policy mapping framework detected an empty filter Value element.</summary>
+      <description>A policy attachment was detected that contains an empty message content filter Value element.</description>
+      <suggestion>Locate the policy attachment and supply a non-empty value for the filter Value element.</suggestion>
+    </entry>
+    <entry name="pfw_mpgw_policy_not_supported" id="284">
+      <code>0x08080011c</code>
+      <text>An unsupported namespace:%1$s was detected in an assertion (policy url=%2$s, name='%3$s'). The assertion will be ignored.</text>
+      <summary>The policy mapping framework detected a policy alternative containing an unsupported policy assertion on the Multi-Protocol Gateway. This assertion will not be enforced.</summary>
+      <description>Policy Framework: The DataPower Gateway enforces WS-MediationPolicy and custom policy domains on the Multi-Protocol Gateway. A policy assertion using an unsupported domain was detected and will be ignored.</description>
+      <suggestion>Remove the unsupported assertions from the policy alternative.</suggestion>
+    </entry>
+    <entry name="med_execute_transform_required" id="285">
+      <code>0x08080011d</code>
+      <text>WS-MediationPolicy: A Transform must be specified for Execute (policy url=%1$s, name='%2$s'). The assertion will be ignored.</text>
+      <summary>The policy mapping framework detected an invalid WS-MediationPolicy. This assertion will not be enforced.</summary>
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_execute_input_required" id="286">
+      <code>0x08080011e</code>
+      <text>WS-MediationPolicy: An Input must be specified for Execute (policy url=%1$s, name='%2$s'). The assertion will be ignored.</text>
+      <summary>The policy mapping framework detected an invalid WS-MediationPolicy. This assertion will not be enforced.</summary>
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_execute_input_url_required" id="287">
+      <code>0x08080011f</code>
+      <text>WS-MediationPolicy: A URL to describe the Input must be provided for Execute (policy url=%1$s, name='%2$s'). The assertion will be ignored.</text>
+      <summary>The policy mapping framework detected an invalid WS-MediationPolicy. This assertion will not be enforced.</summary>
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_validate_jsv_invalid_scope" id="288">
+      <code>0x080800120</code>
+      <text>WS-MediationPolicy: A Scope may not be specified for ValidateMessage when the schema type is JSV (policy url=%1$s, name='%2$s'). The assertion will be ignored.</text>
+      <summary>The policy mapping framework detected an invalid WS-MediationPolicy. This assertion will not be enforced.</summary>
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_same_type_required" id="289">
+      <code>0x080800121</code>
+      <text>WS-MediationPolicy: Transforms behaviors with different types (example: XML, JSON) were detected in policy (policy url=%1$s, name='%2$s'). The assertion will be ignored.</text>
+      <summary>The policy mapping framework detected an invalid WS-MediationPolicy. This assertion will not be enforced.</summary>
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_payload_requires_greater_than" id="290">
+      <code>0x080800122</code>
+      <text>WS-MediationPolicy: Invalid policy (policy url=%1$s, name='%2$s'), The GreaterThan value must be used for Operator when RequestPayload, ResponsePayload, or TotalPayload are specified for Attribute. The assertion will be ignored.</text>
+      <summary>The policy mapping framework detected an invalid WS-MediationPolicy. This assertion will not be enforced.</summary>
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="mc_irregular_xmlfile_format" id="291">
+      <code>0x080800123</code>
+      <text>RBM: Information file has an irregular format.</text>
+      <summary>The configured information file for RBM failed schema validation.</summary>
+      <description>The RBM information file must use a valid XML format as described by schema store:///AAAInfo.xsd.</description>
+      <suggestion>Correct the file according to the schema. The Edit RBM Policy File wizard in the web GUI always builds a correct file format.</suggestion>
+    </entry>
+    <entry name="med_slm_rsrcclass_name" id="292">
+      <code>0x080800124</code>
+      <text>WS-MediationPolicy Mapping: The generated SLM resource class name is %s.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="med_more_than_one_condition" id="293">
+      <code>0x080800125</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). More than one Condition was detected. The assertion will not be enforced.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_more_than_one_variable" id="294">
+      <code>0x080800126</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). More than one policy variable was detected for %3$s. The assertion will not be enforced.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_no_name_for_variable" id="295">
+      <code>0x080800127</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). No name was specified for a policy variable for %3$s. The assertion will not be enforced.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_variable_and_value_found" id="296">
+      <code>0x080800128</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). A policy variable and a value were detected for %3$s. The assertion will not be enforced.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>A policy variable and a value are mutually exclusive. Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_input_descriptor_not_used" id="297">
+      <code>0x080800129</code>
+      <text>WS-MediationPolicy Mapping: An Input Scheme URL was specified for policy (policy url=%1$s, name='%2$s'), but the value of the Scheme attribute is not XSD. The URL will be ignored.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_concurrent_no_token_bucket" id="298">
+      <code>0x08080012a</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). TokenBucket is not supported for the Operator element when the Attribute is set to ConcurrentConnections. The assertion will not be enforced.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_interval_is_not_valid" id="299">
+      <code>0x08080012b</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). The Interval must be specified as a valid xs:duration. The assertion will not be enforced.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_no_default_for_value" id="300">
+      <code>0x08080012c</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). The policy variable for %3$s must have a default. The assertion will not be enforced.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_value_must_be_a_number" id="301">
+      <code>0x08080012d</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). The Value specified must be a number between 1 and 18446744073709551615. The assertion will not be enforced.</text>
+      <summary />
+      <description>See message text.</description>
+      <suggestion>Correct the invalid policy assertion or remove it.</suggestion>
+    </entry>
+    <entry name="med_variable_interval_not_set" id="302">
+      <code>0x08080012e</code>
+      <text>Cannot set SLM threshold interval.</text>
+      <summary />
+      <description>A policy variable was used in a WS-MediationPolicy Rule/Condition/Expression/Interval, but the value cannot be set properly for the request.</description>
+      <suggestion>Correct the invalid policy variable value.</suggestion>
+    </entry>
+    <entry name="med_variable_value_not_set" id="303">
+      <code>0x08080012f</code>
+      <text>Cannot set SLM threshold level.</text>
+      <summary />
+      <description>A policy variable was used in a WS-MediationPolicy Rule/Condition/Expression/Value, but the value cannot be set properly for the request.</description>
+      <suggestion>Correct the invalid policy variable value.</suggestion>
+    </entry>
+    <entry name="med_variable_not_supported_with_algorithm" id="304">
+      <code>0x080800130</code>
+      <text>WS-MediationPolicy Mapping: Invalid policy (policy url=%1$s, name='%2$s'). Policy variables are not supported with RouteMessage/Algorithm.</text>
+      <summary />
+      <description>An Algorithm was specified for RouteMessage. Policy variables are only supported when a single EndPoint is used without a custom Algorithm.</description>
+      <suggestion>Correct the invalid policy variable value.</suggestion>
+    </entry>
+    <entry name="med_interval_ignored_for_concurrentconnections" id="305">
+      <code>0x080800131</code>
+      <text>WS-MediationPolicy Mapping: The Interval is ignored when the Attribute element is set to ConcurrentConnections (policy url=%1$s, name='%2$s').</text>
+      <summary />
+      <description>An Attribute value of ConcurrentConnections was specified, but the Interval element was also specified. The policy will be enforced, but the Interval will be ignored.</description>
+      <suggestion>Remove the Interval element from policy.</suggestion>
+    </entry>
+    <entry name="mc_retprofilefor" id="306">
+      <code>0x080800132</code>
+      <text>Map credentials: The access profile for '%1$s' is '%2$s'.</text>
+      <summary />
+      <description>Found credentials for the user or group. Mapping the credentials to the cited access profile.</description>
+      <suggestion>None.</suggestion>
+    </entry>
+    <entry name="restmgmtinvservice" id="307">
+      <code>0x080800133</code>
+      <text>Invalid service URI for the REST management interface.</text>
+      <summary />
+      <description>The service URI for the REST management interface is invalid. The request was not processed.</description>
+      <suggestion>Verify the service URI.</suggestion>
+    </entry>
+    <entry name="restmgmtnoservice" id="308">
+      <code>0x080800134</code>
+      <text>Requested REST management interface service is disabled.</text>
+      <summary />
+      <description>The requested REST management interface service is disabled. The request was not processed.</description>
+      <suggestion>Verify the configuration of the REST management interface. You can enable and disable the REST management interface.</suggestion>
+    </entry>
+    <entry name="policy_bad_source" id="309">
+      <code>0x080800135</code>
+      <text>Source type could not be determined automatically.</text>
+      <summary />
+      <description>The 'input-map' contains a 'source' attribute value that cannot automatically be identified as JavaScript or XSLT.</description>
+      <suggestion>Verify that the file extension is appropriate for the file type, or use the 'lang' attribute to specify JavaScript or XSLT.</suggestion>
+    </entry>
+    <entry name="policy_bad_lang" id="310">
+      <code>0x080800136</code>
+      <text>Invalid 'lang' attribute for 'policy' element.</text>
+      <summary />
+      <description>The 'input-map' contains a 'lang' attribute value that is not supported.</description>
+      <suggestion>If the 'lang' attribute is set, it must be one of the following values: 'Default' (automatically determine type), 'JavaScript', or 'XSLT'. Values are case sensitive.</suggestion>
+    </entry>
+    <entry name="policy_bad_state" id="311">
+      <code>0x080800137</code>
+      <text>Invalid policy enforcement state.</text>
+      <summary />
+      <description>An error occurred while traversing policies in the 'input-map'. The message is rejected.</description>
+      <suggestion>The policy enforcement engine is unable to determine the next policy to enforce. The most frequent cause of this error is that an invalid value was specified for 'next-policy'.</suggestion>
+    </entry>
+    <entry name="policy_bad_uap" id="312">
+      <code>0x080800138</code>
+      <text>Unattached policy '%1$s' not found.</text>
+      <summary />
+      <description>The 'input-map' contained a policy-name attribute, but the corresponding policy was not found.</description>
+      <suggestion>Submit the policy to the gateway in order for it to be processed correctly. If the policy was submitted, then check to see whether the policy is not yet finished or failed compilation.</suggestion>
+    </entry>
+    <entry name="invalidinputnodeset" id="313">
+      <code>0x080800139</code>
+      <text>Argument error: invalid input nodeset for binary data</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="invalidinputstring" id="314">
+      <code>0x08080013a</code>
+      <text>Argument error: input string is empty</text>
+      <summary />
+      <description />
+      <suggestion />
+    </entry>
+    <entry name="dpod_xslt_1" id="315">
+      <code>0x08080013b</code>
+      <text>%s</text>
+      <summary />
+      <description>English only message for DataPower Operations Dashboard integration.</description>
+      <suggestion />
+    </entry>
+    <entry name="dpod_xslt_2" id="316">
+      <code>0x08080013c</code>
+      <text>%s</text>
+      <summary />
+      <description>English only message for DataPower Operations Dashboard integration.</description>
+      <suggestion />
+    </entry>
+    <entry name="dpod_xslt_3" id="317">
+      <code>0x08080013d</code>
+      <text>%s</text>
+      <summary />
+      <description>English only message for DataPower Operations Dashboard integration.</description>
+      <suggestion />
+    </entry>
+    <entry name="dpod_xslt_4" id="318">
+      <code>0x08080013e</code>
+      <text>%s</text>
+      <summary />
+      <description>English only message for DataPower Operations Dashboard integration.</description>
+      <suggestion />
+    </entry>
+    <entry name="dpod_xslt_5" id="319">
+      <code>0x08080013f</code>
+      <text>%s</text>
+      <summary />
+      <description>English only message for DataPower Operations Dashboard integration.</description>
+      <suggestion />
+    </entry>
+  </type>
+</log-catalog>
+

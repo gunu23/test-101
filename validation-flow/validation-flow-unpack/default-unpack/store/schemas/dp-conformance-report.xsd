@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<xsd:schema 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:dpcr="http://www.datapower.com/ConformanceAnalysis"
+    targetNamespace="http://www.datapower.com/ConformanceAnalysis"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+     Schema for conformance report.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:element name="ConformanceReport">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="ConformanceChecks">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="Specification" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Message" minOccurs="0" maxOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:any processContents="skip"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="Report" minOccurs="0" maxOccurs="unbounded">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="Location" minOccurs="0" maxOccurs="unbounded">
+                <xsd:complexType>
+                  <xsd:attribute name="type">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="Attribute"/>
+                        <xsd:enumeration value="Element"/>
+                        <xsd:enumeration value="Attachment"/>
+                        <xsd:enumeration value="PI"/>
+                     </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                  <xsd:attribute name="node-id" type="xsd:string"/>
+                  <xsd:attribute name="name" type="xsd:string"/>
+                  <xsd:attribute name="parent" type="xsd:string"/>
+                  <xsd:attribute name="Content-id" type="xsd:string"/>
+                  <xsd:attribute name="Content-location" type="xsd:string"/>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="Details" type="xsd:string"/>
+            </xsd:sequence>
+            <xsd:attribute name="type">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="Conformance"/>
+                  <xsd:enumeration value="Misc"/>
+                  <xsd:enumeration value="ParseError"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="severity">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="FAIL"/>
+                  <xsd:enumeration value="WARN"/>
+                  <xsd:enumeration value="INFO"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="specification" type="xsd:string"/>
+            <xsd:attribute name="requirement" type="xsd:string"/>
+
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
+

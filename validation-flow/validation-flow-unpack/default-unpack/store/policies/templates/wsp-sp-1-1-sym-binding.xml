@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+  Licensed Materials - Property of IBM
+  IBM WebSphere DataPower Appliances
+  Copyright IBM Corporation 2007,2008. All Rights Reserved.
+  US Government Users Restricted Rights - Use, duplication or disclosure
+  restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+
+<wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+            xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512"
+            xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">>
+
+  <dpe:summary xmlns="" xmlns:dpe="http://www.datapower.com/extensions">
+    <dppolicy:domain xmlns:dppolicy="http://www.datapower.com/policy">
+      http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512
+    </dppolicy:domain>
+    <description>
+      Implements WS Security Policy 1.1 - SymmetricBinding supports
+    </description>
+  </dpe:summary>
+
+  <!-- due to the WSP constraint on SOAP:Body, the only working enforcement for protection order is SignBeforeEncrypt, 
+       which is the default if SOAP:Body is encrypted
+  -->
+
+  <wsp:Policy wsu:Id="wsp-sp-1-1-symmetric-binding">
+    <!-- Symmetric Policy A11: Basic 256 and TripleDes --> 
+    <wsp:ExactlyOne>
+      <!-- AES 256 -->
+      <wsp:All>
+        <sp:SymmetricBinding> 
+          <wsp:Policy>
+            <sp:ProtectionToken> 
+              <wsp:Policy>
+                <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512/IncludeToken/Never"> 
+                  <wsp:Policy> 
+                    <sp:RequireThumbprintReference/>
+                    <sp:WssX509V3Token11/> 
+                  </wsp:Policy> 
+                </sp:X509Token> 
+              </wsp:Policy> 
+            </sp:ProtectionToken> 
+            <sp:AlgorithmSuite> 
+              <wsp:Policy> 
+                <sp:Basic256/> 
+              </wsp:Policy> 
+            </sp:AlgorithmSuite> 
+            <sp:Layout> 
+              <wsp:Policy>
+                <sp:Lax/>
+              </wsp:Policy> 
+            </sp:Layout> 
+            <sp:IncludeTimestamp/> 
+          </wsp:Policy> 
+        </sp:SymmetricBinding>
+      </wsp:All>
+
+      <!-- 3DES --> 
+      <wsp:All>
+        <sp:SymmetricBinding> 
+          <wsp:Policy>
+            <sp:ProtectionToken> 
+              <wsp:Policy> 
+                <sp:X509Token sp:IncludeToken="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200512/IncludeToken/Never"> 
+                  <wsp:Policy>
+                    <sp:RequireThumbprintReference/>
+                    <sp:WssX509V1Token11/> 
+                  </wsp:Policy> 
+                </sp:X509Token> 
+              </wsp:Policy> 
+            </sp:ProtectionToken> 
+            <sp:AlgorithmSuite> 
+              <wsp:Policy> 
+                <sp:TripleDes/> 
+              </wsp:Policy> 
+            </sp:AlgorithmSuite> 
+            <sp:Layout> 
+              <wsp:Policy>
+                <sp:Lax/>
+              </wsp:Policy> 
+            </sp:Layout> 
+            <sp:IncludeTimestamp/> 
+          </wsp:Policy> 
+        </sp:SymmetricBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+
+  <wsp:Policy wsu:Id="wsp-sp-1-1-input-output">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts>
+          <sp:Body/>
+        </sp:SignedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+
+  <wsp:Policy wsu:Id="wsp-sp-1-1-sign-enc-input-output">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts>
+          <sp:Body/>
+        </sp:SignedParts>
+        <sp:EncryptedParts>
+          <sp:Body/>
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+
+
+</wsp:Policy>
+
+
+
+
+
