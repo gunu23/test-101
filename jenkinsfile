@@ -17,13 +17,15 @@ node {
     // sh 'sudo -u root'
     // sh 'yum install docker-ce'
     // sh 'yum install docker-ce-cli'
-    sh ('sh ./pre-deploy.sh')
+    //sh ('sh ./pre-deploy.sh')
+    sh ('rmdir -f -r ./validation-flow')
+    sh ('rmdir -f -r ./datapower')
     sleep 60
   }
   
   stage('Generate YAML Files') {
     //Execute migrate-backup.sh
-    sh ('rmdir -f -r ./validation-flow')
+    
     sh ('sh ./migrate-backup.sh validation-flow.zip')
     sleep 100
   }
