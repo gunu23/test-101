@@ -10,28 +10,37 @@ node {
   
   stage('Pre-deploy requirements') {
     sh 'oc status'
+    sh 'oc new-project test'
     sh "chmod +x -R ${env.WORKSPACE}"
-    sh ('./pre-deploy.sh')
+    sh ('pre-deploy.sh')
+    sleep 120
   }
   
   stage('Generate YAML Files') {
     //Execute migrate-backup.sh
-    sh ('./migrate-backup.sh validation-flow.zip')
+    sh ('migrate-backup.sh validation-flow.zip')
+    sleep 120
   }
   
   stage('Deploying YAML Files') {
     //apply default yaml files
     sh 'oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml'
+    sleep 5
     sh 'oc apply -f ./validation-flow/validation-flow-output/default-local.yaml'
+    sleep 5
     
     //Apply DataPower Service
     sh 'oc apply -f ./validation-flow/validation-flow-output/validation-flow-dps.yaml'
+    sleep 5
 
     //Apply Services
     sh 'oc apply -f ./validation-flow/validation-flow-output/validation-flow-service.yaml'
+    sleep 5
 
     //Apply Routes
     sh 'oc apply -f ./validation-flow/validation-flow-output/validation-flow-9090-route.yaml'
+    sleep 5
     sh 'oc apply -f ./validation-flow/validation-flow-output/validation-flow-8001-route.yaml'
+    sleep 5
   }
 }
