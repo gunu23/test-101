@@ -14,8 +14,8 @@ node {
     sh 'oc status'
     sh 'oc project sce-test'
     sh 'echo install docker'
-    sh 'sudo yum install docker-ce'
-    sh 'sudo yum install docker-ce-cli'
+    sh 'yum install docker-ce'
+    sh 'yum install docker-ce-cli'
     sh ('sh ./pre-deploy.sh')
     sleep 60
   }
