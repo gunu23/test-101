@@ -6,8 +6,22 @@
 #Install DataPower Operator - TBD
 
 #create new project
-  oc project sce-test
+  #  oc project sce-test
+### Create namespace
+    namespace="sce-test2"
+    if [ -z "${namespace}" ]; then
+        echo "ERROR: missing namespace argument, make sure to pass namespace, ex: '-n mynamespace'"
+        exit 1;
+    fi
 
+    status=$(oc get ns ${namespace} --ignore-not-found -ojson | jq -r .status.phase)
+    if [[ ${status} != 'Active' ]]; then
+    echo "Creating namespace ${namespace}"
+    oc create namespace ${namespace}
+    sleep 10
+    else
+    echo "Namespace ${namespace} found"
+    fi
 #create an IBM Entitlement Key - TBD
   oc create secret docker-registry ibm-entitlement-key -n sce-test \
   --docker-username=cp \
