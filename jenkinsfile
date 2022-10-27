@@ -17,7 +17,7 @@ node {
     // sh 'sudo -u root'
     // sh 'yum install docker-ce'
     // sh 'yum install docker-ce-cli'
-    //sh ('sh ./pre-deploy.sh')
+    sh ('sh ./pre-deploy.sh')
     sh ('rm -rf ./validation-flow')
     sh ('rm -rf ./datapower')
     sleep 20
