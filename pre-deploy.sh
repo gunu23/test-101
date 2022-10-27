@@ -72,14 +72,17 @@
     echo "Secret ${secret_name} already created"
   fi
 
-  oc create secret docker-registry ibm-entitlement-key -n sce-test \
-  --docker-username=cp \
-  --docker-password="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MzMwMjk0NjgsImp0aSI6Ijk1MWMyNjk2OGI2NjQ0ZTk5ZGU3YjBiOTg3YjdhNjkzIn0.oEvOsmZ5luC7GnBk-arxGCgqriPCxRpG6DwluQwUGH4" \
-  --docker-server=cp.icr.io
-
 #Create Admin User credential secret - TBD
-  oc create secret generic datapower-user --from-literal=password=admin
-
+  # oc create secret generic datapower-user --from-literal=password=admin 
+  found=$(oc get secret ${secret_name} -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
+if [[ ${found} != ${secret_name} ]]; then
+  echo "Create admin-credentials secret"
+  oc create secret generic admin-credentials --from-literal=password=admin -n ${namespace}
+else
+  echo "Delete and Create admin-credentials secret"
+  oc delete secret admin-credentials -n ${namespace}
+  oc create secret generic admin-credentials --from-literal=password=admin -n ${namespace}
+fi
 #create a folder project
   mkdir ./datapower
 
