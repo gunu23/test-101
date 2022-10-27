@@ -83,7 +83,7 @@ else
   oc delete secret datapower-user -n ${namespace}
   oc create secret generic datapower-user --from-literal=password=admin -n ${namespace}
 fi
-#create a folder project
+# #create a folder project
   mkdir ./datapower
   if [ -d "./datapower" ] 
   then
@@ -99,33 +99,33 @@ fi
 # #change permission
    chmod 1777 ./datapower/local ./datapower/config ./datapower/certs
 
-# #pull docker image
-#   docker pull icr.io/integration/datapower/datapower-limited:10.0.4.0
+#pull docker image
+  docker pull icr.io/integration/datapower/datapower-limited:10.0.4.0
 
 #create pem files
-#  cd ./datapower
+ cd ./datapower
 
-  # docker run -it --name datapower \
-  # -v $(pwd)/config:/opt/ibm/datapower/drouter/config:z \
-  # -v $(pwd)/local:/opt/ibm/datapower/drouter/local:z \
-  # -v $(pwd)/certs:/opt/ibm/datapower/root/secure/usrcerts:z \
-  # -e DATAPOWER_ACCEPT_LICENSE="true" \
-  # -e DATAPOWER_INTERACTIVE="true" \
-  # -p 9090:9090 \
-  # -p 8001:8001 \
-  # icr.io/integration/datapower/datapower-limited:10.0.4.0
+  docker run -it --name datapower \
+  -v $(pwd)/config:/opt/ibm/datapower/drouter/config:z \
+  -v $(pwd)/local:/opt/ibm/datapower/drouter/local:z \
+  -v $(pwd)/certs:/opt/ibm/datapower/root/secure/usrcerts:z \
+  -e DATAPOWER_ACCEPT_LICENSE="true" \
+  -e DATAPOWER_INTERACTIVE="true" \
+  -p 9090:9090 \
+  -p 8001:8001 \
+  icr.io/integration/datapower/datapower-limited:10.0.4.0
 
 #create secrets for keys and certs - TBD
-  cd ./datapower/certs
-  search=$(oc get secret default-cert -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
-  if [[ ${found} != ${secret_name} ]]; then
-    echo "Create default-cert secret"
-    oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
-  else
-    echo "Delete and Create default-cert secret"
-    oc delete secret default-cert -n ${namespace}
-    oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
-  fi
+  # cd ./datapower/certs
+  # search=$(oc get secret default-cert -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
+  # if [[ ${found} != ${secret_name} ]]; then
+  #   echo "Create default-cert secret"
+  #   oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
+  # else
+  #   echo "Delete and Create default-cert secret"
+  #   oc delete secret default-cert -n ${namespace}
+  #   oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
+  # fi
 
 #Passing the namespace into migrate-backup.sh - TBD
 
