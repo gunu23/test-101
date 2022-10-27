@@ -23,6 +23,55 @@
     echo "Namespace ${namespace} found"
     fi
 #create an IBM Entitlement Key - TBD
+  ### Create pull secret
+  secret_name="ibm-entitlement-key"
+  docker_registry="cp.icr.io"
+  docker_registry_username="cp"
+  docker_registry_password="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MzMwMjk0NjgsImp0aSI6Ijk1MWMyNjk2OGI2NjQ0ZTk5ZGU3YjBiOTg3YjdhNjkzIn0.oEvOsmZ5luC7GnBk-arxGCgqriPCxRpG6DwluQwUGH4"
+  docker_registry_user_email="gunu.shrestha@ibm.com"
+
+  echo "create_pull_secret $secret_name, $namespace, $docker_registry, $docker_registry_username, $docker_registry_password, $docker_registry_user_email"
+
+  if [ -z "${secret_name}" ]; then
+    echo "ERROR: missing secret_name"
+    exit 1;
+  fi
+  if [ -z "${namespace}" ]; then
+    echo "ERROR: missing namespace argument, make sure to pass namespace, ex: '-n mynamespace'"
+    exit 1;
+  fi
+  if [ -z "${docker_registry}" ]; then
+    echo "ERROR: missing docker_registry"
+    exit 1;
+  fi
+  if [ -z "${docker_registry_username}" ]; then
+    echo "ERROR: missing docker_registry_username"
+    exit 1;
+  fi
+  if [ -z "${docker_registry_password}" ]; then
+    echo "ERROR: missing docker_registry_password"
+    exit 1;
+  fi
+  if [ -z "${docker_registry_user_email}" ]; then
+    echo "ERROR: missing docker_registry_user_email"
+    exit 1;
+  fi
+
+  found=$(oc get secret ${secret_name} -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
+  if [[ ${found} != ${secret_name} ]]; then
+    echo "Creating secret ${secret_name} on ${namespace} from entitlement key"
+    # oc get secret ibm-entitlement-key -n ${namespace} --ignore-not-found
+    oc create secret docker-registry ${secret_name} \
+      --docker-server=${docker_registry} \
+      --docker-username=${docker_registry_username} \
+      --docker-password=${docker_registry_password} \
+      --docker-email=${docker_registry_user_email} \
+      --namespace=${namespace}
+    sleep 10
+  else
+    echo "Secret ${secret_name} already created"
+  fi
+
   oc create secret docker-registry ibm-entitlement-key -n sce-test \
   --docker-username=cp \
   --docker-password="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJQk0gTWFya2V0cGxhY2UiLCJpYXQiOjE2MzMwMjk0NjgsImp0aSI6Ijk1MWMyNjk2OGI2NjQ0ZTk5ZGU3YjBiOTg3YjdhNjkzIn0.oEvOsmZ5luC7GnBk-arxGCgqriPCxRpG6DwluQwUGH4" \
