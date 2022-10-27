@@ -117,7 +117,7 @@ fi
 
 #create secrets for keys and certs - TBD
   cd ./datapower/certs
-  search=$(oc get secret default-cert -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
+  found=$(oc get secret default-cert -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
   if [[ ${found} != ${secret_name} ]]; then
     echo "Create default-cert secret"
     oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
