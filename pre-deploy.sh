@@ -77,11 +77,11 @@
   found=$(oc get secret ${secret_name} -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
 if [[ ${found} != ${secret_name} ]]; then
   echo "Create admin-credentials secret"
-  oc create secret generic admin-credentials --from-literal=password=admin -n ${namespace}
+  oc create secret generic datapower-user --from-literal=password=admin -n ${namespace}
 else
   echo "Delete and Create admin-credentials secret"
   oc delete secret admin-credentials -n ${namespace}
-  oc create secret generic admin-credentials --from-literal=password=admin -n ${namespace}
+  oc create secret generic datapower-user --from-literal=password=admin -n ${namespace}
 fi
 #create a folder project
   mkdir ./datapower
