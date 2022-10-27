@@ -117,7 +117,15 @@ fi
 
 #create secrets for keys and certs - TBD
   cd ./datapower/certs
-  oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
+  search=$(oc get secret default-cert -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
+  if [[ ${found} != ${secret_name} ]]; then
+    echo "Create default-cert secret"
+    oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
+  else
+    echo "Delete and Create default-cert secret"
+    oc delete secret default-cert -n ${namespace}
+    oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
+  fi
 
 #Passing the namespace into migrate-backup.sh - TBD
 
