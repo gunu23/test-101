@@ -83,21 +83,21 @@ else
   oc delete secret datapower-user -n ${namespace}
   oc create secret generic datapower-user --from-literal=password=admin -n ${namespace}
 fi
-# #create a folder project
-#   mkdir ./datapower
-#   if [ -d "./datapower" ] 
-#   then
-#       echo "Directory /path/to/dir exists." 
-#   else
-#       mkdir ./datapower
-#       echo "Directory is created." 
-#   fi
+#create a folder project
+  mkdir ./datapower
+  if [ -d "./datapower" ] 
+  then
+      echo "Directory /path/to/dir exists." 
+  else
+      mkdir ./datapower
+      echo "Directory is created." 
+  fi
 
 # #create sub dirs inside the project folder
-#   mkdir ./datapower/local ./datapower/config ./datapower/certs
+   mkdir ./datapower/local ./datapower/config ./datapower/certs
 
 # #change permission
-#   chmod 1777 ./datapower/local ./datapower/config ./datapower/certs
+   chmod 1777 ./datapower/local ./datapower/config ./datapower/certs
 
 # #pull docker image
 #   docker pull icr.io/integration/datapower/datapower-limited:10.0.4.0
@@ -117,7 +117,7 @@ fi
 
 #create secrets for keys and certs - TBD
   cd ./datapower/certs
-  found=$(oc get secret default-cert -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
+  search=$(oc get secret default-cert -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
   if [[ ${found} != ${secret_name} ]]; then
     echo "Create default-cert secret"
     oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
