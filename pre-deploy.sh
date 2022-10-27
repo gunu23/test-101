@@ -116,8 +116,8 @@ fi
   # icr.io/integration/datapower/datapower-limited:10.0.4.0
 
 #create secrets for keys and certs - TBD
-  cd ./datapower
-  oc create secret generic default-cert --from-file=./datapower/certs/webgui-sscert.pem --from-file=./datapower/certs/webgui-privkey.pem -n ${namespace}
+  cd ./datapower/certs
+  oc create secret generic default-cert --from-file=webgui-sscert.pem --from-file=webgui-privkey.pem -n ${namespace}
 
 #Passing the namespace into migrate-backup.sh - TBD
 
