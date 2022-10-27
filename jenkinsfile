@@ -12,14 +12,9 @@ node {
     sh "chmod +x -R ${env.WORKSPACE}"
     sh 'oc login --token=sha256~aOct9YHTAHDfZDC4ena_ML3L5bRTeAQhWPSWXL4vvBE --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360'
     sh 'oc status'
-    // sh 'oc project sce-test'
-    // sh 'echo install docker'
-    // sh 'sudo -u root'
-    // sh 'yum install docker-ce'
-    // sh 'yum install docker-ce-cli'
     sh ('sh ./pre-deploy.sh')
     sh ('rm -rf ./validation-flow')
-    sh ('rm -rf ./datapower')
+    //sh ('rm -rf ./datapower')
     sleep 20
   }
   

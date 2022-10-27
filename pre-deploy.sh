@@ -85,6 +85,13 @@ else
 fi
 #create a folder project
   mkdir ./datapower
+  if [ -d "./datapower" ] 
+  then
+      echo "Directory /path/to/dir exists." 
+  else
+      mkdir ./datapower
+      echo "Directory is created." 
+  fi
 
 #create sub dirs inside the project folder
   mkdir ./datapower/local ./datapower/config ./datapower/certs
@@ -96,20 +103,21 @@ fi
   docker pull icr.io/integration/datapower/datapower-limited:10.0.4.0
 
 #create pem files
-  cd ./datapower
+#  cd ./datapower
 
-  docker run -it --name datapower \
-  -v $(pwd)/config:/opt/ibm/datapower/drouter/config:z \
-  -v $(pwd)/local:/opt/ibm/datapower/drouter/local:z \
-  -v $(pwd)/certs:/opt/ibm/datapower/root/secure/usrcerts:z \
-  -e DATAPOWER_ACCEPT_LICENSE="true" \
-  -e DATAPOWER_INTERACTIVE="true" \
-  -p 9090:9090 \
-  -p 8001:8001 \
-  icr.io/integration/datapower/datapower-limited:10.0.4.0
+  # docker run -it --name datapower \
+  # -v $(pwd)/config:/opt/ibm/datapower/drouter/config:z \
+  # -v $(pwd)/local:/opt/ibm/datapower/drouter/local:z \
+  # -v $(pwd)/certs:/opt/ibm/datapower/root/secure/usrcerts:z \
+  # -e DATAPOWER_ACCEPT_LICENSE="true" \
+  # -e DATAPOWER_INTERACTIVE="true" \
+  # -p 9090:9090 \
+  # -p 8001:8001 \
+  # icr.io/integration/datapower/datapower-limited:10.0.4.0
 
 #create secrets for keys and certs - TBD
-  oc create secret generic default-cert --from-file=/path/to/cert --from-file=/path/to/key -n sce-test
+  cd ./datapower
+  oc create secret generic default-cert --from-file=./datapower/certs/webgui-sscert.pem --from-file=./datapower/certs/webgui-privkey.pem -n ${namespace}
 
 #Passing the namespace into migrate-backup.sh - TBD
 
