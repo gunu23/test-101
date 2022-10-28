@@ -4,7 +4,7 @@ def gitRepo = 'git@github.com:qtechsavy/test-101.git'
 node {
   //parameters {string(name: 'oc_login', defaultValue:'', description:'')}
   environment{
-            oc_login = credentials(‘oc_login’)
+            OC_LOGIN = credentials(‘oc_login’)
         }
   stage('Checkout Source') {
     // Get Source Code from SCM (Git) as configured in the Jenkins Project
@@ -15,7 +15,7 @@ node {
   
   stage('Pre-deploy requirements') {
     sh "chmod +x -R ${env.WORKSPACE}"
-    sh "oc login --token=$oc_login --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
+    sh "oc login --token=$OC_LOGIN --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
     sh ('sh ./pre-deploy.sh')
     sh ('rm -rf ./validation-flow')
