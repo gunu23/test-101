@@ -6,7 +6,6 @@ node {
   environment{
             OC_LOGIN = credentials(‘oc_login’)
         }
-  stages{
   stage('Checkout Source') {
     // Get Source Code from SCM (Git) as configured in the Jenkins Project
     // Next line for inline script, "checkout scm" for Jenkinsfile from Gogs
@@ -52,5 +51,4 @@ node {
     sh 'oc apply -f ./validation-flow/validation-flow-output/validation-flow-8001-route.yaml'
     sleep 5
   }
-}
 }
