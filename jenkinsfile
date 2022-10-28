@@ -13,7 +13,7 @@ node {
   
   stage('Pre-deploy requirements') {
     sh "chmod +x -R ${env.WORKSPACE}"
-    //sh 'oc login --token=sha256~YrSL3QrFDQGdTT-SnGhyyfWjfqs1CRObyAyY78SkinY --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360'
+    sh 'oc login --token='"${oc_login}"' --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360'
     sh 'oc status'
     sh ('sh ./pre-deploy.sh')
     sh ('rm -rf ./validation-flow')
