@@ -27,9 +27,9 @@ node {
   
   stage('Deploying YAML Files') {
     //apply default yaml files
-    sh 'oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml'
+    sh 'oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml -n sce-test2'
     sleep 5
-    sh 'oc apply -f ./validation-flow/validation-flow-output/default-local.yaml'
+    sh 'oc apply -f ./validation-flow/validation-flow-output/default-local.yaml -n sce-test2'
     sleep 5
     
     //Apply DataPower Service
