@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment{
-          OC_LOGIN = credentials(‘oc_login’)
+          OC_LOGIN = credentials("oc_login")
       }
 // def credentialsId = "qtechsavy"
 // def gitRepo = 'git@github.com:qtechsavy/test-101.git'
