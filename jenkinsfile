@@ -2,7 +2,7 @@ def credentialsId = "qtechsavy"
 def gitRepo = 'git@github.com:qtechsavy/test-101.git'
 
 node {
-  parameters {string(name: 'oc_login', defaultValue:'', description:'')}
+  //parameters {string(name: 'oc_login', defaultValue:'', description:'')}
   stage('Checkout Source') {
     // Get Source Code from SCM (Git) as configured in the Jenkins Project
     // Next line for inline script, "checkout scm" for Jenkinsfile from Gogs
@@ -12,7 +12,7 @@ node {
   
   stage('Pre-deploy requirements') {
     sh "chmod +x -R ${env.WORKSPACE}"
-    sh "oc login --token=${params.oc_login} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
+    sh "oc login --token=${env.oc_login} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
     sh ('sh ./pre-deploy.sh')
     sh ('rm -rf ./validation-flow')
