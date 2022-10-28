@@ -2,7 +2,9 @@ def credentialsId = "qtechsavy"
 def gitRepo = 'git@github.com:qtechsavy/test-101.git'
 
 node {
-  parameters {string(name: 'oc_login', defaultValue:'', )}
+  parameters: [
+            [$class: 'StringParameterValue', name: ‘oc_login’, value: ‘’]
+        ],
   
   stage('Checkout Source') {
     // Get Source Code from SCM (Git) as configured in the Jenkins Project
