@@ -2,7 +2,7 @@
 
 #define parameters which are passed in.
 NAME=$1; shift
-NAMESPACE=$1; shift
+NAMESPACE="sce-test2"; shift
 DOMAINLIST=$@
 
 
@@ -28,6 +28,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "350"
   name: $NAME-instance
+  namespace: sce-test2
 spec:
   replicas: 1
   version: 10.0-cd
