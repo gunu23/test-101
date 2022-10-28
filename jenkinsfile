@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment{
           OC_LOGIN = credentials("oc_login")
+          IBM_ENTITLEMENT_KEY = credentials("ibm_entitlement_key")
       }
 stages {
   stage('Checkout Source') {
@@ -18,7 +19,7 @@ stages {
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
-    sh ('sh ./pre-deploy.sh')
+    sh ('sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY')
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
     sleep 20
