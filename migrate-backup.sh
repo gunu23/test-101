@@ -207,7 +207,7 @@ process_domain() {
 
     if [[ -d "${domain_local}" ]]; then
         echo "Found domain local: ${domain_local}"
-        echo "Generating tarball..."
+        echo "Generating tarball..."F
         tar --directory="${domain_local}" -cvzf $OUTPUT_DIR/$domain-local.tar.gz .
         echo "Generating configmap yaml..."
         kubectl create configmap ${domain}-local \
@@ -215,7 +215,7 @@ process_domain() {
             --dry-run="client" \
             --output="yaml" > $OUTPUT_DIR/$domain_norm-local.yaml
         echo -e "  annotations: \n    argocd.argoproj.io/sync-wave: \"${LOCAL_SYNC_WAVE_COUNT}\"" >> $OUTPUT_DIR/$domain_norm-local.yaml
-        sed -i '' "s/name: ${domain}-local/name: ${domain_norm}-local/g" $OUTPUT_DIR/$domain_norm-local.yaml
+        sed -i 's/name: '"${domain}"'-cfg/name: '"${domain_norm}"'-cfg/g' $OUTPUT_DIR/$domain_norm-cfg.yaml
         echo "Generated: ${OUTPUT_DIR}/${domain_norm}-local.yaml"
         ((LOCAL_SYNC_WAVE_COUNT+=1))
     fi
