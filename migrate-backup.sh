@@ -4,10 +4,11 @@
 # Globals #
 ###########
 
-namespace="blue"
-#IFS=',' read -ra namespace <<< "$namespace"
-echo "$namespace"
+# namespace="blue"
+# #IFS=',' read -ra namespace <<< "$namespace"
+# echo "$namespace"
 
+NAMESPACE="sce-test2"
 declare -a PORTARR=("https-9090" "http-8001")
 
 BACKUP_ZIP=""
