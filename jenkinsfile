@@ -5,10 +5,22 @@ pipeline {
           IBM_ENTITLEMENT_KEY = credentials("ibm_entitlement_key")
           //NAMESPACE = params.chooseNode
       }
-  parameters {
-    choice (name: 'chooseNode', choices: ['Green', 'Blue'], description: 'Choose which Environment to Deploy: ')
-  }
+
 stages {
+  stage('Setup parameters') {
+            steps {
+                script { 
+                    properties([
+                        parameters([
+                            choice(
+                                choices: ['Green', 'Blue'], 
+                                name: 'ENV_NAMESPACE'
+                            )
+                        ])
+                    ])
+                }
+            }
+        }
   stage('Checkout Source') {
     steps {
     // Get Source Code from SCM (Git) as configured in the Jenkins Project
@@ -27,11 +39,11 @@ stages {
     //     NAMESPEACE = "blue"
     //   }
     // }
-    sh'echo ${params.chooseNode}'
+    sh'echo $ENV_NAMESPACE'
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
-    sh ('sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.chooseNode}')
+    sh ('sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY $ENV_NAMESPACE')
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
     sleep 20
