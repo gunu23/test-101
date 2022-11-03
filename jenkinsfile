@@ -4,7 +4,6 @@ pipeline {
           OC_LOGIN = credentials("oc_login")
           IBM_ENTITLEMENT_KEY = credentials("ibm_entitlement_key")
       }
-  NAMESPACE = params.chooseNode()
   // parameters {
   //   choice (name: 'chooseNode', choices: ['Green', 'Blue'], description: 'Choose which Environment to Deploy: ')
   // }
@@ -20,6 +19,7 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
+    NAMESPACE = params.chooseNode()
     sh'echo $NAMESPACE'
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
