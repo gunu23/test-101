@@ -38,7 +38,7 @@ stages {
       // } else if (params.ENV_NAMESPACE == "Blue") {
       //   def NAMESPEACE = "blue"
       // }
-      NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')
+      NAMESPACE=${params.ENV_NAMESPACE,,}
     }
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
     sh "echo ${NAMESPACE}"
