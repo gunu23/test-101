@@ -4,7 +4,7 @@ pipeline {
           OC_LOGIN = credentials("oc_login")
           IBM_ENTITLEMENT_KEY = credentials("ibm_entitlement_key")
       }
-  def NAMESPACE = params.chooseNode()
+  NAMESPACE = params.chooseNode()
   // parameters {
   //   choice (name: 'chooseNode', choices: ['Green', 'Blue'], description: 'Choose which Environment to Deploy: ')
   // }
