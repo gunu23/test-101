@@ -1,4 +1,3 @@
-def namespace = params.chooseNode()
 pipeline {
   agent any
   environment{
@@ -20,6 +19,11 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
+    if (params.chooseNode == "Green") {
+      NAMESPEACE = "green"
+    } else if (params.chooseNode == "Blue") {
+      NAMESPEACE = "blue"
+    }
     sh'echo $namespace'
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
