@@ -34,9 +34,9 @@ stages {
     steps {
     script {
       if (params.ENV_NAMESPACE == "Green") {
-        NAMESPEACE = "green"
+        def NAMESPEACE = "green"
       } else if (params.ENV_NAMESPACE == "Blue") {
-        NAMESPEACE = "blue"
+        def NAMESPEACE = "blue"
       }
     }
     sh "echo ${NAMESPACE}"
