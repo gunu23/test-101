@@ -32,13 +32,13 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
-    script {
-      // if (${params.ENV_NAMESPACE} == "Green") {
-      //   def NAMESPEACE = "green"
-      // } else if (params.ENV_NAMESPACE == "Blue") {
-      //   def NAMESPEACE = "blue"
-      // }
-    }
+    // script {
+    //   // if (${params.ENV_NAMESPACE} == "Green") {
+    //   //   def NAMESPEACE = "green"
+    //   // } else if (params.ENV_NAMESPACE == "Blue") {
+    //   //   def NAMESPEACE = "blue"
+    //   // }
+    // }
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
     sh "echo ${params.ENV_NAMESPACE}"
     sh "chmod +x -R ${env.WORKSPACE}"
