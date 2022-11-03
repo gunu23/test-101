@@ -4,7 +4,7 @@
 # Globals #
 ###########
 
-namespace=$2
+namespace=${params.ENV_NAMESPACE}
 echo "$namespace"
 declare -a PORTARR=("https-9090" "http-8001")
 

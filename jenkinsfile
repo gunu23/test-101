@@ -55,7 +55,7 @@ stages {
     steps {
     //Execute migrate-backup.sh
     
-    sh ("sh ./migrate-backup.sh validation-flow.zip ${params.ENV_NAMESPACE}")
+    sh ("sh ./migrate-backup.sh validation-flow.zip")
     sleep 20
     }
   }
