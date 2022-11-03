@@ -38,15 +38,15 @@ stages {
       // } else if (params.ENV_NAMESPACE == "Blue") {
       //   def NAMESPEACE = "blue"
       // }
-      NAMESPACE=${params.ENV_NAMESPACE}
-      NAMESPACE=${NAMESPACE,,}
+      namespace=${params.ENV_NAMESPACE}
+      namespace=${namespace,,}
     }
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
-    sh "echo ${NAMESPACE}"
+    sh "echo ${namespace}"
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
-    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${NAMESPACE}")
+    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${namespace}")
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
     sleep 20
