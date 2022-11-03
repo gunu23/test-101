@@ -48,7 +48,7 @@ stages {
     sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY")
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
-    sleep 20
+    sleep 5
     }
   }
   
