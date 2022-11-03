@@ -26,11 +26,11 @@ stages {
         NAMESPEACE = "blue"
       }
     }
-    sh'echo $namespace'
+    sh'echo $NAMESPEACE'
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
-    sh ('sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY $namespace')
+    sh ('sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY $NAMESPEACE')
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
     sleep 20
