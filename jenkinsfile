@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment{
           OC_LOGIN = credentials("oc_login")
+          OC_LOGIN_NEW = credentials("oc_login_new")
           IBM_ENTITLEMENT_KEY = credentials("ibm_entitlement_key")
           //NAMESPACE = params.chooseNode
       }
@@ -32,19 +33,19 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
-    // script {
-    //   // if (${params.ENV_NAMESPACE} == "Green") {
-    //   //   def NAMESPEACE = "green"
-    //   // } else if (params.ENV_NAMESPACE == "Blue") {
-    //   //   def NAMESPEACE = "blue"
-    //   // }
-    // }
+    script {
+      if (${params.ENV_NAMESPACE} == "green") {
+        sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
+      } else if (params.ENV_NAMESPACE == "blue") {
+        sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
+      }
+    }
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
     sh "echo ${params.ENV_NAMESPACE}"
     sh "chmod +x -R ${env.WORKSPACE}"
-    sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
+    // sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
-    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE}")
+    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY")
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
     sleep 20
@@ -56,7 +57,7 @@ stages {
     //Execute migrate-backup.sh
     
     sh ("sh ./migrate-backup.sh validation-flow.zip")
-    sleep 20
+    sleep 5
     }
   }
   

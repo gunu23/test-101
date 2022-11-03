@@ -4,8 +4,10 @@
 # Globals #
 ###########
 
-namespace=${params.ENV_NAMESPACE}
+namespace="blue"
+#IFS=',' read -ra namespace <<< "$namespace"
 echo "$namespace"
+
 declare -a PORTARR=("https-9090" "http-8001")
 
 BACKUP_ZIP=""
