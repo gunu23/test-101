@@ -13,7 +13,7 @@ stages {
                     properties([
                         parameters([
                             choice(
-                                choices: ['Green', 'Blue'], 
+                                choices: ['green', 'blue'], 
                                 name: 'ENV_NAMESPACE'
                             )
                         ])
@@ -38,15 +38,13 @@ stages {
       // } else if (params.ENV_NAMESPACE == "Blue") {
       //   def NAMESPEACE = "blue"
       // }
-      namespace=${params.ENV_NAMESPACE}
-      namespace=${namespace,,}
     }
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
-    sh "echo ${namespace}"
+    sh "echo ${params.ENV_NAMESPACE}"
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
-    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${namespace}")
+    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE}")
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
     sleep 20
