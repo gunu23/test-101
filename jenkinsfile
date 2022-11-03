@@ -3,10 +3,11 @@ pipeline {
   environment{
           OC_LOGIN = credentials("oc_login")
           IBM_ENTITLEMENT_KEY = credentials("ibm_entitlement_key")
+          NAMESPACE = params.chooseNode()
       }
-  // parameters {
-  //   choice (name: 'chooseNode', choices: ['Green', 'Blue'], description: 'Choose which Environment to Deploy: ')
-  // }
+  parameters {
+    choice (name: 'chooseNode', choices: ['Green', 'Blue'], description: 'Choose which Environment to Deploy: ')
+  }
 stages {
   stage('Checkout Source') {
     steps {
@@ -19,13 +20,13 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
-    script {
-      if (params.chooseNode == "Green") {
-        NAMESPEACE = "green"
-      } else if (params.chooseNode == "Blue") {
-        NAMESPEACE = "blue"
-      }
-    }
+    // script {
+    //   if (params.chooseNode == "Green") {
+    //     NAMESPEACE = "green"
+    //   } else if (params.chooseNode == "Blue") {
+    //     NAMESPEACE = "blue"
+    //   }
+    // }
     sh'echo $NAMESPEACE'
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
