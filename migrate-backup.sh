@@ -4,7 +4,8 @@
 # Globals #
 ###########
 
-NAMESPACE=$2
+namespace=$2
+echo "$namespace"
 declare -a PORTARR=("https-9090" "http-8001")
 
 BACKUP_ZIP=""
@@ -236,14 +237,14 @@ change_domains_case() {
 create_yamls() {
     local port_split
 
-    ./migrate-backup-dps.sh ${BACKUP_ZIP%.*} $NAMESPACE ${DOMAINS[@]} > ./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-dps.yaml
+    ./migrate-backup-dps.sh ${BACKUP_ZIP%.*} $namespace ${DOMAINS[@]} > ./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-dps.yaml
     echo "./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-dps.yaml created"
-    ./migrate-backup-service.sh ${BACKUP_ZIP%.*} $NAMESPACE "${PORTARR[@]}" > ./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-service.yaml
+    ./migrate-backup-service.sh ${BACKUP_ZIP%.*} $namespace "${PORTARR[@]}" > ./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-service.yaml
     echo "./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-service.yaml created"
     for port in "${PORTARR[@]}"; do
         IFS='-' read -ra port_split <<< "$port"
         
-        ./migrate-backup-route.sh ${BACKUP_ZIP%.*} $NAMESPACE ${port_split[0]} ${port_split[1]} > ./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-"${port_split[1]}"-route.yaml
+        ./migrate-backup-route.sh ${BACKUP_ZIP%.*} $namespace ${port_split[0]} ${port_split[1]} > ./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-"${port_split[1]}"-route.yaml
         echo "./${BACKUP_ZIP%.*}/${BACKUP_ZIP%.*}-output/${BACKUP_ZIP%.*}-"${port_split[1]}"-route.yaml created'"
         sed -i 's/370/'"${ROUTE_SYNC_WAVE_COUNT}"'/g' $OUTPUT_DIR/"${BACKUP_ZIP%.*}"-"${port_split[1]}"-route.yaml
         ((ROUTE_SYNC_WAVE_COUNT+=1))
