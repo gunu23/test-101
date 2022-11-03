@@ -19,10 +19,12 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
-    if (params.chooseNode == "Green") {
-      NAMESPEACE = "green"
-    } else if (params.chooseNode == "Blue") {
-      NAMESPEACE = "blue"
+    script {
+      if (params.chooseNode == "Green") {
+        NAMESPEACE = "green"
+      } else if (params.chooseNode == "Blue") {
+        NAMESPEACE = "blue"
+      }
     }
     sh'echo $namespace'
     sh "chmod +x -R ${env.WORKSPACE}"
