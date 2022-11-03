@@ -4,7 +4,7 @@
 # Globals #
 ###########
 
-NAMESPACE="sce-test2"
+NAMESPACE=$2
 declare -a PORTARR=("https-9090" "http-8001")
 
 BACKUP_ZIP=""

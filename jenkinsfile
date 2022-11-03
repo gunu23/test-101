@@ -4,6 +4,10 @@ pipeline {
           OC_LOGIN = credentials("oc_login")
           IBM_ENTITLEMENT_KEY = credentials("ibm_entitlement_key")
       }
+  def NAMESPACE = params.chooseNode()
+  // parameters {
+  //   choice (name: 'chooseNode', choices: ['Green', 'Blue'], description: 'Choose which Environment to Deploy: ')
+  // }
 stages {
   stage('Checkout Source') {
     steps {
@@ -16,10 +20,11 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
+    sh'echo $NAMESPACE'
     sh "chmod +x -R ${env.WORKSPACE}"
     sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
     sh 'oc status'
-    sh ('sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY')
+    sh ('sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY $NAMESPACE')
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
     sleep 20
@@ -30,7 +35,7 @@ stages {
     steps {
     //Execute migrate-backup.sh
     
-    sh ('sh ./migrate-backup.sh validation-flow.zip')
+    sh ('sh ./migrate-backup.sh validation-flow.zip $NAMESPACE')
     sleep 20
     }
   }
