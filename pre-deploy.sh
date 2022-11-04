@@ -10,7 +10,7 @@ OC_LOGIN_NEW=$4
         oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360
         oc status
   else
-    if [ ${env_name} == "blue"]
+    if [ ${env_name} == "blue" ]
     then
         echo "${env_name}"
         oc login --token=${OC_LOGIN_NEW} --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30913
