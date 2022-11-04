@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #define parameters which are passed in.
-NAME=$1;
-NAMESPACE=$2;
+NAME=$1; shift
+NAMESPACE=$1; shift
 PORTS=$@
 
 PORTLIST=$(

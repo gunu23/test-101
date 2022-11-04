@@ -9,14 +9,6 @@ spec:
   selector:
     app.kubernetes.io/instance: sce-test2-validation-flow-instance
   ports:
-    - name: validation-flow-flow
-      protocol: TCP
-      port: flow
-      targetPort: flow
-    - name: validation-flow-test2
-      protocol: TCP
-      port: test2
-      targetPort: test2
     - name: validation-flow-9090
       protocol: TCP
       port: 9090
