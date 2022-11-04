@@ -33,7 +33,7 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
-    sh "NAMESPACE=$(echo '${params.ENV_NAMESPACE}' | tr '[:upper:]' '[:lower:]')"
+    //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
     sh "echo ${NAMESPACE}"
     sh "chmod +x -R ${env.WORKSPACE}"
     sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE} $OC_LOGIN $OC_LOGIN_NEW")
