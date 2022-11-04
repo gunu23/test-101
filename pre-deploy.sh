@@ -1,5 +1,16 @@
   #!/bin/bash
-    
+
+#connect to OC Cluster
+env_name=$2
+OC_LOGIN=$3
+OC_LOGIN_NEW=$4
+  if (${env_name} == "green") {
+        oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360
+        oc status
+  } else if (${env_name} == "blue") {
+        oc login --token=${OC_LOGIN_NEW} --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30913
+        oc status
+  }
 #Install operator
   oc apply -f ibm-catalog-source.yaml
 

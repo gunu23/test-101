@@ -33,19 +33,13 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
-    script {
-      if (${params.ENV_NAMESPACE} == "green") {
-        sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
-      } else if (${params.ENV_NAMESPACE} == "blue") {
-        sh "oc login --token=${OC_LOGIN_NEW} --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30913"
-      }
     }
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
     sh "echo ${params.ENV_NAMESPACE}"
     sh "chmod +x -R ${env.WORKSPACE}"
     // sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
-    sh 'oc status'
-    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY")
+    //sh 'oc status'
+    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE} $OC_LOGIN $OC_LOGIN_NEW")
     sh ('rm -rf ./validation-flow')
     //sh ('rm -rf ./datapower')
     sleep 5
