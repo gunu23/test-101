@@ -36,8 +36,8 @@ stages {
     script {
       if (${params.ENV_NAMESPACE} == "green") {
         sh "oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360"
-      } else if (params.ENV_NAMESPACE == "blue") {
-        sh "oc login --token=${OC_LOGIN} --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30913"
+      } else if (${params.ENV_NAMESPACE} == "blue") {
+        sh "oc login --token=${OC_LOGIN_NEW} --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30913"
       }
     }
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
