@@ -133,7 +133,7 @@ fi
 #   icr.io/integration/datapower/datapower-limited:10.0.4.0
 
 #create secrets for keys and certs - TBD
-  # cd ./datapower/certs
+  cd ./datapower/certs
   search=$(oc get secret default-cert -n ${namespace} --ignore-not-found -ojson | jq -r .metadata.name)
   if [[ ${found} != ${secret_name} ]]; then
     echo "Create default-cert secret"
