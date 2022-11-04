@@ -4,6 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "350"
   name: validation-flow-instance
+  namespace: sce-test2
 spec:
   replicas: 1
   version: 10.0-cd
@@ -16,12 +17,12 @@ spec:
     accessLevel: privileged
     passwordSecret: datapower-user
   domains:
-    - name: {default}
+    - name: default
       #certs:
       #- certType: usrcerts
-        #secret: {default}-cert
+        #secret: default-cert
       dpApp:
         config:
-        - {default}-cfg
+        - default-cfg
         local:
-        - {default}-local
+        - default-local

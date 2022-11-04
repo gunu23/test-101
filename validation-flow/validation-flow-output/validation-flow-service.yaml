@@ -4,16 +4,24 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "360"
   name: validation-flow-service
-  namespace: sce-test
+  namespace: sce-test2
 spec:
   selector:
-    app.kubernetes.io/instance: sce-test-validation-flow-instance
+    app.kubernetes.io/instance: sce-test2-validation-flow-instance
   ports:
+    - name: validation-flow-flow
+      protocol: TCP
+      port: flow
+      targetPort: flow
+    - name: validation-flow-test2
+      protocol: TCP
+      port: test2
+      targetPort: test2
     - name: validation-flow-9090
       protocol: TCP
       port: 9090
       targetPort: 9090
-    - name: validation-flow-8001}
+    - name: validation-flow-8001
       protocol: TCP
-      port: 8001}
-      targetPort: 8001}
+      port: 8001
+      targetPort: 8001

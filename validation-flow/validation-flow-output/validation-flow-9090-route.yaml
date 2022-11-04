@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "370"
   name: validation-flow-9090-route
-  namespace: sce-test
+  namespace: sce-test2
 spec:
   to:
     kind: Service
