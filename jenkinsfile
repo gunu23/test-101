@@ -14,7 +14,7 @@ stages {
                     properties([
                         parameters([
                             choice(
-                                choices: ['green', 'blue'], 
+                                choices: ['Green', 'Blue'], 
                                 name: 'ENV_NAMESPACE'
                             )
                         ])
