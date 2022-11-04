@@ -4,19 +4,21 @@
 env_name=$2
 OC_LOGIN=$3
 OC_LOGIN_NEW=$4
-  if [ ${env_name} == "green" ]
+  if [ ${env_name} == "Green" ]
   then
         echo "${env_name}"
         oc login --token=${OC_LOGIN} --server=https://c103-e.eu-de.containers.cloud.ibm.com:30360
         oc status
   else
-    if [ ${env_name} == "blue" ]
+    if [ ${env_name} == "Blue" ]
     then
         echo "${env_name}"
         oc login --token=${OC_LOGIN_NEW} --server=https://c100-e.eu-gb.containers.cloud.ibm.com:30913
         oc status
     fi
   fi
+
+
 #Install operator
   oc apply -f ibm-catalog-source.yaml
 
@@ -25,7 +27,8 @@ OC_LOGIN_NEW=$4
 #create new project
   #  oc project sce-test
 ### Create namespace
-    namespace="sce-test2"
+    namespace=$(echo ${env_name} | tr '[:upper:]' '[:lower:]')
+    echo "Inside pre deploy script:- ${namespace}"
     if [ -z "${namespace}" ]; then
         echo "ERROR: missing namespace argument, make sure to pass namespace, ex: '-n mynamespace'"
         exit 1;
