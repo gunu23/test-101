@@ -27,8 +27,9 @@ OC_LOGIN_NEW=$4
 #create new project
   #  oc project sce-test
 ### Create namespace
-    namespace=$(echo ${env_name} | tr '[:upper:]' '[:lower:]')
-    echo "Inside pre deploy script:- ${namespace}"
+    #namespace=$(echo ${env_name} | tr '[:upper:]' '[:lower:]')
+    #echo "Inside pre deploy script:- ${namespace}"
+    namespace="sce-test2"
     if [ -z "${namespace}" ]; then
         echo "ERROR: missing namespace argument, make sure to pass namespace, ex: '-n mynamespace'"
         exit 1;
