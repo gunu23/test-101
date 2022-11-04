@@ -33,7 +33,6 @@ stages {
   
   stage('Pre-deploy requirements') {
     steps {
-    }
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
     sh "echo ${params.ENV_NAMESPACE}"
     sh "chmod +x -R ${env.WORKSPACE}"
