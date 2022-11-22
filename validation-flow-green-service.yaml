@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bluegreenloadbalancer
+spec:
+  selector:
+    app: green
+  ports:
+    - port: 8001
+      targetPort: 8001
+  type: LoadBalancer
