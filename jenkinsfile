@@ -69,12 +69,10 @@ stages {
     sleep 5
 
     //Apply Routes
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-9091-route.yaml"
-    sleep 5
     sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-9090-route.yaml"
     sleep 5
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
-    sleep 5
+    //sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
+    //sleep 5
     sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8001-route.yaml"
     }
   }
