@@ -37,7 +37,7 @@ stages {
     //sh "echo ${NAMESPACE}"
     sh "chmod +x -R ${env.WORKSPACE}"
     sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE} $OC_LOGIN $OC_LOGIN_NEW")
-    sh ('rm -rf ./validation-flow')
+    //sh ('rm -rf ./export-blue-green-test4')
     //sh ('rm -rf ./datapower')
     sleep 5
     }
@@ -47,7 +47,7 @@ stages {
     steps {
     //Execute migrate-backup.sh
     
-    sh ("sh ./migrate-backup.sh validation-flow.zip")
+    sh ("sh ./migrate-backup.sh export-blue-green-test4.zip")
     sleep 5
     }
   }
@@ -55,25 +55,23 @@ stages {
   stage('Deploying YAML Files') {
     steps {
     //apply default yaml files
-    sh "oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml -n sce-test2"
+    sh "oc apply -f ./export-blue-green-test4/export-blue-green-test4-output/default-cfg.yaml -n sce-test"
     sleep 5
-    sh "oc apply -f ./validation-flow/validation-flow-output/default-local.yaml -n sce-test2"
+    sh "oc apply -f ./export-blue-green-test4/export-blue-green-test4-output/default-local.yaml -n sce-test"
     sleep 5
     
     //Apply DataPower Service
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-dps.yaml"
+    sh "oc apply -f ./export-blue-green-test4/export-blue-green-test4-output/export-blue-green-test4-dps.yaml"
     sleep 5
 
     //Apply Services
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-service.yaml"
+    sh "oc apply -f ./export-blue-green-test4/export-blue-green-test4-output/export-blue-green-test4-service.yaml"
     sleep 5
 
     //Apply Routes
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-9090-route.yaml"
+    sh "oc apply -f ./export-blue-green-test4/export-blue-green-test4-output/export-blue-green-test4-9090-route.yaml"
     sleep 5
-    //sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
-    //sleep 5
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8001-route.yaml"
+    sh "oc apply -f ./export-blue-green-test4/export-blue-green-test4-output/export-blue-green-test4-8001-route.yaml"
     }
   }
 }
