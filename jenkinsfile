@@ -46,34 +46,70 @@ stages {
   stage('Generate YAML Files') {
     steps {
     //Execute migrate-backup.sh
-    
-    sh ("sh ./migrate-backup.sh validation-flow.zip")
-    sleep 5
+      script {
+        if (params.ENV_NAMESPACE == 'Green') {
+          sh ("sh ./migrate-backup.sh validation-flow.zip")
+          sleep 5
+        } 
+        if (params.ENV_NAMESPACE == 'Blue') {
+          sh ("sh ./migrate-backup-blue.sh validation-flow.zip")
+          sleep 5
+        } 
+      }
     }
   }
   
   stage('Deploying YAML Files') {
     steps {
-    //apply default yaml files
-    sh "oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml -n sce-test2"
-    sleep 5
-    sh "oc apply -f ./validation-flow/validation-flow-output/default-local.yaml -n sce-test2"
-    sleep 5
-    
-    //Apply DataPower Service
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-dps.yaml"
-    sleep 5
+      script {
+        // If the Green env is being deployed
+        if (params.ENV_NAMESPACE == 'Green') {
+          //apply default yaml files
+          sh "oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml -n sce-test2"
+          sleep 5
+          sh "oc apply -f ./validation-flow/validation-flow-output/default-local.yaml -n sce-test2"
+          sleep 5
+          
+          //Apply DataPower Service
+          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-dps.yaml"
+          sleep 5
 
-    //Apply Services
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-service.yaml"
-    sleep 5
+          //Apply Services
+          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-service.yaml"
+          sleep 5
 
-    //Apply Routes
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-9090-route.yaml"
-    sleep 5
-    //sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
-    //sleep 5
-    sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8001-route.yaml"
+          //Apply Routes
+          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-9090-route.yaml"
+          sleep 5
+          //sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
+          //sleep 5
+          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8001-route.yaml"
+        }
+
+        // if the blue env is being deployed
+        if (params.ENV_NAMESPACE == 'Green') {
+          //apply default yaml files
+          sh "oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml -n sce-test2"
+          sleep 5
+          sh "oc apply -f ./validation-flow/validation-flow-output/default-local.yaml -n sce-test2"
+          sleep 5
+          
+          //Apply DataPower Service
+          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-dps.yaml"
+          sleep 5
+
+          //Apply Services
+          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-service.yaml"
+          sleep 5
+
+          //Apply Routes
+          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-9091-route.yaml"
+          sleep 5
+          //sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
+          //sleep 5
+          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
+        }
+      }
     }
   }
 }
