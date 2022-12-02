@@ -87,7 +87,7 @@ stages {
         }
 
         // if the blue env is being deployed
-        if (params.ENV_NAMESPACE == 'Green') {
+        if (params.ENV_NAMESPACE == 'Blue') {
           //apply default yaml files
           sh "oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml -n sce-test2"
           sleep 5
