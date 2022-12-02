@@ -8,8 +8,8 @@
 # #IFS=',' read -ra namespace <<< "$namespace"
 # echo "$namespace"
 
-NAMESPACE="sce-test"
-declare -a PORTARR=("https-9090" "http-8001")
+NAMESPACE="sce-test2"
+declare -a PORTARR=("https-9091" "http-8002")
 
 BACKUP_ZIP=""
 UNPACK_DIR=""
