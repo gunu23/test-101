@@ -5,6 +5,8 @@ pipeline {
           OC_LOGIN_NEW = credentials("oc_login_new")
           IBM_ENTITLEMENT_KEY = credentials("ibm_entitlement_key")
           //NAMESPACE = params.chooseNode
+          GITREPO = "https://github.com/qtechsavy/test-101.git"
+          GITBRNACH = "master"
       }
 
 stages {
@@ -22,12 +24,32 @@ stages {
                 }
             }
         }
+  
+  stage ('Define Branch') {
+    steps {
+      script {
+        if (params.ENV_NAMESPACE == 'Green') {
+          GITBRANCH = "latest-repo"
+          sh "cd ./workspace/"
+          sleep 1
+        } 
+        if (params.ENV_NAMESPACE == 'Blue') {
+          GITBRANCH = "blue-branch"
+          sh "cd ./workspace/"
+          sleep 1
+        } 
+      }
+    }
+
+  }
+
   stage('Checkout Source') {
     steps {
     // Get Source Code from SCM (Git) as configured in the Jenkins Project
     // Next line for inline script, "checkout scm" for Jenkinsfile from Gogs
-    //git url: "${gitRepo}", credentialsId: "${credentialsId}"
-    checkout scm
+    git url: "${GITREPO}", branch: "${GITBRANCH}"
+    //checkout([$class: 'GitSCM', branches: [[name: BRANCH ]], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'myJenkinsCredentials', url: 'ssh://git@bitbucket.myhost.com' ]] ])
+    //checkout scm
     }
   }
   
