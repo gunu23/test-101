@@ -37,7 +37,7 @@ stages {
     //sh "echo ${NAMESPACE}"
     sh "chmod +x -R ${env.WORKSPACE}"
     sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE} $OC_LOGIN $OC_LOGIN_NEW")
-    sh ('rm -rf ./export-blue-green-test6')
+    sh ('rm -rf ./blue-green-test6')
     //sh ('rm -rf ./datapower')
     sleep 5
     }
