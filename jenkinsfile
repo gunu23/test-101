@@ -57,11 +57,20 @@ stages {
     steps {
     //sh "NAMESPACE=$(echo ${params.ENV_NAMESPACE} | tr '[:upper:]' '[:lower:]')"
     //sh "echo ${NAMESPACE}"
-    sh "chmod +x -R ${env.WORKSPACE}"
-    sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE} $OC_LOGIN $OC_LOGIN_NEW")
-    sh ('rm -rf ./validation-flow')
-    //sh ('rm -rf ./datapower')
-    sleep 5
+      script {
+        if (params.ENV_NAMESPACE == 'Green') {
+          sh "chmod +x -R ${env.WORKSPACE}"
+          sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE} $OC_LOGIN $OC_LOGIN_NEW")
+          sh ('rm -rf ./validation-flow')
+        } 
+        if (params.ENV_NAMESPACE == 'Blue') {
+          sh "chmod +x -R ${env.WORKSPACE}"
+          sh ("sh ./pre-deploy.sh $IBM_ENTITLEMENT_KEY ${params.ENV_NAMESPACE} $OC_LOGIN $OC_LOGIN_NEW")
+          sh ('rm -rf ./blue-green-test6')
+        }
+
+      }
+    sleep 3
     }
   }
   
@@ -71,11 +80,11 @@ stages {
       script {
         if (params.ENV_NAMESPACE == 'Green') {
           sh ("sh ./migrate-backup.sh validation-flow.zip")
-          sleep 5
+          sleep 3
         } 
         if (params.ENV_NAMESPACE == 'Blue') {
-          sh ("sh ./migrate-backup-blue.sh validation-flow.zip")
-          sleep 5
+          sh ("sh ./migrate-backup.sh blue-green-test6.zip")
+          sleep 3
         } 
       }
     }
@@ -103,33 +112,31 @@ stages {
           //Apply Routes
           sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-9090-route.yaml"
           sleep 5
-          //sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
-          //sleep 5
           sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8001-route.yaml"
+          sleep 2
         }
 
         // if the blue env is being deployed
         if (params.ENV_NAMESPACE == 'Blue') {
           //apply default yaml files
-          sh "oc apply -f ./validation-flow/validation-flow-output/default-cfg.yaml -n sce-test2"
-          sleep 5
-          sh "oc apply -f ./validation-flow/validation-flow-output/default-local.yaml -n sce-test2"
-          sleep 5
+          sh "oc apply -f ./blue-green-test6/blue-green-test6-output/default-cfg.yaml -n sce-test2"
+          sleep 2
+          sh "oc apply -f ./blue-green-test6/blue-green-test6-output/default-local.yaml -n sce-test2"
+          sleep 2
           
           //Apply DataPower Service
-          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-dps.yaml"
-          sleep 5
+          sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-dps.yaml"
+          sleep 2
 
           //Apply Services
-          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-service.yaml"
-          sleep 5
+          sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-service.yaml"
+          sleep 2
 
           //Apply Routes
-          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-9091-route.yaml"
-          sleep 5
-          //sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
-          //sleep 5
-          sh "oc apply -f ./validation-flow/validation-flow-output/validation-flow-8002-route.yaml"
+          sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-9092-route.yaml"
+          sleep 2
+          sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-8002-route.yaml"
+          sleep 2
         }
       }
     }
