@@ -47,7 +47,7 @@ stages {
     steps {
     //Execute migrate-backup.sh
     
-    sh ("sh ./migrate-backup.sh blue-green-test5.zip")
+    sh ("sh ./migrate-backup.sh blue-green-test6.zip")
     sleep 5
     }
   }
@@ -55,23 +55,23 @@ stages {
   stage('Deploying YAML Files') {
     steps {
     //apply default yaml files
-    sh "oc apply -f ./blue-green-test5/blue-green-test5-output/default-cfg.yaml -n sce-test2"
+    sh "oc apply -f ./blue-green-test6/blue-green-test6-output/default-cfg.yaml -n sce-test2"
     sleep 5
-    sh "oc apply -f ./blue-green-test5/blue-green-test5-output/default-local.yaml -n sce-test2"
+    sh "oc apply -f ./blue-green-test6/blue-green-test6-output/default-local.yaml -n sce-test2"
     sleep 5
     
     //Apply DataPower Service
-    sh "oc apply -f ./blue-green-test5/blue-green-test5-output/blue-green-test5-dps.yaml"
+    sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-dps.yaml"
     sleep 5
 
     //Apply Services
-    sh "oc apply -f ./blue-green-test5/blue-green-test5-output/blue-green-test5-service.yaml"
+    sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-service.yaml"
     sleep 5
 
     //Apply Routes
-    sh "oc apply -f ./blue-green-test5/blue-green-test5-output/blue-green-test5-9091-route.yaml"
+    sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-9091-route.yaml"
     sleep 5
-    sh "oc apply -f ./blue-green-test5/blue-green-test5-output/blue-green-test5-8002-route.yaml"
+    sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-8002-route.yaml"
     }
   }
 }
