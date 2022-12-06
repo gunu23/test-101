@@ -30,12 +30,12 @@ stages {
       script {
         if (params.ENV_NAMESPACE == 'Green') {
           GITBRANCH = "latest-repo"
-          sh "cd ./workspace/"
+          sh "echo branch - ${GITBRANCH}"
           sleep 1
         } 
         if (params.ENV_NAMESPACE == 'Blue') {
           GITBRANCH = "blue-branch"
-          sh "cd ./workspace/"
+          sh "echo branch - ${GITBRANCH}"
           sleep 1
         } 
       }
