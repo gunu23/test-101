@@ -9,7 +9,7 @@
 # echo "$namespace"
 
 NAMESPACE="sce-test2"
-declare -a PORTARR=("https-9091" "http-8002")
+declare -a PORTARR=("https-9092" "http-8002")
 
 BACKUP_ZIP=""
 UNPACK_DIR=""

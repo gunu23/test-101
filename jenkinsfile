@@ -69,7 +69,7 @@ stages {
     sleep 5
 
     //Apply Routes
-    sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-9091-route.yaml"
+    sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-9092-route.yaml"
     sleep 5
     sh "oc apply -f ./blue-green-test6/blue-green-test6-output/blue-green-test6-8002-route.yaml"
     }
