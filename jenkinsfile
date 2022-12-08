@@ -43,7 +43,7 @@ stages {
 
   }
 
-  stage('Checkout Source') {
+  stage('Checkout Branch') {
     steps {
     // Get Source Code from SCM (Git) as configured in the Jenkins Project
     // Next line for inline script, "checkout scm" for Jenkinsfile from Gogs
